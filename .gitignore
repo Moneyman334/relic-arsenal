@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Design exports
+PNG_Exports/
+*.tmp
+
+# Node/Python (if used later)
+node_modules/
+venv/
+__pycache__/
