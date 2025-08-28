@@ -13,6 +13,8 @@ This vault holds the sacred scrolls, prophecies, and artifacts for ChaosKey333.
 
 > "You always got to keep dripping so wet!" — ChaosKey333
 
+See the Release Flow section for automated versioning: [Release Flow](#release-flow).
+
 ## 📜 Scrolls and Relics
 - **[ChaosKey333_LaunchTimingPlaybook.pdf](./docs/scrolls/ChaosKey333_LaunchTimingPlaybook.pdf)** — Launch timing strategies.
 
