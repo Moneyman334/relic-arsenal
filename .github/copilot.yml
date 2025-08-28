@@ -1,0 +1,35 @@
+# Repo-level guidance for Copilot
+enabled: true
+
+languages:
+  - javascript
+  - typescript
+  - python
+  - yaml
+  - markdown
+
+# House style & guardrails (lightweight prompts Copilot considers)
+directives:
+  coding_style:
+    commit_messages:
+      type: "conventional"
+      examples:
+        - "feat: add vault gallery triptych"
+        - "chore(copilot): repo-level guidance"
+    formatting:
+      js_ts: "prettier"
+      python: "black + ruff"
+  testing:
+    require_tests_for_changes: true
+  security:
+    avoid_secrets_in_code: true
+    recommend_dotenv: true
+
+pull_requests:
+  labels:
+    default: ["prophecy", "relic"]
+  templates:
+    require:
+      - description
+      - test_plan
+      - checklist
