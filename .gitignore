@@ -9,3 +9,6 @@ PNG_Exports/
 node_modules/
 venv/
 __pycache__/
+
+# Test coverage
+coverage/
