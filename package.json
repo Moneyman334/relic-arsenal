@@ -1,0 +1,25 @@
+{
+  "name": "relic-arsenal",
+  "version": "1.0.0",
+  "description": "⛧⚡👑 ChaosKey333 👑⚡⛧      🔑 Unlock the Vault 🔑",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "check:format": "prettier --check .",
+    "test": "echo \"(placeholder) add tests next\" && exit 0",
+    "build": "echo \"(optional) add build step\" && exit 0",
+    "ci": "npm run lint && npm run check:format && npm run test && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-unused-imports": "^4.2.0",
+    "prettier": "^3.6.2"
+  }
+}

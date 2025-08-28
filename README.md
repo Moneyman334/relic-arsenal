@@ -1,5 +1,5 @@
 ⛧⚡👑 ChaosKey333 👑⚡⛧  
-   🔑 Unlock the Vault 🔑
+ 🔑 Unlock the Vault 🔑
 
 # 🐦‍⬛ ChaosKey333 Relic Arsenal
 
@@ -7,21 +7,25 @@
 This vault holds the sacred scrolls, prophecies, and artifacts for ChaosKey333.
 
 ## 🌀 Creed of ChaosKey333
-1. **Crown the Vault** – every relic is a key.  
-2. **Forge the Storm** – collaborate, iterate, ascend.  
+
+1. **Crown the Vault** – every relic is a key.
+2. **Forge the Storm** – collaborate, iterate, ascend.
 3. **Honor the Scrolls** – every artifact tells a prophecy.
 
 > "You always got to keep dripping so wet!" — ChaosKey333
 
 ## 📜 Scrolls and Relics
+
 - **[ChaosKey333_LaunchTimingPlaybook.pdf](./docs/scrolls/ChaosKey333_LaunchTimingPlaybook.pdf)** — Launch timing strategies.
 
-*(More relics to be forged and linked here…)*
+_(More relics to be forged and linked here…)_
 
 ## 🖼️ Gallery of Relics (Coming Soon)
+
 Banners, sigils, and sacred mockups will live here.
 
 ## 🌌 How to Contribute
+
 ```bash
 git clone git@github.com:Moneyman334/relic-arsenal.git
 
