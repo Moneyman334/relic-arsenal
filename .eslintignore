@@ -1,0 +1,40 @@
+# Dependencies & locks
+node_modules/
+*.lock
+
+# Next build outputs
+.next/
+out/
+.next/static/
+.next/cache/
+
+# Storybook
+.storybook/
+storybook-static/
+
+# Testing & coverage
+coverage/
+.cypress-cache/
+playwright-report/
+test-results/
+
+# Tool caches
+.vscode/
+.cache/
+.tmp/
+.temp/
+.vite/
+
+# Mobile dirs (if present but not linted here)
+android/
+ios/
+
+# Generated/bundled
+**/*.min.js
+**/*.gen.*
+**/*.d.ts
+**/*.snap
+
+# Public: ignore compiled assets, but keep raw scripts if any
+public/**/*.min.js
+public/**/*.map

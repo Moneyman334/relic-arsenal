@@ -1,0 +1,35 @@
+{
+  "name": "relic-arsenal",
+  "version": "1.0.0",
+  "description": "ChaosKey333 Relic Arsenal - Unlock the Vault. Break the Sky.",
+  "scripts": {
+    "check:lint": "npx eslint \"src/**/*.{js,jsx,ts,tsx}\" \"app/**/*.{js,jsx,ts,tsx}\" \"pages/**/*.{js,jsx,ts,tsx}\" \"components/**/*.{js,jsx,ts,tsx}\"",
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  },
+  "keywords": [
+    "chaoskey333",
+    "relic",
+    "arsenal",
+    "nextjs",
+    "vercel"
+  ],
+  "author": "ChaosKey333",
+  "license": "MIT"
+}
