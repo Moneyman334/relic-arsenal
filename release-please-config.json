@@ -1,0 +1,15 @@
+{
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "package-name": "relic-arsenal",
+      "changelog-sections": [
+        { "type": "feat", "section": "✨ Features" },
+        { "type": "fix", "section": "🐛 Fixes" },
+        { "type": "chore", "section": "🛠 Chores" },
+        { "type": "docs", "section": "📜 Documentation" },
+        { "type": "test", "section": "🧪 Tests" }
+      ]
+    }
+  }
+}
