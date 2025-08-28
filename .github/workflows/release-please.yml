@@ -16,15 +16,5 @@ jobs:
     steps:
       - uses: google-github-actions/release-please-action@v4
         with:
-          release-type: node
-          package-name: relic-arsenal
-          changelog-types: |
-            [
-              { "type": "feat", "section": "Features", "hidden": false },
-              { "type": "fix", "section": "Bug Fixes", "hidden": false },
-              { "type": "docs", "section": "Documentation", "hidden": false },
-              { "type": "chore", "section": "Chores", "hidden": false },
-              { "type": "refactor", "section": "Refactors", "hidden": false },
-              { "type": "perf", "section": "Performance", "hidden": false },
-              { "type": "test", "section": "Tests", "hidden": false }
-            ]
+          manifest-file: .release-please-manifest.json
+          config-file: release-please-config.json
