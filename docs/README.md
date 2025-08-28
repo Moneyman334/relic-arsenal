@@ -1,3 +1,7 @@
+![Gatekeeper CI](https://img.shields.io/badge/Gatekeeper-CI-green)
+![Coverage](https://img.shields.io/badge/Coverage-Auto--report-blue)
+![License](https://img.shields.io/badge/License-Project-blueviolet)
+
 # Prophecy Gate – Vault Overview
 
 Welcome to the Vault. This repo powers the ChaosKey333 ecosystem.
