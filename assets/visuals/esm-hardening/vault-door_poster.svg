@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient for the vault door -->
+    <linearGradient id="vaultGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Lightning effect -->
+    <filter id="lightning" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+      <feColorMatrix values="1 0 1 0 0  0 1 1 0 0  0 0 1 1 0  0 0 0 1 0"/>
+    </filter>
+    
+    <!-- Glow effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Dark background -->
+  <rect width="1200" height="800" fill="#0a0a0a"/>
+  
+  <!-- Storm clouds background -->
+  <circle cx="200" cy="100" r="80" fill="#2c2c54" opacity="0.7"/>
+  <circle cx="400" cy="150" r="100" fill="#40407a" opacity="0.6"/>
+  <circle cx="800" cy="120" r="90" fill="#2c2c54" opacity="0.8"/>
+  <circle cx="1000" cy="180" r="70" fill="#40407a" opacity="0.7"/>
+  
+  <!-- Vault Door - Main Structure -->
+  <rect x="300" y="200" width="600" height="500" rx="20" fill="url(#vaultGold)" filter="url(#glow)"/>
+  
+  <!-- Door frame details -->
+  <rect x="320" y="220" width="560" height="460" rx="10" fill="none" stroke="#B8860B" stroke-width="4"/>
+  <rect x="340" y="240" width="520" height="420" rx="5" fill="none" stroke="#DAA520" stroke-width="2"/>
+  
+  <!-- Central locking mechanism -->
+  <circle cx="600" cy="450" r="80" fill="#FFD700" stroke="#B8860B" stroke-width="6" filter="url(#glow)"/>
+  <circle cx="600" cy="450" r="50" fill="#FFA500" stroke="#DAA520" stroke-width="3"/>
+  <circle cx="600" cy="450" r="20" fill="#FF8C00"/>
+  
+  <!-- Etched text: type: "module" -->
+  <text x="600" y="350" font-family="'Courier New', monospace" font-size="32" font-weight="bold" 
+        text-anchor="middle" fill="#B8860B" filter="url(#glow)">type: "module"</text>
+  
+  <!-- Lightning bolts around the door -->
+  <path d="M 250 300 L 280 250 L 270 280 L 300 220 L 290 250 L 320 200" 
+        stroke="#00FFFF" stroke-width="4" fill="none" filter="url(#lightning)"/>
+  <path d="M 950 350 L 920 300 L 930 330 L 900 270 L 910 300 L 880 250" 
+        stroke="#00FFFF" stroke-width="4" fill="none" filter="url(#lightning)"/>
+  <path d="M 200 500 L 230 450 L 220 480 L 250 420 L 240 450 L 270 400" 
+        stroke="#00FFFF" stroke-width="4" fill="none" filter="url(#lightning)"/>
+  <path d="M 1000 550 L 970 500 L 980 530 L 950 470 L 960 500 L 930 450" 
+        stroke="#00FFFF" stroke-width="4" fill="none" filter="url(#lightning)"/>
+  
+  <!-- Node 18 shards breaking at base -->
+  <polygon points="200,700 250,720 230,750 180,730" fill="#E74C3C" opacity="0.8"/>
+  <polygon points="300,720 350,740 330,770 280,750" fill="#E74C3C" opacity="0.7"/>
+  <polygon points="900,710 950,730 930,760 880,740" fill="#E74C3C" opacity="0.8"/>
+  <polygon points="1000,730 1050,750 1030,780 980,760" fill="#E74C3C" opacity="0.6"/>
+  
+  <!-- Node 18 text on shards -->
+  <text x="215" y="735" font-family="Arial, sans-serif" font-size="14" font-weight="bold" 
+        text-anchor="middle" fill="#000">18</text>
+  <text x="315" y="755" font-family="Arial, sans-serif" font-size="14" font-weight="bold" 
+        text-anchor="middle" fill="#000">18</text>
+  <text x="915" y="745" font-family="Arial, sans-serif" font-size="14" font-weight="bold" 
+        text-anchor="middle" fill="#000">18</text>
+  
+  <!-- Additional ornate details -->
+  <circle cx="400" cy="300" r="15" fill="#FFD700" opacity="0.7"/>
+  <circle cx="800" cy="300" r="15" fill="#FFD700" opacity="0.7"/>
+  <circle cx="400" cy="600" r="15" fill="#FFD700" opacity="0.7"/>
+  <circle cx="800" cy="600" r="15" fill="#FFD700" opacity="0.7"/>
+  
+  <!-- Title -->
+  <text x="600" y="100" font-family="'Cinzel', serif" font-size="48" font-weight="bold" 
+        text-anchor="middle" fill="#FFD700" filter="url(#glow)">🏛️ VAULT DOOR</text>
+</svg>

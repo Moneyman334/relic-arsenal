@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient for ancient parchment -->
+    <radialGradient id="parchment" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" style="stop-color:#F4E4BC;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#D2B48C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B7355;stop-opacity:1" />
+    </radialGradient>
+    
+    <!-- Fire effect -->
+    <filter id="fire" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+      <feColorMatrix values="1 0 0 0 0  1 0.5 0 0 0  0 0 0 0 0  0 0 0 1 0"/>
+    </filter>
+    
+    <!-- Glow effect for runes -->
+    <filter id="runeGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Storm effect -->
+    <filter id="storm" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence baseFrequency="0.02" numOctaves="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="5"/>
+    </filter>
+  </defs>
+  
+  <!-- Stormy background -->
+  <rect width="1200" height="800" fill="#1a1a2e"/>
+  
+  <!-- Storm clouds with motion -->
+  <ellipse cx="300" cy="200" rx="200" ry="80" fill="#16213e" opacity="0.8" filter="url(#storm)"/>
+  <ellipse cx="800" cy="300" rx="250" ry="100" fill="#0f3460" opacity="0.7" filter="url(#storm)"/>
+  <ellipse cx="600" cy="100" rx="300" ry="60" fill="#16213e" opacity="0.9" filter="url(#storm)"/>
+  
+  <!-- Lightning in storm -->
+  <path d="M 100 150 L 150 100 L 140 130 L 180 80 L 170 110 L 220 60" 
+        stroke="#E0E7FF" stroke-width="3" fill="none" opacity="0.8"/>
+  <path d="M 1000 250 L 1050 200 L 1040 230 L 1080 180 L 1070 210 L 1120 160" 
+        stroke="#E0E7FF" stroke-width="3" fill="none" opacity="0.8"/>
+  
+  <!-- Ancient scroll - unfurling shape -->
+  <path d="M 200 400 Q 200 350 250 350 L 950 350 Q 1000 350 1000 400 L 1000 600 Q 1000 650 950 650 L 250 650 Q 200 650 200 600 Z" 
+        fill="url(#parchment)" stroke="#8B7355" stroke-width="3" filter="url(#runeGlow)"/>
+  
+  <!-- Scroll curled edges (unfurling effect) -->
+  <ellipse cx="200" cy="500" rx="40" ry="100" fill="#D2B48C" transform="rotate(-20 200 500)"/>
+  <ellipse cx="1000" cy="500" rx="40" ry="100" fill="#D2B48C" transform="rotate(20 1000 500)"/>
+  
+  <!-- Ancient texture lines on scroll -->
+  <line x1="250" y1="380" x2="950" y2="380" stroke="#8B7355" stroke-width="1" opacity="0.3"/>
+  <line x1="250" y1="420" x2="950" y2="420" stroke="#8B7355" stroke-width="1" opacity="0.3"/>
+  <line x1="250" y1="580" x2="950" y2="580" stroke="#8B7355" stroke-width="1" opacity="0.3"/>
+  <line x1="250" y1="620" x2="950" y2="620" stroke="#8B7355" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Glowing runes spelling "import { discipline } from 'chaos'" -->
+  <text x="600" y="450" font-family="'Uncial Antiqua', serif" font-size="28" font-weight="bold" 
+        text-anchor="middle" fill="#FFD700" filter="url(#runeGlow)">import {</text>
+  <text x="600" y="490" font-family="'Uncial Antiqua', serif" font-size="32" font-weight="bold" 
+        text-anchor="middle" fill="#FF6B35" filter="url(#runeGlow)">discipline</text>
+  <text x="600" y="530" font-family="'Uncial Antiqua', serif" font-size="28" font-weight="bold" 
+        text-anchor="middle" fill="#FFD700" filter="url(#runeGlow)">} from "chaos"</text>
+  
+  <!-- Mystical symbols around the text -->
+  <circle cx="350" cy="450" r="8" fill="none" stroke="#FF6B35" stroke-width="2" filter="url(#runeGlow)"/>
+  <polygon points="850,445 860,465 840,465" fill="#FF6B35" filter="url(#runeGlow)"/>
+  <path d="M 320 500 Q 330 490 340 500 Q 330 510 320 500" fill="#FFD700" filter="url(#runeGlow)"/>
+  <path d="M 880 520 Q 890 510 900 520 Q 890 530 880 520" fill="#FFD700" filter="url(#runeGlow)"/>
+  
+  <!-- Fire burning along edges -->
+  <path d="M 250 350 Q 260 340 270 350 Q 280 335 290 350 Q 300 340 310 350" 
+        stroke="#FF4500" stroke-width="4" fill="none" filter="url(#fire)"/>
+  <path d="M 890 350 Q 900 340 910 350 Q 920 335 930 350 Q 940 340 950 350" 
+        stroke="#FF4500" stroke-width="4" fill="none" filter="url(#fire)"/>
+  <path d="M 250 650 Q 260 660 270 650 Q 280 665 290 650 Q 300 660 310 650" 
+        stroke="#FF4500" stroke-width="4" fill="none" filter="url(#fire)"/>
+  <path d="M 890 650 Q 900 660 910 650 Q 920 665 930 650 Q 940 660 950 650" 
+        stroke="#FF4500" stroke-width="4" fill="none" filter="url(#fire)"/>
+  
+  <!-- Radiant fire particles -->
+  <circle cx="270" cy="340" r="3" fill="#FF6B35" opacity="0.8"/>
+  <circle cx="290" cy="335" r="2" fill="#FFD700" opacity="0.9"/>
+  <circle cx="910" cy="345" r="4" fill="#FF4500" opacity="0.7"/>
+  <circle cx="930" cy="340" r="2" fill="#FFD700" opacity="0.8"/>
+  
+  <!-- Title -->
+  <text x="600" y="100" font-family="'Uncial Antiqua', serif" font-size="48" font-weight="bold" 
+        text-anchor="middle" fill="#FFD700" filter="url(#runeGlow)">📜 ANCIENT SCROLL</text>
+  
+  <!-- Wind/storm effect lines -->
+  <path d="M 50 300 Q 100 290 150 300 Q 200 310 250 300" stroke="#E0E7FF" stroke-width="2" opacity="0.4"/>
+  <path d="M 950 300 Q 1000 290 1050 300 Q 1100 310 1150 300" stroke="#E0E7FF" stroke-width="2" opacity="0.4"/>
+  <path d="M 50 700 Q 100 690 150 700 Q 200 710 250 700" stroke="#E0E7FF" stroke-width="2" opacity="0.4"/>
+  <path d="M 950 700 Q 1000 690 1050 700 Q 1100 710 1150 700" stroke="#E0E7FF" stroke-width="2" opacity="0.4"/>
+</svg>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Stormlight gradient -->
+    <radialGradient id="stormlight" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" style="stop-color:#E0E7FF;stop-opacity:0.9" />
+      <stop offset="40%" style="stop-color:#818CF8;stop-opacity:0.7" />
+      <stop offset="70%" style="stop-color:#3730A3;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#1E1B4B;stop-opacity:0.3" />
+    </radialGradient>
+    
+    <!-- Fractal circuit pattern -->
+    <pattern id="circuits" patternUnits="userSpaceOnUse" width="40" height="40">
+      <rect width="40" height="40" fill="#1a1a2e"/>
+      <path d="M 0 20 L 20 20 L 20 0" stroke="#00FF88" stroke-width="1" fill="none" opacity="0.6"/>
+      <path d="M 20 40 L 20 20 L 40 20" stroke="#00FF88" stroke-width="1" fill="none" opacity="0.6"/>
+      <circle cx="20" cy="20" r="2" fill="#00FF88" opacity="0.8"/>
+    </pattern>
+    
+    <!-- Infinity glow -->
+    <filter id="infinityGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Energy pulse effect -->
+    <filter id="energyPulse" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feColorMatrix in="blur" values="0 0 1 0 0  0 1 1 0 0  0 1 0 0 0  0 0 0 1 0"/>
+      <feMerge> 
+        <feMergeNode in="SourceGraphic"/>
+        <feMergeNode in="blur"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Sigil glow -->
+    <filter id="sigilGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Dark cosmic background -->
+  <rect width="1200" height="800" fill="#0a0a0a"/>
+  
+  <!-- Stormlight backdrop -->
+  <circle cx="600" cy="400" r="350" fill="url(#stormlight)" opacity="0.8"/>
+  
+  <!-- Fractal circuit background -->
+  <rect x="0" y="0" width="1200" height="800" fill="url(#circuits)" opacity="0.3"/>
+  
+  <!-- ChaosKey333 Sigil - Central mystical symbol -->
+  <g transform="translate(600,400)">
+    <!-- Outer circle with energy -->
+    <circle r="150" fill="none" stroke="#FFD700" stroke-width="4" filter="url(#sigilGlow)"/>
+    
+    <!-- Hexagram base -->
+    <polygon points="-80,-40 0,-80 80,-40 80,40 0,80 -80,40" 
+             fill="none" stroke="#FF6B35" stroke-width="3" filter="url(#sigilGlow)"/>
+    
+    <!-- Inner chaos symbol -->
+    <path d="M -60 -30 Q 0 0 60 -30 Q 0 30 -60 30 Q 0 0 60 30 Q 0 -30 -60 -30" 
+          fill="none" stroke="#00FF88" stroke-width="2" filter="url(#sigilGlow)"/>
+    
+    <!-- Central key -->
+    <rect x="-3" y="-40" width="6" height="80" fill="#FFD700" filter="url(#sigilGlow)"/>
+    <circle r="12" fill="none" stroke="#FFD700" stroke-width="3" filter="url(#sigilGlow)"/>
+    
+    <!-- Key teeth -->
+    <rect x="3" y="-25" width="15" height="4" fill="#FFD700"/>
+    <rect x="3" y="-15" width="10" height="4" fill="#FFD700"/>
+    <rect x="3" y="15" width="12" height="4" fill="#FFD700"/>
+    <rect x="3" y="25" width="8" height="4" fill="#FFD700"/>
+    
+    <!-- Mystical runes around the sigil -->
+    <text x="0" y="-120" font-family="'Uncial Antiqua', serif" font-size="16" font-weight="bold" 
+          text-anchor="middle" fill="#FFD700" filter="url(#sigilGlow)">🔑</text>
+    <text x="104" y="-60" font-family="'Uncial Antiqua', serif" font-size="16" font-weight="bold" 
+          text-anchor="middle" fill="#FF6B35" filter="url(#sigilGlow)">⚡</text>
+    <text x="104" y="70" font-family="'Uncial Antiqua', serif" font-size="16" font-weight="bold" 
+          text-anchor="middle" fill="#00FF88" filter="url(#sigilGlow)">👑</text>
+    <text x="0" y="130" font-family="'Uncial Antiqua', serif" font-size="16" font-weight="bold" 
+          text-anchor="middle" fill="#FFD700" filter="url(#sigilGlow)">⛧</text>
+    <text x="-104" y="70" font-family="'Uncial Antiqua', serif" font-size="16" font-weight="bold" 
+          text-anchor="middle" fill="#FF6B35" filter="url(#sigilGlow)">🐦‍⬛</text>
+    <text x="-104" y="-60" font-family="'Uncial Antiqua', serif" font-size="16" font-weight="bold" 
+          text-anchor="middle" fill="#00FF88" filter="url(#sigilGlow)">🌀</text>
+  </g>
+  
+  <!-- Crown of Infinity at center -->
+  <g transform="translate(600,300)">
+    <!-- Infinity symbol -->
+    <path d="M -40 0 Q -20 -20 0 0 Q 20 20 40 0 Q 20 -20 0 0 Q -20 20 -40 0" 
+          fill="none" stroke="#FFD700" stroke-width="6" filter="url(#infinityGlow)"/>
+    
+    <!-- Crown spikes -->
+    <polygon points="-30,-15 -25,-35 -20,-15" fill="#FFD700" filter="url(#infinityGlow)"/>
+    <polygon points="-10,-15 -5,-40 0,-15" fill="#FFD700" filter="url(#infinityGlow)"/>
+    <polygon points="10,-15 15,-40 20,-15" fill="#FFD700" filter="url(#infinityGlow)"/>
+    <polygon points="30,-15 35,-35 40,-15" fill="#FFD700" filter="url(#infinityGlow)"/>
+  </g>
+  
+  <!-- Node 20/22 Energy pulses -->
+  <g filter="url(#energyPulse)">
+    <!-- Node 20 energy cluster -->
+    <circle cx="300" cy="200" r="25" fill="#00FF88" opacity="0.7"/>
+    <text x="300" y="210" font-family="'Roboto Mono', monospace" font-size="14" font-weight="bold" 
+          text-anchor="middle" fill="#000">20</text>
+    
+    <!-- Node 22 energy cluster -->
+    <circle cx="900" cy="600" r="25" fill="#00BFFF" opacity="0.7"/>
+    <text x="900" y="610" font-family="'Roboto Mono', monospace" font-size="14" font-weight="bold" 
+          text-anchor="middle" fill="#000">22</text>
+    
+    <!-- Additional Node clusters -->
+    <circle cx="200" cy="500" r="20" fill="#00FF88" opacity="0.6"/>
+    <text x="200" y="508" font-family="'Roboto Mono', monospace" font-size="12" font-weight="bold" 
+          text-anchor="middle" fill="#000">20</text>
+    
+    <circle cx="1000" cy="300" r="20" fill="#00BFFF" opacity="0.6"/>
+    <text x="1000" y="308" font-family="'Roboto Mono', monospace" font-size="12" font-weight="bold" 
+          text-anchor="middle" fill="#000">22</text>
+  </g>
+  
+  <!-- Energy flow lines connecting elements -->
+  <path d="M 300 200 Q 450 250 600 300" stroke="#00FF88" stroke-width="3" fill="none" opacity="0.8" filter="url(#energyPulse)"/>
+  <path d="M 600 500 Q 750 550 900 600" stroke="#00BFFF" stroke-width="3" fill="none" opacity="0.8" filter="url(#energyPulse)"/>
+  <path d="M 200 500 Q 400 450 600 400" stroke="#00FF88" stroke-width="2" fill="none" opacity="0.6" filter="url(#energyPulse)"/>
+  <path d="M 600 400 Q 800 350 1000 300" stroke="#00BFFF" stroke-width="2" fill="none" opacity="0.6" filter="url(#energyPulse)"/>
+  
+  <!-- Storm lightning around the sigil -->
+  <path d="M 100 150 L 150 100 L 140 130 L 180 80" stroke="#E0E7FF" stroke-width="3" fill="none" opacity="0.8"/>
+  <path d="M 1100 650 L 1050 600 L 1060 630 L 1020 580" stroke="#E0E7FF" stroke-width="3" fill="none" opacity="0.8"/>
+  <path d="M 50 600 L 100 550 L 90 580 L 130 530" stroke="#E0E7FF" stroke-width="3" fill="none" opacity="0.8"/>
+  <path d="M 1150 200 L 1100 150 L 1110 180 L 1070 130" stroke="#E0E7FF" stroke-width="3" fill="none" opacity="0.8"/>
+  
+  <!-- Title -->
+  <text x="600" y="100" font-family="'Cinzel', serif" font-size="48" font-weight="bold" 
+        text-anchor="middle" fill="#FFD700" filter="url(#infinityGlow)">🔮 CHAOSKEY333 SIGIL</text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="750" font-family="'Roboto Mono', monospace" font-size="18" font-weight="bold" 
+        text-anchor="middle" fill="#00FF88" opacity="0.8">INFINITY BEACON</text>
+</svg>
