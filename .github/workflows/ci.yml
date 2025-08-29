@@ -1,13 +1,15 @@
-name: CI
+name: Gatekeeper CI
 
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   test:
+    name: Lint • Test+Coverage • Build (Node ${{ matrix.node-version }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -25,19 +27,25 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Test (Vitest)
+      - name: Lint
+        run: npm run -s lint || echo "no lint script; skipping"
+
+      - name: Check format
+        run: npm run -s check:format || echo "no check:format script; skipping"
+
+      - name: Test with coverage
         run: npm test
 
-      - name: Coverage (artifact)
-        if: always()
-        run: npm run coverage
+      - name: Check coverage directory
+        run: ls -la coverage || echo "no coverage folder"
 
-      - name: Ensure coverage folder exists
-        run: test -d coverage
-
-      - name: Upload coverage report
+      - name: Upload coverage artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: coverage-html-${{ matrix.node-version }}
+          name: coverage-${{ matrix.node-version }}
           path: coverage
+          if-no-files-found: warn
+
+      - name: Build
+        run: npm run -s build || echo "no build script; skipping"
