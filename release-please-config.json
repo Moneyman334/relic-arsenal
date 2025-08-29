@@ -1,0 +1,20 @@
+{
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "package-name": "relic-arsenal"
+    }
+  },
+  "changelog-sections": [
+    { "type": "feat",     "section": "✨ Features" },
+    { "type": "fix",      "section": "🐛 Fixes" },
+    { "type": "chore",    "section": "🛠 Chores" },
+    { "type": "docs",     "section": "📜 Documentation" },
+    { "type": "test",     "section": "🧪 Tests" },
+    { "type": "refactor", "section": "♻️ Refactors" },
+    { "type": "perf",     "section": "⚡ Performance" },
+    { "type": "build",    "section": "🏗️ Build" },
+    { "type": "ci",       "section": "🤖 CI" }
+  ],
+  "release-labels": ["autorelease: pending"]
+}
