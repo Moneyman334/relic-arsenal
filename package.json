@@ -2,7 +2,15 @@
   "name": "relic-arsenal",
   "version": "1.0.0",
   "description": "⛧⚡👑 ChaosKey333 👑⚡⛧      🔑 Unlock the Vault 🔑",
-  "main": "index.js",
+  "type": "module",
+  "main": "./utils/esm-paths.js",
+  "module": "./utils/esm-paths.js",
+  "exports": {
+    ".": {
+      "import": "./utils/esm-paths.js"
+    }
+  },
+  "packageManager": "npm@10",
   "engines": {
     "node": ">=20"
   },
@@ -10,13 +18,18 @@
   "scripts": {
     "test": "vitest run --coverage",
     "test:watch": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "lint": "eslint .",
+    "check:lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@vitest/coverage-v8": "^3.2.4",
+    "eslint": "^9.34.0",
+    "eslint-plugin-import": "^2.32.0",
     "jsdom": "^26.1.0",
     "vitest": "^3.2.4"
   }
