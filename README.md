@@ -20,8 +20,43 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 
 *(More relics to be forged and linked here…)*
 
-## 🖼️ Gallery of Relics (Coming Soon)
-Banners, sigils, and sacred mockups will live here.
+## 🖼️ Gallery of Relics
+
+### 🚪⚡ ChaosKey333 Empire Vault Doors ⚡🚪
+
+*The legendary twin sentinels that guard the Arsenal's might*
+
+```
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                          ⛧⚡👑 ChaosKey333 👑⚡⛧                            ║
+║                              🔑 EMPIRE VAULT DOORS 🔑                        ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║    ╔═══════════════════╗           ╔═══════════════════╗                    ║
+║    ║   ⛧ CHAOS GATE ⛧   ║           ║  ⚡ EMPIRE GATE ⚡  ║                    ║
+║    ║                   ║           ║                   ║                    ║
+║    ║  CROWN THE VAULT  ║           ║   BREAK THE SKY   ║                    ║
+║    ║                   ║           ║                   ║                    ║
+║    ║  Every Relic is   ║           ║  Unlock the Might ║                    ║
+║    ║     a Key         ║           ║     Within        ║                    ║
+║    ║                   ║           ║                   ║                    ║
+║    ║  ∞ ChaosKey333 ∞  ║           ║ 🐦‍⬛ LEGACY ETERNAL ║                    ║
+║    ║                   ║     🔮    ║                   ║                    ║
+║    ╚═══════════════════╝           ╚═══════════════════╝                    ║
+║                                                                              ║
+║                    "Unlock the Vault. Break the Sky."                       ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+```
+
+**🔮 The Legend:** Twin doors forged from digital storms, each bearing sacred inscriptions of the Arsenal's founding principles. The Chaos Gate guards treasures of the past, while the Empire Gate opens futures built to last.
+
+**🗝️ Symbolism:** These doors embody the key to unlocking the Arsenal's might, serving as the ultimate emblem of ChaosKey333's legacy and dominion over digital realms.
+
+**📍 Explore the Vault:**
+- 📜 **[Full Lore](./docs/lore/vault-doors.md)** — The complete legend and prophecy
+- 🎭 **[Banner Assets](./docs/assets/vault-doors/banners.md)** — ASCII art and visual elements
+- 📋 **[Asset Manifest](./docs/assets/vault-doors/manifest.md)** — Complete catalog and usage guide
+
+**🏷️ Sacred Hashtags:** `#UnlockTheVault` `#ChaosKey333Empire` `#BreakTheSky` `#CrownTheVault` `#ArsenalMight` `#VaultDoors`
 
 ## 🌌 How to Contribute
 ```bash
