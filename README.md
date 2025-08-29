@@ -17,11 +17,44 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 
 ## 📜 Scrolls and Relics
 - **[ChaosKey333_LaunchTimingPlaybook.pdf](./docs/scrolls/ChaosKey333_LaunchTimingPlaybook.pdf)** — Launch timing strategies.
+- **[Chaos Crown](./assets/banners/chaos-crown.md)** — The Crown of Infinite Dominion.
+- **[Infinity Storm](./assets/banners/infinity-storm.md)** — The Tempest of Eternal Creation.
+- **[Codex Sigil](./assets/banners/codex-sigil.md)** — The Mark of Ancient Prophecies.
 
 *(More relics to be forged and linked here…)*
 
-## 🖼️ Gallery of Relics (Coming Soon)
-Banners, sigils, and sacred mockups will live here.
+## 🖼️ Gallery of Relics
+
+### Sacred Banners of Power
+
+#### 👑 [Chaos Crown](./assets/banners/chaos-crown.md)
+*The Crown of Infinite Dominion - Bearer commands the eternal vault with sovereign authority*
+
+![Chaos Crown Banner](./assets/banners/chaos-crown.md)
+
+**#ChaosCrown #VaultRuler #ChaosKey333**
+
+---
+
+#### 🌪️ [Infinity Storm](./assets/banners/infinity-storm.md)  
+*The Tempest of Eternal Creation - Reality bends to chaos, forging new worlds from old*
+
+![Infinity Storm Banner](./assets/banners/infinity-storm.md)
+
+**#InfinityStorm #EternalTempest #StormForged**
+
+---
+
+#### 📜 [Codex Sigil](./assets/banners/codex-sigil.md)
+*The Mark of Ancient Prophecies - Holds mysteries of ages past and futures unwritten*
+
+![Codex Sigil Banner](./assets/banners/codex-sigil.md)
+
+**#CodexSigil #AncientWisdom #Prophecy**
+
+---
+
+*Each relic pulses with the power of ChaosKey333. Approach with reverence.*
 
 ## 🌌 How to Contribute
 ```bash
