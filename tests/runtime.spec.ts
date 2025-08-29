@@ -1,3 +1,5 @@
+import { describe, it, expect } from "vitest";
+
 // tests/runtime.spec.ts
 describe("Runtime", () => {
   it("has NODE_ENV defined", () => {
