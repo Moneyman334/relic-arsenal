@@ -4,7 +4,7 @@
   "description": "⛧⚡👑 ChaosKey333 👑⚡⛧      🔑 Unlock the Vault 🔑",
   "main": "index.js",
   "scripts": {
-    "test": "vitest run",
+    "test": "vitest run --coverage",
     "test:watch": "vitest",
     "coverage": "vitest run --coverage"
   },
