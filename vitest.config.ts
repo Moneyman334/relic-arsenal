@@ -7,10 +7,11 @@ export default defineConfig({
     coverage: {
       reporter: ["text", "html"],
       reportsDirectory: "coverage",
-      lines: 60,
-      functions: 60,
-      branches: 50,
-      statements: 60,
+      lines: 70,
+      functions: 70,
+      branches: 60,
+      statements: 70,
+      // all: true // (leave disabled for now)
     },
   },
 });
