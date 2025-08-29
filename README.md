@@ -6,6 +6,17 @@
 🌌 **"Unlock the Vault. Break the Sky."**  
 This vault holds the sacred scrolls, prophecies, and artifacts for ChaosKey333.
 
+## 🚀 Getting Started
+
+```bash
+git clone git@github.com:Moneyman334/relic-arsenal.git
+cd relic-arsenal
+npm ci
+npm test
+```
+
+💡 **Copilot playbook:** See [.github/copilot-instructions.md](.github/copilot-instructions.md) for project-aware prompts, validated commands, and CI/CD flows.
+
 ## 🌀 Creed of ChaosKey333
 1. **Crown the Vault** – every relic is a key.  
 2. **Forge the Storm** – collaborate, iterate, ascend.  

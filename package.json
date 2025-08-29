@@ -1,12 +1,14 @@
 {
   "name": "relic-arsenal",
   "version": "1.0.0",
+  "type": "module",
   "description": "⛧⚡👑 ChaosKey333 👑⚡⛧      🔑 Unlock the Vault 🔑",
   "main": "index.js",
   "scripts": {
     "test": "vitest run --coverage",
     "test:watch": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "validate:copilot": "node scripts/validate-copilot.js"
   },
   "keywords": [],
   "author": "",
