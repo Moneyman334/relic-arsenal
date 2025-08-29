@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "⛧⚡👑 ChaosKey333 👑⚡⛧      🔑 Unlock the Vault 🔑",
   "main": "index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "engineStrict": true,
   "scripts": {
     "test": "vitest run --coverage",
     "test:watch": "vitest",
