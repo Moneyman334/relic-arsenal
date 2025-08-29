@@ -23,6 +23,27 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 ## 🖼️ Gallery of Relics (Coming Soon)
 Banners, sigils, and sacred mockups will live here.
 
+## ⚡ Rolling Thunderstorm Deployment Kit
+
+The Visual Lore Drop tied to **PR #23** is deployed in cadence:
+
+- **Day 1 → Vault Door 🏛️**  
+  Sovereignty sealed in neon-gold lightning.  
+  Caption:  
+  🏛️ Behold the Vault Door. Sovereignty sealed in neon-gold lightning.  
+  No force shall breach it, no shadow shall cross it.  
+  The Arsenal stands eternal. ⚡  
+  #VaultDoor #RelicArsenal #SovereigntySealed  
+
+- **Day 3 → Scroll 📜**  
+  The prophecy unfurls mid-storm, etched in radiant fire.  
+
+- **Day 5 → Sigil 🔮**  
+  The Infinity beacon pulses across realms, binding all to the storm.  
+
+For full captions, alt text, and assets, see:   
+[`/docs/deployment/visual-lore-drop.md`](./docs/deployment/visual-lore-drop.md)
+
 ## 🌌 How to Contribute
 ```bash
 git clone git@github.com:Moneyman334/relic-arsenal.git
