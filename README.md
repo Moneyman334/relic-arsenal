@@ -20,8 +20,14 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 
 *(More relics to be forged and linked here…)*
 
-## 🖼️ Gallery of Relics (Coming Soon)
-Banners, sigils, and sacred mockups will live here.
+## 🖼️ Gallery of Relics
+Visual artifacts forged in the fires of ESM hardening:
+
+### ⚡ ESM Hardening Campaign
+- **[Visual Lore Drop](./docs/deployment/visual-lore-drop.md)** — Sacred deployment guide with captions and alt text
+- **[Vault Door 🏛️](./assets/visuals/esm-hardening/vault-door/)** — The sovereignty sealed in ESM lightning
+- **[Scroll 📜](./assets/visuals/esm-hardening/scroll/)** — Ancient codex of import discipline  
+- **[Sigil 🔮](./assets/visuals/esm-hardening/sigil/)** — Fractal infinity crown of Node 20 & 22
 
 ## 🌌 How to Contribute
 ```bash
