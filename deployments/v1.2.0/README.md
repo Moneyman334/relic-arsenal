@@ -24,6 +24,7 @@ All content in this deployment references and anchors back to [Release Scroll v1
 - [X/Twitter](./platforms/twitter.md)
 - [Instagram](./platforms/instagram.md)
 - [LinkedIn](./platforms/linkedin.md)
+- [Deployment Schedule](./deployment-schedule.md) - Complete timeline and future cadence
 
 ## Accessibility Compliance
 All deployments include:
