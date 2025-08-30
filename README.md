@@ -20,8 +20,13 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 
 *(More relics to be forged and linked here…)*
 
-## 🖼️ Gallery of Relics (Coming Soon)
-Banners, sigils, and sacred mockups will live here.
+## 🖼️ Gallery of Relics
+
+### Rolling Thunderstorm III — Path of the Hammer
+
+👑 **[Crown of Resonance](./docs/scrolls/CrownOfResonance.md)** — sovereignty tuned to infinity's hum, harmony forged in thunder.
+
+*More relics to be unveiled in future thunderstorms...*
 
 ## 🌌 How to Contribute
 ```bash
