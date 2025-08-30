@@ -17,11 +17,14 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 
 ## 📜 Scrolls and Relics
 - **[ChaosKey333_LaunchTimingPlaybook.pdf](./docs/scrolls/ChaosKey333_LaunchTimingPlaybook.pdf)** — Launch timing strategies.
+- **[InfinityEnergyStorm.md](./docs/scrolls/InfinityEnergyStorm.md)** — Eternal script chronicling the origins and sagas of the sacred relics.
 
 *(More relics to be forged and linked here…)*
 
 ## 🖼️ Gallery of Relics (Coming Soon)
 Banners, sigils, and sacred mockups will live here.
+
+*The eternal chronicles of the Chaos Crown 👑, Infinity Storm ⚡, and Codex Sigil 📜 await visualization. See the [Infinity Energy Storm scripture](./docs/scrolls/InfinityEnergyStorm.md) for their legendary origins and sagas.*
 
 ## 🌌 How to Contribute
 ```bash
