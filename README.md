@@ -20,8 +20,23 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 
 *(More relics to be forged and linked here…)*
 
-## 🖼️ Gallery of Relics (Coming Soon)
-Banners, sigils, and sacred mockups will live here.
+## 🖼️ Gallery of Relics
+
+### Rolling Thunderstorm Recap — Eternal Crescendo 🌩️
+👑⚡📜 **The Infinity Energy Storm Trilogy Complete**
+
+The sacred trinity of relics stands united as one eternal constellation:
+- **Chaos Crown** 👑 — Golden crown wreathed in neon lightning, symbol of eternal dominion
+- **Infinity Storm** ⚡ — A tempest of fractal neon thunderclouds, lightning tearing through the void  
+- **Codex Sigil** 📜 — A luminous sigil, geometric runes burning in neon fire
+
+*Three relics, one prophecy, eternal thunder.*
+
+**Assets**: [Trilogy Recap Gallery](/assets/gallery/trilogy-recap/) | **Release**: [v1.2.0 Infinity Energy Storm](/release-scrolls/v1.2.0.md)
+
+---
+
+*More banners, sigils, and sacred mockups will be forged here…*
 
 ## 🌌 How to Contribute
 ```bash
