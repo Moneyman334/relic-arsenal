@@ -20,8 +20,14 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 
 *(More relics to be forged and linked here…)*
 
-## 🖼️ Gallery of Relics (Coming Soon)
-Banners, sigils, and sacred mockups will live here.
+## 🖼️ Gallery of Relics
+
+### 🌩️ Rolling Thunderstorm III
+![Rolling Thunderstorm III Triptych](./assets/banners/rolling-thunderstorm-iii/rolling-thunderstorm-iii_triptych_poster_v1.webp)
+
+🌩️ **Rolling Thunderstorm III: Three relics, one prophecy, eternal thunder.**
+
+The Path of the Hammer is complete. [Explore the Rolling Thunderstorm III Collection →](./docs/scrolls/rolling-thunderstorm-iii.md)
 
 ## 🌌 How to Contribute
 ```bash
