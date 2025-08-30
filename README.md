@@ -17,6 +17,8 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 
 ## 📜 Scrolls and Relics
 - **[ChaosKey333_LaunchTimingPlaybook.pdf](./docs/scrolls/ChaosKey333_LaunchTimingPlaybook.pdf)** — Launch timing strategies.
+- **[Release Scroll v1.2.0](./release-scrolls/v1.2.0.md)** — Infinity Energy Storm deployment schedule.
+- **[v1.2.0 Platform Deployments](./deployments/v1.2.0/README.md)** — Multi-platform deployment guide for Chaos Crown.
 
 *(More relics to be forged and linked here…)*
 
