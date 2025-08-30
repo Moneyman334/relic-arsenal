@@ -24,6 +24,10 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 
 ### Rolling Thunderstorm III — Path of the Hammer
 
+⚡ **[Stormforged Key](./docs/scrolls/StormforgedKey.md)** — the first key of thunder.
+
+🔥 **[Vaultfire Sigil](./docs/scrolls/VaultfireSigil.md)** — the guardian's mark.
+
 👑 **[Crown of Resonance](./docs/scrolls/CrownOfResonance.md)** — sovereignty tuned to infinity's hum, harmony forged in thunder.
 
 *More relics to be unveiled in future thunderstorms...*
