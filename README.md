@@ -16,6 +16,7 @@ This vault holds the sacred scrolls, prophecies, and artifacts for ChaosKey333.
 See the Release Flow section for automated versioning: [Release Flow](#release-flow).
 
 ## 📜 Scrolls and Relics
+- **[🔑 The Stormforged Key](./docs/scrolls/StormforgedKey.md)** — The ignition spark of Rolling Thunderstorm III, forged in lightning and fire, etched with glyph 333.
 - **[ChaosKey333_LaunchTimingPlaybook.pdf](./docs/scrolls/ChaosKey333_LaunchTimingPlaybook.pdf)** — Launch timing strategies.
 
 *(More relics to be forged and linked here…)*
