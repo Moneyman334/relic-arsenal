@@ -20,8 +20,11 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 
 *(More relics to be forged and linked here…)*
 
-## 🖼️ Gallery of Relics (Coming Soon)
-Banners, sigils, and sacred mockups will live here.
+## 🖼️ Gallery of Relics
+
+### 🔥 Vaultfire Sigil
+The blazing seal that tempers power and binds the vault.  
+📜 [Read the Lore](./docs/scrolls/VaultfireSigil.md)
 
 ## 🌌 How to Contribute
 ```bash
