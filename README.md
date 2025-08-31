@@ -23,6 +23,11 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 ## 🖼️ Gallery of Relics (Coming Soon)
 Banners, sigils, and sacred mockups will live here.
 
+## ⚡ Deployments
+- **[Rolling Thunderstorm III Deployment Kit](./docs/deployment/rolling-thunderstorm-iii-kit.md)** — Social-ready storm cycle content for seamless execution.
+
+*(More deployment scrolls to be forged and linked here…)*
+
 ## 🌌 How to Contribute
 ```bash
 git clone git@github.com:Moneyman334/relic-arsenal.git
