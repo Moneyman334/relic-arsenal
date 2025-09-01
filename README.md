@@ -17,6 +17,7 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 
 ## 📜 Scrolls and Relics
 - **[ChaosKey333_LaunchTimingPlaybook.pdf](./docs/scrolls/ChaosKey333_LaunchTimingPlaybook.pdf)** — Launch timing strategies.
+- **[Rolling Thunderstorm VIII](./release-scrolls/v1.7.0.md)** — The eighth prophecy scaffolding with Relic Trinity placeholders.
 
 *(More relics to be forged and linked here…)*
 

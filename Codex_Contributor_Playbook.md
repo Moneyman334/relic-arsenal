@@ -32,3 +32,13 @@ As contributors to the Relic Arsenal project, we uphold the following eternal la
 ## Wielding Relics Responsibly
 
 As guardians of the relics, we must wield them with responsibility and discipline. Always consider the implications of your contributions on the project and the community.
+
+## Rolling Thunderstorm VIII Integration
+
+The eighth prophecy introduces a new trinity of relics that form the foundation for future arsenal expansions:
+
+- **Thunder Crown** ⚡👑 — Command and Leadership domain
+- **Rolling Cyclone** 🌪️ — Transformation and Chaos domain  
+- **Storm Anchor** ⚓⚡ — Foundation and Stability domain
+
+Contributors working with VIII elements should maintain consistency with the established storm mythology and ensure all placeholders are clearly marked for future development.
