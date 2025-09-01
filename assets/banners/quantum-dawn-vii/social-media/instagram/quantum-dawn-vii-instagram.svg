@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="voidGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+    <radialGradient id="fireGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff6b35"/>
+      <stop offset="50%" stop-color="#f7931e"/>
+      <stop offset="100%" stop-color="#d62d20"/>
+    </radialGradient>
+    <radialGradient id="cosmicGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4c9f70"/>
+      <stop offset="50%" stop-color="#4facfe"/>
+      <stop offset="100%" stop-color="#00f2fe"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="#0a0a0a"/>
+  
+  <!-- Panel 1: Obsidian Crown (Top) -->
+  <rect x="0" y="0" width="1080" height="360" fill="url(#voidGradient)"/>
+  <text x="540" y="60" text-anchor="middle" fill="#ffffff" font-size="48" font-family="serif">🌑👑</text>
+  <text x="540" y="100" text-anchor="middle" fill="#c9ada7" font-size="24" font-family="serif">OBSIDIAN CROWN</text>
+  
+  <!-- Crown Symbol -->
+  <polygon points="540,180 510,220 480,210 510,250 540,240 570,250 600,210 570,220" fill="#2d2d3d" stroke="#ffffff" stroke-width="4"/>
+  <circle cx="540" cy="200" r="6" fill="#ffffff" opacity="0.8"/>
+  
+  <text x="540" y="320" text-anchor="middle" fill="#8b7d6b" font-size="14" font-family="serif">Forged in the void between collapsed stars</text>
+  
+  <!-- Panel 2: Phoenix Sigil (Middle) -->
+  <rect x="0" y="360" width="1080" height="360" fill="url(#fireGradient)"/>
+  <text x="540" y="420" text-anchor="middle" fill="#ffffff" font-size="48" font-family="serif">🔥🕊️</text>
+  <text x="540" y="460" text-anchor="middle" fill="#fff2e6" font-size="24" font-family="serif">PHOENIX SIGIL</text>
+  
+  <!-- Sigil Symbol -->
+  <circle cx="540" cy="540" r="50" fill="none" stroke="#ffffff" stroke-width="5"/>
+  <path d="M540,490 L510,590 L570,590 Z" fill="#ffffff" opacity="0.9"/>
+  
+  <text x="540" y="680" text-anchor="middle" fill="#ffcc99" font-size="14" font-family="serif">Branded into the fabric of time itself</text>
+  
+  <!-- Panel 3: Astral Key (Bottom) -->
+  <rect x="0" y="720" width="1080" height="360" fill="url(#cosmicGradient)"/>
+  <text x="540" y="780" text-anchor="middle" fill="#ffffff" font-size="48" font-family="serif">🌌🔑</text>
+  <text x="540" y="820" text-anchor="middle" fill="#e6f7ff" font-size="24" font-family="serif">ASTRAL KEY</text>
+  
+  <!-- Key Symbol -->
+  <rect x="520" y="880" width="40" height="16" fill="#ffffff"/>
+  <circle cx="500" cy="888" r="16" fill="none" stroke="#ffffff" stroke-width="5"/>
+  <rect x="560" y="868" width="6" height="40" fill="#ffffff"/>
+  <rect x="560" y="880" width="16" height="6" fill="#ffffff"/>
+  <rect x="560" y="890" width="12" height="6" fill="#ffffff"/>
+  
+  <text x="540" y="1040" text-anchor="middle" fill="#b3e5fc" font-size="14" font-family="serif">Shaped from a fragment of infinity</text>
+  
+  <!-- Horizontal separators -->
+  <line x1="0" y1="360" x2="1080" y2="360" stroke="#333333" stroke-width="3"/>
+  <line x1="0" y1="720" x2="1080" y2="720" stroke="#333333" stroke-width="3"/>
+</svg>

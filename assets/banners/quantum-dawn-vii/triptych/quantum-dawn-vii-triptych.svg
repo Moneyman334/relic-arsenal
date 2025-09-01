@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="400" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="voidGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+    <radialGradient id="fireGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff6b35"/>
+      <stop offset="50%" stop-color="#f7931e"/>
+      <stop offset="100%" stop-color="#d62d20"/>
+    </radialGradient>
+    <radialGradient id="cosmicGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4c9f70"/>
+      <stop offset="50%" stop-color="#4facfe"/>
+      <stop offset="100%" stop-color="#00f2fe"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="400" fill="#0a0a0a"/>
+  
+  <!-- Panel 1: Obsidian Crown -->
+  <rect x="0" y="0" width="400" height="400" fill="url(#voidGradient)"/>
+  <text x="200" y="50" text-anchor="middle" fill="#ffffff" font-size="24" font-family="serif">🌑👑</text>
+  <text x="200" y="80" text-anchor="middle" fill="#c9ada7" font-size="14" font-family="serif">OBSIDIAN CROWN</text>
+  <text x="200" y="100" text-anchor="middle" fill="#8b7d6b" font-size="10" font-family="serif">Quantum Dawn VII</text>
+  
+  <!-- Crown Symbol -->
+  <polygon points="200,150 180,180 160,170 180,200 200,190 220,200 240,170 220,180" fill="#2d2d3d" stroke="#ffffff" stroke-width="2"/>
+  <circle cx="200" cy="160" r="3" fill="#ffffff" opacity="0.8"/>
+  
+  <!-- Void Stars -->
+  <circle cx="120" cy="300" r="2" fill="#ffffff" opacity="0.6"/>
+  <circle cx="280" cy="320" r="1" fill="#c9ada7" opacity="0.8"/>
+  <circle cx="150" cy="250" r="1.5" fill="#ffffff" opacity="0.4"/>
+  
+  <text x="200" y="350" text-anchor="middle" fill="#8b7d6b" font-size="9" font-family="serif">Forged in void between collapsed stars</text>
+  <text x="200" y="365" text-anchor="middle" fill="#6f5d4b" font-size="8" font-family="serif">binding sovereignty to paradox</text>
+  
+  <!-- Panel 2: Phoenix Sigil -->
+  <rect x="400" y="0" width="400" height="400" fill="url(#fireGradient)"/>
+  <text x="600" y="50" text-anchor="middle" fill="#ffffff" font-size="24" font-family="serif">🔥🕊️</text>
+  <text x="600" y="80" text-anchor="middle" fill="#fff2e6" font-size="14" font-family="serif">PHOENIX SIGIL</text>
+  <text x="600" y="100" text-anchor="middle" fill="#ffcc99" font-size="10" font-family="serif">Quantum Dawn VII</text>
+  
+  <!-- Sigil Symbol -->
+  <circle cx="600" cy="170" r="30" fill="none" stroke="#ffffff" stroke-width="3"/>
+  <path d="M600,140 L580,180 L620,180 Z" fill="#ffffff" opacity="0.9"/>
+  <path d="M600,200 L585,185 L615,185 Z" fill="#ffd700" opacity="0.8"/>
+  
+  <!-- Fire Elements -->
+  <path d="M550,300 Q560,280 570,300 Q580,270 590,300" fill="none" stroke="#ffd700" stroke-width="2"/>
+  <path d="M610,300 Q620,280 630,300 Q640,270 650,300" fill="none" stroke="#ff6b35" stroke-width="2"/>
+  
+  <text x="600" y="350" text-anchor="middle" fill="#ffcc99" font-size="9" font-family="serif">Branded into fabric of time itself</text>
+  <text x="600" y="365" text-anchor="middle" fill="#ff9966" font-size="8" font-family="serif">resurrection fire from extinction</text>
+  
+  <!-- Panel 3: Astral Key -->
+  <rect x="800" y="0" width="400" height="400" fill="url(#cosmicGradient)"/>
+  <text x="1000" y="50" text-anchor="middle" fill="#ffffff" font-size="24" font-family="serif">🌌🔑</text>
+  <text x="1000" y="80" text-anchor="middle" fill="#e6f7ff" font-size="14" font-family="serif">ASTRAL KEY</text>
+  <text x="1000" y="100" text-anchor="middle" fill="#b3e5fc" font-size="10" font-family="serif">Quantum Dawn VII</text>
+  
+  <!-- Key Symbol -->
+  <rect x="990" y="150" width="20" height="8" fill="#ffffff"/>
+  <circle cx="980" cy="154" r="8" fill="none" stroke="#ffffff" stroke-width="3"/>
+  <rect x="1010" y="145" width="3" height="18" fill="#ffffff"/>
+  <rect x="1010" y="151" width="8" height="3" fill="#ffffff"/>
+  <rect x="1010" y="157" width="6" height="3" fill="#ffffff"/>
+  
+  <!-- Cosmic Elements -->
+  <circle cx="920" cy="280" r="2" fill="#ffffff" opacity="0.9"/>
+  <circle cx="1080" cy="300" r="1.5" fill="#4facfe" opacity="0.8"/>
+  <circle cx="950" cy="320" r="1" fill="#00f2fe" opacity="0.7"/>
+  <path d="M960,250 Q970,240 980,250" fill="none" stroke="#4facfe" stroke-width="1"/>
+  <path d="M1020,280 Q1030,270 1040,280" fill="none" stroke="#00f2fe" stroke-width="1"/>
+  
+  <text x="1000" y="350" text-anchor="middle" fill="#b3e5fc" font-size="9" font-family="serif">Shaped from fragment of infinity</text>
+  <text x="1000" y="365" text-anchor="middle" fill="#81d4fa" font-size="8" font-family="serif">opening gateways to destinies</text>
+  
+  <!-- Border separators -->
+  <line x1="400" y1="0" x2="400" y2="400" stroke="#333333" stroke-width="2"/>
+  <line x1="800" y1="0" x2="800" y2="400" stroke="#333333" stroke-width="2"/>
+  
+  <!-- Overall title -->
+  <text x="600" y="30" text-anchor="middle" fill="#ffffff" font-size="16" font-family="serif" font-weight="bold">QUANTUM DAWN VII TRIPTYCH</text>
+</svg>
