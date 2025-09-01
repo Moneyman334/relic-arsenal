@@ -20,8 +20,20 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 
 *(More relics to be forged and linked here…)*
 
-## 🖼️ Gallery of Relics (Coming Soon)
-Banners, sigils, and sacred mockups will live here.
+## 🖼️ Gallery of Relics
+
+### 📜⚡ Pinned: Rolling Thunderstorm III Triptych
+**[Triptych Collage Recap Scroll: Rolling Thunderstorm III](./release-scrolls/rolling-thunderstorm-iii-triptych.md)**  
+*Three relics. One prophecy. Eternal thunder.*
+
+A visual testament to the completed saga featuring the united power of:
+- **Chaos Crown 👑** — Sovereignty Eternal
+- **Infinity Storm ⚡** — Boundless Resonance  
+- **Codex Sigil 📜** — Law Immortal
+
+---
+
+*(More banners, sigils, and sacred mockups to be forged here…)*
 
 ## 🌌 How to Contribute
 ```bash
