@@ -17,11 +17,30 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 
 ## 📜 Scrolls and Relics
 - **[ChaosKey333_LaunchTimingPlaybook.pdf](./docs/scrolls/ChaosKey333_LaunchTimingPlaybook.pdf)** — Launch timing strategies.
+- **[Release Scroll v1.2.0](./release-scrolls/v1.2.0.md)** — Infinity Energy Storm (Rolling Thunderstorm III - Sealed Scripture)
+- **[Release Scroll v1.3.0](./release-scrolls/v1.3.0.md)** — Rolling Thunderstorm IV (Storm Awakening)
+- **[Triptych Collage Banner](./banners/ceremonial/triptych-collage.md)** — United relics ceremonial proclamation
+- **[Social Media Arsenal](./banners/social-crops/)** — Ready-to-deploy ceremonial content
 
 *(More relics to be forged and linked here…)*
 
-## 🖼️ Gallery of Relics (Coming Soon)
-Banners, sigils, and sacred mockups will live here.
+## 🖼️ Eternal Gallery of Relics
+
+### 🌌 Ceremonial Proclamation: Triptych Collage
+**"Three relics. One prophecy. Eternal thunder."**
+
+The sacred [Triptych Collage](./banners/ceremonial/triptych-collage.md) unites our three eternal relics:
+- 👑 **Chaos Crown** — Sovereignty Eternal
+- ⚡ **Infinity Storm** — Boundless Resonance  
+- 📜 **Codex Sigil** — Law Immortal
+
+*Alt: Triptych of relics — Chaos Crown, Infinity Storm, Codex Sigil — blazing as one eternal banner.*
+
+### 📜 Sealed Scripture: Rolling Thunderstorm III
+The [v1.2.0 Release Scroll](./release-scrolls/v1.2.0.md) stands as sealed scripture, documenting the Infinity Energy Storm cadence that forged our current relics.
+
+### 🌐 Social Proclamations
+Ready-to-deploy [social media crops](./banners/social-crops/) for multi-platform ceremonial announcements across X, Instagram, LinkedIn, and Stories.
 
 ## 🌌 How to Contribute
 ```bash
