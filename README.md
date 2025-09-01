@@ -20,8 +20,13 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 
 *(More relics to be forged and linked here…)*
 
-## 🖼️ Gallery of Relics (Coming Soon)
-Banners, sigils, and sacred mockups will live here.
+## 🖼️ Gallery of Relics
+Sacred banners, sigils, and visual artifacts forged in the crucible of chaos.
+
+### Rolling Thunderstorm III Saga
+- **[⚡ Infinity Storm](./assets/gallery/infinity-storm/)** — Cosmic tempest spiraling into infinity, second relic of the thunderstorm saga.
+
+*(More relics to be forged and linked here…)*
 
 ## 🌌 How to Contribute
 ```bash

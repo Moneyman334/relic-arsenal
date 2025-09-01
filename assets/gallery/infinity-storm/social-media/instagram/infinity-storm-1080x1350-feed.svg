@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1080" height="1350" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Nebula -->
+  <defs>
+    <radialGradient id="nebulaGradient" cx="50%" cy="35%" r="80%">
+      <stop offset="0%" style="stop-color:#1a0d3d;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#2d1b69;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#4a2c87;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f0520;stop-opacity:1" />
+    </radialGradient>
+    
+    <radialGradient id="stormEye" cx="50%" cy="35%" r="25%">
+      <stop offset="0%" style="stop-color:#87ceeb;stop-opacity:0.3" />
+      <stop offset="70%" style="stop-color:#4169e1;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#191970;stop-opacity:0.8" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1080" height="1350" fill="url(#nebulaGradient)"/>
+  
+  <!-- Storm Vortex Center (Upper third for vertical composition) -->
+  <circle cx="540" cy="470" r="200" fill="url(#stormEye)" opacity="0.7"/>
+  
+  <!-- Lightning Fractals (Flowing downward) -->
+  <path d="M 540 270 L 340 420 L 600 470 L 300 620 L 650 720" 
+        stroke="#87ceeb" stroke-width="5" fill="none" opacity="0.8"/>
+  <path d="M 540 270 L 740 420 L 480 470 L 780 620 L 430 720" 
+        stroke="#add8e6" stroke-width="4" fill="none" opacity="0.7"/>
+  
+  <!-- Additional vertical lightning -->
+  <path d="M 200 500 L 300 700 L 250 800 L 350 1000 L 280 1100" 
+        stroke="#87ceeb" stroke-width="3" fill="none" opacity="0.6"/>
+  <path d="M 880 500 L 780 700 L 830 800 L 730 1000 L 800 1100" 
+        stroke="#add8e6" stroke-width="3" fill="none" opacity="0.6"/>
+  
+  <!-- Infinity Symbols -->
+  <g transform="translate(350,350) scale(1)">
+    <path d="M 0 50 C -50 0, -50 100, 0 50 C 50 0, 50 100, 0 50" 
+          stroke="#dda0dd" stroke-width="3" fill="none" opacity="0.6"/>
+  </g>
+  <g transform="translate(730,650) scale(0.8) rotate(45)">
+    <path d="M 0 50 C -50 0, -50 100, 0 50 C 50 0, 50 100, 0 50" 
+          stroke="#dda0dd" stroke-width="2" fill="none" opacity="0.5"/>
+  </g>
+  
+  <!-- ChaosKey333 Sigil (In storm eye) -->
+  <g transform="translate(540,470)" opacity="0.25">
+    <circle cx="0" cy="0" r="40" stroke="#ffffff" stroke-width="2" fill="none"/>
+    <polygon points="0,-30 26,15 -26,15" stroke="#ffffff" stroke-width="2" fill="none"/>
+    <text x="0" y="60" text-anchor="middle" fill="#ffffff" font-family="serif" font-size="14">CK333</text>
+  </g>
+  
+  <!-- Title Text (Lower safe area) -->
+  <text x="540" y="1000" text-anchor="middle" fill="#ffffff" font-family="serif" font-size="64" font-weight="bold">
+    INFINITY STORM
+  </text>
+  <text x="540" y="1080" text-anchor="middle" fill="#dda0dd" font-family="serif" font-size="28">
+    Rolling Thunderstorm III
+  </text>
+  
+  <!-- Creator signature -->
+  <text x="540" y="1250" text-anchor="middle" fill="#dda0dd" font-family="serif" font-size="20" opacity="0.8">
+    ChaosKey333
+  </text>
+  
+  <!-- Design Notes (Hidden in final) -->
+  <g opacity="0" class="design-notes">
+    <text x="50" y="50" fill="#ffffff" font-size="20">
+      INSTAGRAM FEED TEMPLATE - 1080x1350 RGB (4:5)
+    </text>
+  </g>
+</svg>

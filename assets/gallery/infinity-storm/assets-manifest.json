@@ -1,0 +1,140 @@
+{
+  "infinity-storm": {
+    "title": "Infinity Storm",
+    "subtitle": "Rolling Thunderstorm III",
+    "collection": "Rolling Thunderstorm III",
+    "position": 2,
+    "release": "v1.2.0",
+    "description": "Cosmic tempest spiraling into infinity symbols, with lightning fractals weaving across a stormy nebula of violet and blue.",
+    "sigil": "ChaosKey333 sigil faintly embossed in the storm's eye",
+    "caption": {
+      "core": "⚡ Boundless Resonance: The Infinity Storm bends realms, creation itself forged in thunder. 🌌 #InfinityStorm #ChaosKey333",
+      "professional": "Exploring the intersection of digital artistry and cosmic inspiration. The Infinity Storm represents boundless creative energy channeled through visual storytelling. Part of the Rolling Thunderstorm III collection. ⚡ #DigitalArt #CreativeProcess #ArtisticVision #ChaosKey333"
+    },
+    "altText": "Visual: A cosmic tempest spiraling into infinity, lightning fractals weaving across a stormy nebula of violet and blue.",
+    "hashtags": {
+      "primary": ["#InfinityStorm", "#ChaosKey333"],
+      "secondary": ["#RelicArsenal", "#RollingThunderstorm", "#CosmicStorm", "#DigitalArt"],
+      "niche": ["#FractalArt", "#NebulaArt", "#CosmicArt", "#DigitalStorm"],
+      "professional": ["#DigitalArt", "#CreativeDesign", "#ArtCollection", "#VisualStorytelling", "#ConceptArt", "#ArtisticVision"]
+    },
+    "assets": {
+      "poster": {
+        "dimensions": "3000x4200",
+        "colorMode": "CMYK",
+        "resolution": "300 DPI",
+        "format": ["SVG", "PNG", "TIFF"],
+        "files": {
+          "template": "poster/infinity-storm-3000x4200-cmyk.svg",
+          "specs": "poster/infinity-storm-poster-specs.md"
+        },
+        "purpose": "Print-ready poster for exhibitions and physical displays"
+      },
+      "socialMedia": {
+        "twitter": {
+          "dimensions": "1600x900",
+          "aspectRatio": "16:9",
+          "colorMode": "RGB",
+          "format": ["PNG", "JPEG"],
+          "maxFileSize": "5MB",
+          "files": {
+            "template": "social-media/twitter/infinity-storm-1600x900.svg",
+            "specs": "social-media/twitter/infinity-storm-twitter-specs.md"
+          },
+          "optimizedFor": ["engagement", "mobile viewing", "feed display"]
+        },
+        "instagram": {
+          "feed": {
+            "portrait": {
+              "dimensions": "1080x1350",
+              "aspectRatio": "4:5",
+              "colorMode": "RGB",
+              "format": ["PNG", "JPEG"],
+              "files": {
+                "template": "social-media/instagram/infinity-storm-1080x1350-feed.svg"
+              },
+              "optimizedFor": ["feed display", "mobile viewing"]
+            },
+            "square": {
+              "dimensions": "1080x1080",
+              "aspectRatio": "1:1",
+              "colorMode": "RGB",
+              "format": ["PNG", "JPEG"],
+              "files": {
+                "template": "social-media/instagram/infinity-storm-1080x1080-square.svg"
+              },
+              "optimizedFor": ["feed display", "visual impact"]
+            }
+          },
+          "stories": {
+            "dimensions": "1080x1920",
+            "aspectRatio": "9:16",
+            "colorMode": "RGB",
+            "format": ["PNG", "JPEG", "MP4"],
+            "maxFileSize": "30MB",
+            "files": {
+              "template": "social-media/instagram/infinity-storm-1080x1920-stories.svg"
+            },
+            "features": ["interactive elements", "polls", "questions", "music"],
+            "safeAreas": "Top and bottom 250px"
+          },
+          "specs": "social-media/instagram/infinity-storm-instagram-specs.md"
+        },
+        "linkedin": {
+          "dimensions": "1200x627",
+          "aspectRatio": "1.91:1",
+          "colorMode": "RGB",
+          "format": ["PNG", "JPEG"],
+          "maxFileSize": "5MB",
+          "files": {
+            "template": "social-media/linkedin/infinity-storm-1200x627.svg",
+            "specs": "social-media/linkedin/infinity-storm-linkedin-specs.md"
+          },
+          "optimizedFor": ["professional context", "business networking", "portfolio display"]
+        }
+      }
+    },
+    "colorPalette": {
+      "cmyk": {
+        "deepViolet": "C:85 M:100 Y:0 K:20",
+        "electricBlue": "C:100 M:45 Y:0 K:0",
+        "stormPurple": "C:70 M:90 Y:10 K:5",
+        "lightningWhite": "C:0 M:0 Y:0 K:0",
+        "shadowBlack": "C:0 M:0 Y:0 K:100"
+      },
+      "rgb": {
+        "deepViolet": "#1a0d3d",
+        "electricBlue": "#4169e1",
+        "stormPurple": "#4a2c87",
+        "lightningWhite": "#ffffff",
+        "nebulaPurple": "#2d1b69",
+        "lightBlue": "#87ceeb",
+        "plum": "#dda0dd"
+      }
+    },
+    "designElements": {
+      "motifs": [
+        "Cosmic tempest spiraling patterns",
+        "Lightning fractals",
+        "Infinity symbols",
+        "Stormy nebula backgrounds"
+      ],
+      "signature": "ChaosKey333 sigil (15-25% opacity)",
+      "composition": "Central vortex with radiating energy patterns",
+      "atmosphere": "Chaotic energy, boundless resonance"
+    },
+    "usage": {
+      "rollout": "Day 3 of Rolling Thunderstorm III saga",
+      "platforms": ["Twitter/X", "Instagram", "LinkedIn", "Print media"],
+      "contexts": ["Social media campaigns", "Print exhibitions", "Digital portfolios", "Brand storytelling"]
+    },
+    "metadata": {
+      "created": "2024",
+      "creator": "ChaosKey333",
+      "collection": "Rolling Thunderstorm III",
+      "relic_number": 2,
+      "status": "template_ready",
+      "version": "1.0"
+    }
+  }
+}
