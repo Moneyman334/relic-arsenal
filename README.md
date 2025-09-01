@@ -20,8 +20,20 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 
 *(More relics to be forged and linked here…)*
 
-## 🖼️ Gallery of Relics (Coming Soon)
-Banners, sigils, and sacred mockups will live here.
+## 🖼️ Gallery of Relics
+
+### 🌩️ Rolling Thunderstorm III - Eternal Crescendo
+
+**Triptych Collage**: The culmination of three relics blazing together as one eternal relic in stormlight.
+
+![Triptych Collage](https://via.placeholder.com/800x300/1a1a1a/ffffff?text=👑⚡📜+Eternal+Crescendo)
+*Three relics — Chaos Crown, Infinity Storm, and Codex Sigil — blazing together as one eternal relic in stormlight.*
+
+**Final Decree**: *"Three relics. One prophecy. Eternal thunder."*
+
+---
+
+*(More banners, sigils, and sacred mockups will live here…)*
 
 ## 🌌 How to Contribute
 ```bash
