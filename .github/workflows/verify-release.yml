@@ -1,0 +1,87 @@
+name: Verify Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Release tag to verify (e.g., v1.7.0)'
+        required: true
+        type: string
+      verbose:
+        description: 'Enable verbose output'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  verify-release:
+    name: Verify Release Assets and Status
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Install dependencies
+        run: |
+          # Install jq if not already available
+          sudo apt-get update
+          sudo apt-get install -y jq
+          
+          # Verify gh is available (should be pre-installed on GitHub runners)
+          gh --version
+          jq --version
+      
+      - name: Setup GitHub CLI authentication
+        run: |
+          # GitHub CLI should already be authenticated on GitHub runners
+          # But let's verify the authentication works
+          gh auth status
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Make script executable
+        run: chmod +x scripts/release_verifier.sh
+      
+      - name: Run release verification
+        run: |
+          if [[ "${{ inputs.verbose }}" == "true" ]]; then
+            scripts/release_verifier.sh --verbose "${{ inputs.tag_name }}"
+          else
+            scripts/release_verifier.sh "${{ inputs.tag_name }}"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Post-verification summary
+        if: always()
+        run: |
+          echo "## 🌟 Release Verification Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Tag:** ${{ inputs.tag_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Repository:** ${{ github.repository }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Triggered by:** ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Timestamp:** $(date -u)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [[ "${{ job.status }}" == "success" ]]; then
+            echo "✅ **Status:** Verification completed successfully" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "The release ${{ inputs.tag_name }} has been verified and is ready for publication." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Status:** Verification failed" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Please check the logs above for specific issues that need to be addressed." >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Verification Checklist" >> $GITHUB_STEP_SUMMARY
+          echo "- GitHub release existence" >> $GITHUB_STEP_SUMMARY
+          echo "- Required asset patterns (PDFs, PNGs)" >> $GITHUB_STEP_SUMMARY
+          echo "- Required files (README.md, docs/gallery/index.md)" >> $GITHUB_STEP_SUMMARY
+          echo "- README link validation" >> $GITHUB_STEP_SUMMARY
+          echo "- CI status check" >> $GITHUB_STEP_SUMMARY
+          echo "- Update scrolls workflow status" >> $GITHUB_STEP_SUMMARY
