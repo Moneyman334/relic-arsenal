@@ -3,9 +3,9 @@ name: Verify Release
 on:
   workflow_dispatch:
     inputs:
-      tag_name:
-        description: 'Release tag to verify (e.g., v1.7.0)'
-        required: true
+      release_tag:
+        description: 'Release tag to verify (e.g., v1.7.0). Leave empty to verify HEAD.'
+        required: false
         type: string
       verbose:
         description: 'Enable verbose output'
@@ -48,10 +48,20 @@ jobs:
       
       - name: Run release verification
         run: |
-          if [[ "${{ inputs.verbose }}" == "true" ]]; then
-            scripts/release_verifier.sh --verbose "${{ inputs.tag_name }}"
+          if [[ -n "${{ inputs.release_tag }}" ]]; then
+            echo "Running in TAG mode for release: ${{ inputs.release_tag }}"
+            if [[ "${{ inputs.verbose }}" == "true" ]]; then
+              scripts/release_verifier.sh --verbose "${{ inputs.release_tag }}"
+            else
+              scripts/release_verifier.sh "${{ inputs.release_tag }}"
+            fi
           else
-            scripts/release_verifier.sh "${{ inputs.tag_name }}"
+            echo "Running in HEAD mode (no release tag provided)"
+            if [[ "${{ inputs.verbose }}" == "true" ]]; then
+              scripts/release_verifier.sh --verbose
+            else
+              scripts/release_verifier.sh
+            fi
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -61,7 +71,13 @@ jobs:
         run: |
           echo "## 🌟 Release Verification Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Tag:** ${{ inputs.tag_name }}" >> $GITHUB_STEP_SUMMARY
+          if [[ -n "${{ inputs.release_tag }}" ]]; then
+            echo "**Mode:** Tag verification" >> $GITHUB_STEP_SUMMARY
+            echo "**Tag:** ${{ inputs.release_tag }}" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "**Mode:** HEAD verification" >> $GITHUB_STEP_SUMMARY
+            echo "**Target:** Current HEAD commit" >> $GITHUB_STEP_SUMMARY
+          fi
           echo "**Repository:** ${{ github.repository }}" >> $GITHUB_STEP_SUMMARY
           echo "**Triggered by:** ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
           echo "**Timestamp:** $(date -u)" >> $GITHUB_STEP_SUMMARY
@@ -70,7 +86,11 @@ jobs:
           if [[ "${{ job.status }}" == "success" ]]; then
             echo "✅ **Status:** Verification completed successfully" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
-            echo "The release ${{ inputs.tag_name }} has been verified and is ready for publication." >> $GITHUB_STEP_SUMMARY
+            if [[ -n "${{ inputs.release_tag }}" ]]; then
+              echo "The release ${{ inputs.release_tag }} has been verified and is ready for publication." >> $GITHUB_STEP_SUMMARY
+            else
+              echo "The current HEAD commit has been verified and meets all requirements." >> $GITHUB_STEP_SUMMARY
+            fi
           else
             echo "❌ **Status:** Verification failed" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
@@ -79,8 +99,10 @@ jobs:
           
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Verification Checklist" >> $GITHUB_STEP_SUMMARY
-          echo "- GitHub release existence" >> $GITHUB_STEP_SUMMARY
-          echo "- Required asset patterns (PDFs, PNGs)" >> $GITHUB_STEP_SUMMARY
+          if [[ -n "${{ inputs.release_tag }}" ]]; then
+            echo "- GitHub release existence" >> $GITHUB_STEP_SUMMARY
+            echo "- Required asset patterns (PDFs, PNGs)" >> $GITHUB_STEP_SUMMARY
+          fi
           echo "- Required files (README.md, docs/gallery/index.md)" >> $GITHUB_STEP_SUMMARY
           echo "- README link validation" >> $GITHUB_STEP_SUMMARY
           echo "- CI status check" >> $GITHUB_STEP_SUMMARY

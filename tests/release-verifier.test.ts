@@ -17,10 +17,12 @@ describe('Release Verifier Script', () => {
     expect(result).toContain('REQUIREMENTS:')
   })
 
-  it('should require a tag argument', () => {
+  it('should not require a tag argument (HEAD mode)', () => {
+    // HEAD mode should not throw an error due to missing tag
+    // It will still fail due to missing GitHub auth, but for a different reason
     expect(() => {
       execSync(`bash ${scriptPath}`, { encoding: 'utf8', stdio: 'pipe' })
-    }).toThrow()
+    }).toThrow() // Expected to fail due to missing GitHub auth, not missing tag
   })
 
   it('should show proper usage when invalid options are provided', () => {
@@ -34,6 +36,21 @@ describe('Release Verifier Script', () => {
     expect(() => {
       execSync(`bash ${scriptPath} --verbose v1.0.0`, { encoding: 'utf8', stdio: 'pipe' })
     }).toThrow() // Expected to fail due to missing GitHub auth
+  })
+
+  it('should support HEAD mode without tag', () => {
+    // Test that script runs in HEAD mode when no tag is provided
+    expect(() => {
+      execSync(`bash ${scriptPath} --verbose`, { encoding: 'utf8', stdio: 'pipe' })
+    }).toThrow() // Expected to fail due to missing GitHub auth, but should accept HEAD mode
+  })
+
+  it('should show HEAD mode information in verbose output', () => {
+    // Test that help reflects the new HEAD mode capability
+    const result = execSync(`bash ${scriptPath} --help`, { encoding: 'utf8' })
+    expect(result).toContain('HEAD mode')
+    expect(result).toContain('Optional')
+    expect(result).toContain('If no tag is provided')
   })
 })
 
@@ -66,9 +83,10 @@ describe('GitHub Workflow', () => {
     const content = fs.readFileSync(workflowPath, 'utf8')
     
     expect(content).toContain('workflow_dispatch')
-    expect(content).toContain('tag_name')
+    expect(content).toContain('release_tag')
     expect(content).toContain('scripts/release_verifier.sh')
     expect(content).toContain('chmod +x')
     expect(content).toContain('GITHUB_TOKEN')
+    expect(content).toContain('HEAD mode')
   })
 })

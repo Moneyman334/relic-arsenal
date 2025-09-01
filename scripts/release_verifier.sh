@@ -20,9 +20,10 @@ VERBOSE=false
 # Usage information
 usage() {
     cat << EOF
-Usage: $0 [OPTIONS] <tag>
+Usage: $0 [OPTIONS] [<tag>]
 
 Verifies a GitHub release and its assets for the ChaosKey333 Relic Arsenal.
+If no tag is provided, verifies the current HEAD without requiring release assets.
 
 OPTIONS:
     -h, --help      Show this help message
@@ -30,12 +31,15 @@ OPTIONS:
     -r, --repo      Repository (default: $REPO)
 
 ARGUMENTS:
-    <tag>           Release tag to verify (e.g., v1.7.0)
+    <tag>           Release tag to verify (e.g., v1.7.0). Optional.
+                    If not provided, runs in HEAD mode.
 
 EXAMPLES:
-    $0 v1.7.0
-    $0 --verbose v1.7.0
-    $0 --repo owner/repo v1.0.0
+    $0 v1.7.0                    # Verify release v1.7.0 (tag mode)
+    $0 --verbose v1.7.0          # Verify release with verbose output
+    $0                           # Verify current HEAD (HEAD mode)
+    $0 --verbose                 # Verify HEAD with verbose output
+    $0 --repo owner/repo v1.0.0  # Verify release in different repo
 
 REQUIREMENTS:
     - gh CLI tool (GitHub CLI)
@@ -295,16 +299,25 @@ verify_release() {
     local tag="$1"
     local errors=0
     
-    log_info "🔍 Starting release verification for: $tag"
-    echo
+    if [[ -n "$tag" ]]; then
+        log_info "🔍 Starting release verification for: $tag"
+        echo
+        
+        # Run tag-specific verification steps
+        validate_release "$tag" || ((errors++))
+        echo
+        
+        check_asset_patterns "$tag" || ((errors++))
+        echo
+    else
+        log_info "🔍 Starting HEAD verification (no release tag provided)"
+        echo
+        
+        log_info "Running in HEAD mode - skipping release and asset checks"
+        echo
+    fi
     
-    # Run all verification steps
-    validate_release "$tag" || ((errors++))
-    echo
-    
-    check_asset_patterns "$tag" || ((errors++))
-    echo
-    
+    # Run common verification steps for both modes
     verify_required_files || ((errors++))
     echo
     
@@ -319,10 +332,14 @@ verify_release() {
     
     # Summary
     if [[ $errors -eq 0 ]]; then
-        log_success "🎉 Release verification completed successfully!"
-        log_success "Release $tag is ready for publication"
+        log_success "🎉 Verification completed successfully!"
+        if [[ -n "$tag" ]]; then
+            log_success "Release $tag is ready for publication"
+        else
+            log_success "Current HEAD meets all requirements"
+        fi
     else
-        log_error "❌ Release verification failed with $errors error(s)"
+        log_error "❌ Verification failed with $errors error(s)"
         log_error "Please address the issues before proceeding"
         return 1
     fi
@@ -363,18 +380,24 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Validate arguments
-if [[ -z "$TAG" ]]; then
-    log_error "Release tag is required"
-    usage
-    exit 1
+# Validate arguments - TAG is now optional
+# If no TAG is provided, we run in HEAD mode
+MODE="HEAD"
+if [[ -n "$TAG" ]]; then
+    MODE="TAG"
 fi
 
 # Main execution
 main() {
     log_info "🌟 ChaosKey333 Relic Arsenal - Release Verifier"
     log_info "Repository: $REPO"
-    log_info "Tag: $TAG"
+    if [[ "$MODE" == "TAG" ]]; then
+        log_info "Mode: TAG verification"
+        log_info "Tag: $TAG"
+    else
+        log_info "Mode: HEAD verification"
+        log_info "Target: Current HEAD"
+    fi
     echo
     
     check_dependencies
