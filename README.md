@@ -91,6 +91,11 @@ The Gallery grows with each storm. Contributors can expand the cosmic arsenal by
 
 *"Through quantum tempests, we forge eternity. In rolling thunder, we crown the dawn."*
 
+<!-- GALLERY:START -->
+## 🖼️ Gallery of Relics
+Thumbnails and scrolls auto-generated from /docs/scrolls/ and /assets/gallery/.
+<!-- GALLERY:END -->
+
 ## 🌌 How to Contribute
 ```bash
 git clone git@github.com:Moneyman334/relic-arsenal.git
