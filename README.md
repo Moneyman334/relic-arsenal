@@ -20,8 +20,12 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 
 *(More relics to be forged and linked here…)*
 
-## 🖼️ Gallery of Relics (Coming Soon)
-Banners, sigils, and sacred mockups will live here.
+## 🖼️ Gallery of Relics
+
+### Rolling Thunderstorm III Saga
+- **[Codex Sigil 📜](./assets/banners/codex-sigil/MANIFEST.md)** — The third relic: ornate scroll etched with neon glyphs, floating in a golden maelstrom.
+
+*More relics and sacred mockups to be forged here…*
 
 ## 🌌 How to Contribute
 ```bash
