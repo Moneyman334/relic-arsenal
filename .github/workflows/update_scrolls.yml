@@ -1,1 +1,22 @@
-name: Update Scrolls\n\n# ⚡ This GitHub Action checks for the Extended Detention Survival Guide and updates the repository accordingly.\n\non: [push, workflow_dispatch]\n\njobs:\n  update_scrolls:\n    runs-on: ubuntu-latest\n    steps:\n      # ⚡ Step 1: Check for the file existence\n      - name: Check for Extended Detention Survival Guide\n        id: check_file\n        run: |\n          if [ -f docs/scrolls/Extended_Detention_Survival_Guide.pdf ]; then\n            echo "file_exists=true" >> $GITHUB_ENV\n          else\n            echo "file_exists=false" >> $GITHUB_ENV\n          fi\n\n      # ⚡ Step 2: Add the file to the repository\n      - name: Add Extended Detention Survival Guide\n        if: env.file_exists == 'true'\n        run: |\n          git config --local user.name 'GitHub Action'\n          git config --local user.email 'action@github.com'\n          git add docs/scrolls/Extended_Detention_Survival_Guide.pdf\n          git commit -m '📜 Seeded Extended Detention Survival Guide relic'\n          git push\n\n      # ⚡ Step 3: Update README.md\n      - name: Update README\n        if: env.file_exists == 'true'\n        run: |\n          sed -i '/scrolls:/a - **[Extended Detention Survival Guide.pdf](./docs/scrolls/Extended_Detention_Survival_Guide.pdf)** A merged guide of discipline and prophecy: documentation, compliance, hotfixes, QA blessings, and mindset rituals.' README.md\n          git add README.md\n          git commit -m 'Update README to include Extended Detention Survival Guide'\n          git push\n\n      # ⚡ Step 4: Attach file as artifact to the next release\n      - name: Upload Artifact\n        if: env.file_exists == 'true'\n        uses: actions/upload-artifact@v2\n        with:\n          name: Extended Detention Survival Guide\n          path: docs/scrolls/Extended_Detention_Survival_Guide.pdf\n
+      - name: Auto-update Scrolls section in README
+        run: |
+          echo "🔄 Regenerating Scrolls list in README.md..."
+          LIST=$(for f in $(ls docs/scrolls/*.pdf 2>/dev/null | sort); do
+            base=$(basename "$f")
+            echo "- **[$base](./docs/scrolls/$base)**"
+          done)
+
+          awk -v list="$LIST" '
+            BEGIN {p=1}
+            /<!-- SCROLLS:BEGIN -->/ {print; print list; p=0; next}
+            /<!-- SCROLLS:END -->/ {p=1}
+            p
+          ' README.md > README.new && mv README.new README.md
+
+      - name: Commit updated README
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "docs: auto-update Scrolls list in README [skip ci]" || echo "No changes to commit"
+          git push
