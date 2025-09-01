@@ -18,10 +18,26 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 ## 📜 Scrolls and Relics
 - **[ChaosKey333_LaunchTimingPlaybook.pdf](./docs/scrolls/ChaosKey333_LaunchTimingPlaybook.pdf)** — Launch timing strategies.
 
+### ⚡ Rolling Thunderstorm VII: Quantum Dawn  
+📜 **[Release Scroll v1.6.0](./docs/releases/v1.6.0.md)** — The complete decree and lore for the seventh thunderstorm.
+
+**Cadence Scrolls:**
+- **[Day 1: Quantum Key 🔑](./docs/scrolls/rolling-thunderstorm-vii/day1.md)** — Reality unlocked through dimensional transcendence.
+- **[Day 3: Aurora Sigil ✨](./docs/scrolls/rolling-thunderstorm-vii/day3.md)** — Cosmic herald of the eternal dawn.
+- **[Day 5: Nebula Crown 👑](./docs/scrolls/rolling-thunderstorm-vii/day5.md)** — Sovereignty over the quantum realm.
+- **[Quantum Dawn Triptych](./docs/scrolls/rolling-thunderstorm-vii/recap.md)** — The complete revelation unified.
+
 *(More relics to be forged and linked here…)*
 
-## 🖼️ Gallery of Relics (Coming Soon)
-Banners, sigils, and sacred mockups will live here.
+## 🖼️ Gallery of Relics
+### Rolling Thunderstorm VII: Quantum Dawn
+- **🔑 Quantum Key** — *"Reality Unlocked"* — A crystalline key phasing through dimensions
+- **✨ Aurora Sigil** — *"Dawn Eternal"* — Radiant sigil wreathed in cosmic fire  
+- **👑 Nebula Crown** — *"Cosmic Sovereignty"* — Crown forged from swirling galaxies
+
+**Visual Assets:** [Rolling Thunderstorm VII Gallery](./assets/visuals/rolling-thunderstorm-vii/)
+
+*More banners, sigils, and sacred mockups will manifest here as the Arsenal grows...*
 
 ## 🌌 How to Contribute
 ```bash
