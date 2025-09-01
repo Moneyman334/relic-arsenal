@@ -16,12 +16,46 @@ This vault holds the sacred scrolls, prophecies, and artifacts for ChaosKey333.
 See the Release Flow section for automated versioning: [Release Flow](#release-flow).
 
 ## 📜 Scrolls and Relics
+- **[📜 Lore Scroll Index](./docs/lore-index.md)** — Sacred chronicles and relic catalogues
 - **[ChaosKey333_LaunchTimingPlaybook.pdf](./docs/scrolls/ChaosKey333_LaunchTimingPlaybook.pdf)** — Launch timing strategies.
 
 *(More relics to be forged and linked here…)*
 
-## 🖼️ Gallery of Relics (Coming Soon)
-Banners, sigils, and sacred mockups will live here.
+## 🖼️ Gallery of Relics
+
+### Rolling Thunderstorm III - Eternal Echo Triptych
+```
+👑════════════════⚡════════════════📜
+║  CHAOS CROWN   ║ INFINITY STORM ║ CODEX SIGIL   ║
+║  Sovereignty   ║   Boundless    ║ Law Immortal  ║
+║   Eternal      ║   Resonance    ║   Guiding     ║
+👑════════════════⚡════════════════📜
+```
+
+**Caption:** "Three relics. One prophecy. Eternal thunder."
+
+**Alt Text:** Visual: A triptych of Chaos Crown, Infinity Storm, and Codex Sigil, blazing together as one eternal banner.
+
+### Rolling Thunderstorm IV - The Awakening Prophecy
+```
+🔑══════════🔥👑══════════🌌
+║Stormforged║ Vaultfire ║ Eternal ║
+║   Key II  ║   Crown   ║ Beacon  ║
+║Sovereignty║ Dominion  ║ Guiding ║
+║ Reborn    ║  Ablaze   ║  Light  ║
+🔑══════════🔥👑══════════🌌
+```
+
+### Unified Hammerfall - The Thunderchain Eternal
+```
+III: 👑⚡📜 ═══════════ IV: 🔑🔥👑🌌
+     Past           Future
+      ╰─── Thunderchain Unbroken ───╯
+```
+
+**Final Proclamation:** "Past sealed. Future awakened. The thunderchain is unbroken."
+
+*More banners, sigils, and sacred mockups will be forged here as the vault expands...*
 
 ## 🌌 How to Contribute
 ```bash
