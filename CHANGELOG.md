@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2025-09-02
+- Scaffolded banner templates + reel overlays
+- Added CHANGELOG.md + VERSION discipline
+- Prepared vault for Relic Gallery expansion
+
 ## v0.1.0 – Guardian Online
 
 ✨ Highlights
