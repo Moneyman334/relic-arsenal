@@ -12,3 +12,6 @@ __pycache__/
 
 # Test coverage
 coverage/
+
+# Release verification output
+out/
