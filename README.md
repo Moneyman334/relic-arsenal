@@ -20,12 +20,16 @@ This vault holds the sacred scrolls, prophecies, and artifacts for ChaosKey333.
 See the Release Flow section for automated versioning: [Release Flow](#release-flow).
 
 ## 📜 Scrolls and Relics
-<!-- SCROLLS:BEGIN -->
-- **[ChaosKey333_LaunchTimingPlaybook.pdf](./docs/scrolls/ChaosKey333_LaunchTimingPlaybook.pdf)** — Launch timing strategies.
 - **[Rolling Thunderstorm VII: Quantum Dawn](./release-scrolls/v1.7.0.md)** — The Seventh Storm's cosmic awakening.
 - **[Cosmic Scripture](./docs/cosmic-scripture.md)** — Sacred lore and mystical foundations.
 - **[Release Archive](./RELEASES/)** — Complete collection of storm chronicles.
 - **[Ceremonial Proclamations](./proclamations/)** — Cross-platform prophecy templates.
+
+### 📚 Available Scrolls
+<!-- SCROLLS:BEGIN -->
+- **📜 [Detention_Survival_Scroll.pdf](./docs/scrolls/Detention_Survival_Scroll.pdf)** — 📜 Sacred knowledge scroll
+- **📝 [detention_survival_guide.md](./docs/scrolls/detention_survival_guide.md)** — Extended survival wisdom for GitHub/CI mastery
+
 <!-- SCROLLS:END -->
 
 ## 🖼️ Gallery of Relics - Cosmic Arsenal
