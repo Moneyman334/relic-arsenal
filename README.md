@@ -89,6 +89,8 @@ The Gallery grows with each storm. Contributors can expand the cosmic arsenal by
 3. **Composing Mockups** — Visualize future vault configurations
 4. **Documenting Lore** — Expand the cosmic scripture with new prophecies
 
+Visit the full [Gallery of Relics](./docs/gallery/index.md) to explore the complete cosmic collection.
+
 *"Through quantum tempests, we forge eternity. In rolling thunder, we crown the dawn."*
 
 ## 🌌 How to Contribute
