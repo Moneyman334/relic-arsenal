@@ -18,10 +18,40 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 ## 📜 Scrolls and Relics
 - **[ChaosKey333_LaunchTimingPlaybook.pdf](./docs/scrolls/ChaosKey333_LaunchTimingPlaybook.pdf)** — Launch timing strategies.
 
+### ⚡ Rolling Thunderstorm V — Shadows, Fire, and Stars
+
+Three relics awaken: the Obsidian Crown, Phoenix Sigil, and Astral Key. One prophecy unites them: sovereignty, resurrection, and the unlocking of realms. The thunderchain roars unbroken.
+
+#### 🌑 Obsidian Crown
+- **[Day 1: The Shrouded Dawn](./docs/scrolls/Day1.md)** — Sovereignty cloaked in shadow, forged in lightning.
+
+#### 🔥 Phoenix Sigil  
+- **[Day 3: The Rebirth Flame](./docs/scrolls/Day3.md)** — Resurrection etched in the eternal cycle of fire and storm.
+
+#### 🌌 Astral Key
+- **[Day 5: The Gate Eternal](./docs/scrolls/Day5.md)** — Unlocking realms unbound, binding galaxies into the cadence of thunder.
+
+#### 📋 Release Scroll
+- **[v1.4.0: Rolling Thunderstorm V](./release-scrolls/v1.4.0.md)** — Complete cadence details and proclamation.
+
+---
+
 *(More relics to be forged and linked here…)*
 
 ## 🖼️ Gallery of Relics (Coming Soon)
 Banners, sigils, and sacred mockups will live here.
+
+### ⚡ Thunderchain Banners
+```
+🌑⚡🌑 Rolling Thunderstorm V ⚡🌑⚡
+   Shadows • Fire • Stars
+   
+🌑 OBSIDIAN CROWN 🌑
+🔥 PHOENIX SIGIL 🔥  
+🌌 ASTRAL KEY 🌌
+
+"Three relics awaken. One prophecy unites them."
+```
 
 ## 🌌 How to Contribute
 ```bash
