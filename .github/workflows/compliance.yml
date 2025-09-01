@@ -1,0 +1,139 @@
+name: Compliance Guard
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run weekly on Sundays at 2 AM UTC
+    - cron: '0 2 * * 0'
+  workflow_dispatch:
+
+jobs:
+  secrets-scan:
+    name: 🔒 Secrets Scanning
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Truffelhog OSS
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: main
+          head: HEAD
+          extra_args: --debug --only-verified
+
+  license-verification:
+    name: 🛡️ License Verification
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check Node.js licenses
+        run: |
+          echo "🔍 Scanning Node.js dependencies for license compliance..."
+          npx license-checker --summary --onlyAllow "MIT;Apache-2.0;BSD;ISC;CC0-1.0;Unlicense;WTFPL" --excludePrivatePackages || {
+            echo "❌ License check failed - unauthorized licenses detected"
+            echo "📋 Generating detailed license report..."
+            npx license-checker --detailed
+            exit 1
+          }
+
+      - name: Generate license report
+        run: |
+          echo "📄 Generating license compliance report..."
+          npx license-checker --csv --out license-report.csv
+          npx license-checker --summary
+
+      - name: Upload license report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: license-compliance-report
+          path: license-report.csv
+
+      - name: Check for Python dependencies (if any)
+        run: |
+          if [ -f "requirements.txt" ] || [ -f "pyproject.toml" ] || [ -f "Pipfile" ]; then
+            echo "🐍 Python dependencies detected"
+            if command -v pip &> /dev/null; then
+              echo "Installing pip-licenses..."
+              pip install pip-licenses
+              echo "🔍 Scanning Python dependencies..."
+              pip-licenses --format=table --with-license-file
+            else
+              echo "⚠️ pip not found, skipping Python license check"
+            fi
+          else
+            echo "ℹ️ No Python dependencies found"
+          fi
+
+  security-audit:
+    name: 🛡️ Security Audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run npm audit
+        run: |
+          echo "🔍 Running npm security audit..."
+          npm audit --audit-level=moderate || {
+            echo "❌ Security vulnerabilities detected"
+            echo "📋 Generating detailed audit report..."
+            npm audit --json > security-audit.json || true
+            exit 1
+          }
+
+      - name: Upload security audit
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: security-audit-report
+          path: security-audit.json
+
+  compliance-summary:
+    name: 📋 Compliance Summary
+    runs-on: ubuntu-latest
+    needs: [secrets-scan, license-verification, security-audit]
+    if: always()
+    steps:
+      - name: Compliance Status
+        run: |
+          echo "🔮 Compliance Guard Ritual Complete"
+          echo "⚡ Secrets Scan: ${{ needs.secrets-scan.result }}"
+          echo "🛡️ License Check: ${{ needs.license-verification.result }}"
+          echo "🔒 Security Audit: ${{ needs.security-audit.result }}"
+          
+          if [[ "${{ needs.secrets-scan.result }}" == "success" && 
+                "${{ needs.license-verification.result }}" == "success" && 
+                "${{ needs.security-audit.result }}" == "success" ]]; then
+            echo "✅ All compliance checks passed - Vault secured"
+          else
+            echo "❌ Compliance violations detected - Vault breach risk"
+            exit 1
+          fi

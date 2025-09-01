@@ -1,0 +1,192 @@
+name: Attach Scrolls to Release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Release tag to attach scrolls to'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  attach-scrolls:
+    name: 📜 Attach Sacred Scrolls
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get release information
+        id: release_info
+        run: |
+          if [ -n "${{ github.event.inputs.release_tag }}" ]; then
+            # Manual workflow dispatch
+            RELEASE_TAG="${{ github.event.inputs.release_tag }}"
+            echo "Manual attachment for release: $RELEASE_TAG"
+          else
+            # Automatic trigger from release
+            RELEASE_TAG="${{ github.event.release.tag_name }}"
+            echo "Automatic attachment for release: $RELEASE_TAG"
+          fi
+          
+          echo "release_tag=$RELEASE_TAG" >> $GITHUB_OUTPUT
+          echo "🔮 Processing release: $RELEASE_TAG"
+
+      - name: Discover PDF Scrolls
+        id: discover_scrolls
+        run: |
+          echo "🔍 Discovering sacred scrolls in docs/scrolls/..."
+          
+          # Find all PDF files in docs/scrolls/
+          SCROLL_FILES=()
+          if [ -d "docs/scrolls" ]; then
+            while IFS= read -r -d '' file; do
+              SCROLL_FILES+=("$file")
+              echo "📜 Found scroll: $(basename "$file")"
+            done < <(find docs/scrolls -name "*.pdf" -type f -print0)
+          fi
+          
+          # Convert array to JSON for GitHub Actions
+          SCROLL_JSON=$(printf '%s\n' "${SCROLL_FILES[@]}" | jq -R . | jq -s .)
+          echo "scroll_files=$SCROLL_JSON" >> $GITHUB_OUTPUT
+          
+          SCROLL_COUNT=${#SCROLL_FILES[@]}
+          echo "scroll_count=$SCROLL_COUNT" >> $GITHUB_OUTPUT
+          
+          echo "📊 Total scrolls discovered: $SCROLL_COUNT"
+          
+          if [ $SCROLL_COUNT -eq 0 ]; then
+            echo "⚠️ No PDF scrolls found in docs/scrolls/"
+            echo "ℹ️ Create PDF files in docs/scrolls/ to enable automatic attachment"
+          fi
+
+      - name: Prepare Scroll Manifest
+        if: fromJson(steps.discover_scrolls.outputs.scroll_count) > 0
+        run: |
+          echo "📋 Preparing scroll manifest..."
+          
+          cat << EOF > scroll-manifest.md
+          # 📜 Sacred Scrolls - Release ${{ steps.release_info.outputs.release_tag }}
+          
+          The following cosmic scrolls have been attached to this release:
+          
+          $(echo '${{ steps.discover_scrolls.outputs.scroll_files }}' | jq -r '.[] | "- 📜 **" + (. | split("/") | last) + "** - " + .'  | sed 's|docs/scrolls/||')
+          
+          ## 🔮 Scroll Wisdom
+          These scrolls contain sacred knowledge and cosmic insights essential for understanding and utilizing the power of this release.
+          
+          ## 📖 How to Use the Scrolls
+          1. Download the attached PDF scrolls
+          2. Study the cosmic wisdom contained within
+          3. Apply the knowledge to your vault mastery journey
+          4. Share insights with fellow vault guardians
+          
+          ---
+          ⚡ **"Honor the Scrolls — every artifact tells a prophecy."** ⚡
+          
+          🐦‍⬛ **ChaosKey333** 🐦‍⬛
+          EOF
+          
+          echo "📄 Scroll manifest prepared:"
+          cat scroll-manifest.md
+
+      - name: Attach Scrolls to Release
+        if: fromJson(steps.discover_scrolls.outputs.scroll_count) > 0
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            
+            const scrollFiles = ${{ steps.discover_scrolls.outputs.scroll_files }};
+            const releaseTag = '${{ steps.release_info.outputs.release_tag }}';
+            
+            console.log(`🔮 Attaching ${scrollFiles.length} scrolls to release ${releaseTag}`);
+            
+            try {
+              // Get the release by tag
+              const { data: release } = await github.rest.repos.getReleaseByTag({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                tag: releaseTag
+              });
+              
+              console.log(`📍 Found release: ${release.name} (ID: ${release.id})`);
+              
+              // Read and append scroll manifest to release body
+              const manifestPath = 'scroll-manifest.md';
+              if (fs.existsSync(manifestPath)) {
+                const manifest = fs.readFileSync(manifestPath, 'utf8');
+                const updatedBody = release.body + '\n\n' + manifest;
+                
+                await github.rest.repos.updateRelease({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  release_id: release.id,
+                  body: updatedBody
+                });
+                
+                console.log('📝 Release body updated with scroll manifest');
+              }
+              
+              // Attach each scroll file
+              for (const scrollFile of scrollFiles) {
+                const fileName = path.basename(scrollFile);
+                const fileContent = fs.readFileSync(scrollFile);
+                
+                console.log(`📎 Attaching scroll: ${fileName}`);
+                
+                try {
+                  await github.rest.repos.uploadReleaseAsset({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    release_id: release.id,
+                    name: fileName,
+                    data: fileContent,
+                    headers: {
+                      'content-type': 'application/pdf'
+                    }
+                  });
+                  
+                  console.log(`✅ Successfully attached: ${fileName}`);
+                } catch (uploadError) {
+                  if (uploadError.status === 422 && uploadError.message.includes('already_exists')) {
+                    console.log(`⚠️ Scroll already attached: ${fileName}`);
+                  } else {
+                    console.error(`❌ Failed to attach ${fileName}:`, uploadError.message);
+                  }
+                }
+              }
+              
+              console.log('🎉 Scroll attachment ritual complete!');
+              
+            } catch (error) {
+              console.error('❌ Error during scroll attachment:', error.message);
+              process.exit(1);
+            }
+
+      - name: Cosmic Completion Banner
+        if: fromJson(steps.discover_scrolls.outputs.scroll_count) > 0
+        run: |
+          echo "⛧⚡👑 Scroll Attachment Ritual Complete 👑⚡⛧"
+          echo "🔮 Release ${{ steps.release_info.outputs.release_tag }} has been blessed with ${{ steps.discover_scrolls.outputs.scroll_count }} sacred scrolls"
+          echo "📜 The cosmic knowledge is now accessible to all vault guardians"
+          echo "⚡ Render the Prophecy. Seal the Vault. ⚡"
+          echo "🐦‍⬛ ChaosKey333 🐦‍⬛"
+
+      - name: No Scrolls Notice
+        if: fromJson(steps.discover_scrolls.outputs.scroll_count) == 0
+        run: |
+          echo "ℹ️ No PDF scrolls found for attachment"
+          echo "📝 To enable automatic scroll attachment:"
+          echo "   1. Add PDF files to docs/scrolls/ directory"
+          echo "   2. Commit and push to main branch"
+          echo "   3. Future releases will automatically include these scrolls"
+          echo ""
+          echo "🔮 The vault awaits your cosmic wisdom scrolls!"

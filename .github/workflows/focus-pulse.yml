@@ -1,0 +1,239 @@
+name: Mindset Pulse - Daily Focus Ritual
+
+on:
+  schedule:
+    # Run daily at 9 AM UTC (adjust timezone as needed)
+    - cron: '0 9 * * 1-5'  # Monday to Friday
+  workflow_dispatch:
+    inputs:
+      message_type:
+        description: 'Type of focus message'
+        required: false
+        default: 'daily'
+        type: choice
+        options:
+          - daily
+          - weekly
+          - retrospective
+
+env:
+  # Configure these in repository secrets for actual notifications
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+jobs:
+  focus-pulse:
+    name: 🧘 Daily Focus Pulse
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Generate Focus Message
+        id: message
+        run: |
+          MESSAGE_TYPE="${{ github.event.inputs.message_type || 'daily' }}"
+          WEEK_DAY=$(date +%A)
+          DATE=$(date +"%B %d, %Y")
+          
+          case "$MESSAGE_TYPE" in
+            "daily")
+              TITLE="🌅 Daily Focus Ritual - $WEEK_DAY, $DATE"
+              MESSAGE="**⚡ Crown the Vault - Daily Storm ⚡**
+
+          🔮 **Today's Cosmic Question:**
+          What single relic will you forge today to advance the vault?
+
+          🌀 **Focus Areas:**
+          • 🔑 **One Key Task** - What's the most important thing to complete?
+          • ⚡ **Storm Progress** - Which project needs your lightning today?
+          • 📜 **Knowledge Scroll** - What will you learn or document?
+
+          💎 **Mindful Mantras:**
+          > \"You always got to keep dripping so wet!\" — ChaosKey333
+          > \"Through quantum tempests, we forge eternity.\"
+
+          🎯 **Today's Quest:** Set one clear, achievable goal and let the cosmic forces guide your focus.
+
+          ---
+          *Reply with your daily intention to manifest cosmic accountability!*"
+              ;;
+            "weekly")
+              TITLE="👑 Weekly Storm Planning - Week of $DATE"
+              MESSAGE="**🌀 Weekly Storm Convergence 🌀**
+
+          🔮 **Weekly Reflection Ritual:**
+          Time to align the cosmic forces for maximum vault expansion!
+
+          ⚡ **Storm Assessment:**
+          • 📊 **Last Week's Victories** - What relics were successfully forged?
+          • 🔍 **Challenges Faced** - What obstacles emerged from the quantum mist?
+          • 🎯 **This Week's Focus** - Which storms deserve your lightning?
+
+          🌟 **Power Zones:**
+          • 🔧 **Technical Mastery** - Skills to develop or practice
+          • 🤝 **Collaboration Nexus** - Connections to strengthen
+          • 📜 **Knowledge Scrolls** - Documentation to create or improve
+
+          👑 **Crown the Week:**
+          Set 3 major goals that will significantly advance the vault's cosmic power!
+
+          ---
+          *Share your weekly intentions and let the community amplify your focus!*"
+              ;;
+            "retrospective")
+              TITLE="🔮 Retrospective Wisdom - End of Cycle Reflection"
+              MESSAGE="**🌌 Cosmic Retrospective Portal 🌌**
+
+          ⚡ **Deep Reflection Ritual** ⚡
+
+          🔍 **Storm Analysis:**
+          • 🎉 **Cosmic Wins** - What made you proud this cycle?
+          • 📚 **Lessons Learned** - What wisdom emerged from challenges?
+          • 🔄 **Process Evolution** - What workflows can be improved?
+
+          🌟 **Power Level Assessment:**
+          • 💪 **Strengths Manifested** - Where did you excel?
+          • 🌱 **Growth Opportunities** - Where can you level up?
+          • 🔮 **Future Vision** - What excites you for the next cycle?
+
+          🎯 **Gratitude Storm:**
+          Acknowledge the cosmic forces, collaborators, and personal growth that made this cycle possible.
+
+          ---
+          *Share your retrospective insights to inspire the vault community!*"
+              ;;
+          esac
+          
+          # Store values for use in subsequent steps
+          echo "title=$TITLE" >> $GITHUB_OUTPUT
+          echo "message<<EOF" >> $GITHUB_OUTPUT
+          echo "$MESSAGE" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Send Slack Notification
+        if: env.SLACK_WEBHOOK_URL != ''
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+            --data "{
+              \"text\": \"${{ steps.message.outputs.title }}\",
+              \"blocks\": [
+                {
+                  \"type\": \"section\",
+                  \"text\": {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"${{ steps.message.outputs.message }}\"
+                  }
+                },
+                {
+                  \"type\": \"context\",
+                  \"elements\": [
+                    {
+                      \"type\": \"mrkdwn\",
+                      \"text\": \"🐦‍⬛ <https://github.com/${{ github.repository }}|ChaosKey333 Relic Arsenal> 🐦‍⬛\"
+                    }
+                  ]
+                }
+              ]
+            }" \
+            ${{ env.SLACK_WEBHOOK_URL }}
+
+      - name: Send Discord Notification
+        if: env.DISCORD_WEBHOOK_URL != ''
+        run: |
+          curl -X POST -H 'Content-Type: application/json' \
+            --data "{
+              \"embeds\": [
+                {
+                  \"title\": \"${{ steps.message.outputs.title }}\",
+                  \"description\": \"${{ steps.message.outputs.message }}\",
+                  \"color\": 7506394,
+                  \"footer\": {
+                    \"text\": \"🐦‍⬛ ChaosKey333 Relic Arsenal 🐦‍⬛\"
+                  },
+                  \"timestamp\": \"$(date -u +%Y-%m-%dT%H:%M:%S.000Z)\"
+                }
+              ]
+            }" \
+            ${{ env.DISCORD_WEBHOOK_URL }}
+
+      - name: Create Discussion (Alternative)
+        if: env.SLACK_WEBHOOK_URL == '' && env.DISCORD_WEBHOOK_URL == ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Create a GitHub Discussion as alternative to external notifications
+            const title = '${{ steps.message.outputs.title }}';
+            const body = `${{ steps.message.outputs.message }}
+
+            ---
+            🔧 **Setup Note:** Configure \`SLACK_WEBHOOK_URL\` or \`DISCORD_WEBHOOK_URL\` repository secrets to enable external notifications.
+            
+            For now, use this discussion to share your daily/weekly focus and connect with the vault community!`;
+            
+            console.log('Focus Pulse message generated:');
+            console.log('Title:', title);
+            console.log('Message:', body);
+            
+            // Note: Creating discussions requires additional permissions
+            // This serves as a fallback logging mechanism
+            core.summary.addHeading('🧘 Focus Pulse Generated');
+            core.summary.addRaw(body);
+            core.summary.write();
+
+  weekly-metrics:
+    name: 📊 Weekly Metrics Pulse
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event.schedule == '0 9 * * 1'  # Only on Mondays
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate Weekly Metrics
+        run: |
+          echo "📊 Generating weekly vault metrics..."
+          
+          # Calculate basic metrics
+          COMMITS_THIS_WEEK=$(git log --since="1 week ago" --oneline | wc -l)
+          CONTRIBUTORS_THIS_WEEK=$(git log --since="1 week ago" --format='%ae' | sort | uniq | wc -l)
+          FILES_CHANGED=$(git diff --name-only HEAD~7 HEAD | wc -l)
+          
+          # Test metrics (if tests exist)
+          if npm test > /dev/null 2>&1; then
+            TEST_STATUS="✅ Passing"
+          else
+            TEST_STATUS="⚠️ Needs attention"
+          fi
+          
+          # Generate metrics summary
+          cat << EOF > weekly-metrics.md
+          ## 📊 Weekly Vault Metrics
+          
+          **⚡ Activity Storm:**
+          - 🔄 Commits: $COMMITS_THIS_WEEK
+          - 👥 Contributors: $CONTRIBUTORS_THIS_WEEK  
+          - 📁 Files Modified: $FILES_CHANGED
+          - 🧪 Test Status: $TEST_STATUS
+          
+          **🔮 Cosmic Insights:**
+          $(if [ $COMMITS_THIS_WEEK -gt 10 ]; then echo "High storm activity - excellent momentum! ⚡"; else echo "Steady cosmic flow - consistent progress 🌀"; fi)
+          
+          **👑 Focus Opportunities:**
+          - Review recent changes for optimization potential
+          - Consider documentation updates for modified areas
+          - Plan next week's storm priorities
+          
+          ---
+          *Metrics generated by the Mindset Pulse ritual*
+          EOF
+          
+          echo "Weekly metrics generated:"
+          cat weekly-metrics.md
+
+      - name: Upload Metrics
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-metrics
+          path: weekly-metrics.md

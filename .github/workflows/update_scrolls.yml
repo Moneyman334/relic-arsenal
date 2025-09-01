@@ -1,22 +1,83 @@
-      - name: Auto-update Scrolls section in README
-        run: |
-          echo "🔄 Regenerating Scrolls list in README.md..."
-          LIST=$(for f in $(ls docs/scrolls/*.pdf 2>/dev/null | sort); do
-            base=$(basename "$f")
-            echo "- **[$base](./docs/scrolls/$base)**"
-          done)
+name: Update Scrolls in README
 
-          awk -v list="$LIST" '
-            BEGIN {p=1}
-            /<!-- SCROLLS:BEGIN -->/ {print; print list; p=0; next}
-            /<!-- SCROLLS:END -->/ {p=1}
-            p
-          ' README.md > README.new && mv README.new README.md
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'docs/scrolls/**'
+      - 'scripts/update_readme_scrolls.py'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'docs/scrolls/**'
+      - 'scripts/update_readme_scrolls.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-scrolls:
+    name: 📜 Update README Scrolls
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Update README with Python script
+        id: update_scrolls
+        run: |
+          echo "🔮 Running ChaosKey333 Scrolls Auto-Sync Ritual..."
+          python scripts/update_readme_scrolls.py --verbose
+          
+          # Check if README was actually modified
+          if git diff --quiet README.md; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ No changes needed - scrolls section already up to date"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "✅ README.md updated with latest scroll wisdom"
+          fi
+
+      - name: Show changes (if any)
+        if: steps.update_scrolls.outputs.changed == 'true'
+        run: |
+          echo "📋 Changes made to README.md:"
+          git diff README.md
 
       - name: Commit updated README
+        if: steps.update_scrolls.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "docs: auto-update Scrolls list in README [skip ci]" || echo "No changes to commit"
+          git commit -m "docs: auto-update Scrolls list in README [skip ci]
+
+          🔮 ChaosKey333 Scrolls Auto-Sync Ritual Complete
+          
+          - Updated scroll listings with cosmic descriptions
+          - Synchronized with latest docs/scrolls/ content
+          - Blessed by the vault guardians
+          
+          ⚡ Render the Prophecy. Seal the Vault. ⚡"
           git push
+
+      - name: Cosmic Completion Banner
+        run: |
+          echo "⛧⚡👑 Scrolls Update Ritual Complete 👑⚡⛧"
+          if [ "${{ steps.update_scrolls.outputs.changed }}" == "true" ]; then
+            echo "📜 README.md has been blessed with updated cosmic wisdom"
+          else
+            echo "🔮 Cosmic harmony maintained - no updates needed"
+          fi
+          echo "⚡ Render the Prophecy. Seal the Vault. ⚡"
+          echo "🐦‍⬛ ChaosKey333 🐦‍⬛"
