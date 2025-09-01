@@ -20,8 +20,39 @@ See the Release Flow section for automated versioning: [Release Flow](#release-f
 
 *(More relics to be forged and linked here…)*
 
-## 🖼️ Gallery of Relics (Coming Soon)
-Banners, sigils, and sacred mockups will live here.
+## 🖼️ Gallery of Relics
+
+### Rolling Thunderstorm V 🌑🔥🌌
+*The Trinity of Obsidian, Phoenix, and Astral - Eternal Gleam Polished*
+
+#### 🌑 Obsidian Crown
+**Obsidian Majesty** — A crown of pure obsidian that seems to absorb light, its surface etched with constellations that pulse with inner fire. Born from collapsed stars, it transforms radiance into eternal dominion.
+
+#### 🔥 Phoenix Sigil
+**Resurrection Eternal** — A sigil wreathed in living flames, its phoenix form rising perpetually from ashes that immediately burst into new fire. Eternal resurrection through endless transformation.
+
+#### 🌌 Astral Key
+**Gateway Infinite** — A key forged from compressed starlight, its surface showing swirling galaxies and nebulae that shift like living cosmos. Unlocks passages between realms beyond mortal comprehension.
+
+*[Release Scroll v1.2.0](./release-scrolls/v1.2.0.md) - Rolling Thunderstorm V*
+
+### Rolling Thunderstorm VI ⚡🔮🌠
+*The Trinity of Storm, Crystal, and Eclipse*
+
+#### ⚡ Thunderheart Sigil
+**Thunder Eternal** — A crimson sigil pulsing with electric veins, the heartbeat of storms made manifest in neon lightning. The storm's lifeblood flows eternal, awakening thunder within.
+
+#### 🔮 Crystal Crown  
+**Crystalline Sovereignty** — A crystalline crown of faceted gems, each surface reflecting fractured light and sovereign authority. Through crystal clarity, dominion crystallizes into eternal power.
+
+#### 🌠 Eclipse Key
+**Shadow Unveiled** — A darkened key wreathed in stellar light, half shadow and half starfire, gateway to hidden dimensions. Where light meets shadow, all secrets surrender.
+
+*[Release Scroll v1.5.0](./release-scrolls/v1.5.0.md) | [Cadence Prophecy](./release-scrolls/v1.5.0-cadence/)*
+
+---
+
+*The thunderchain extends eternal, each link forged in storm and tempered in starfire...*
 
 ## 🌌 How to Contribute
 ```bash
