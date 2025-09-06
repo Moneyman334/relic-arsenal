@@ -1,0 +1,343 @@
+/* Cosmic Relic Arsenal - Gallery Styles */
+:root {
+  --primary-color: #00d4ff;
+  --secondary-color: #ff6b35;
+  --accent-color: #00ff88;
+  --bg-dark: #0a0a0a;
+  --bg-darker: #000000;
+  --text-light: #ffffff;
+  --text-muted: #cccccc;
+  --shadow-neon: 0 0 20px var(--primary-color);
+  --shadow-intense: 0 0 40px var(--primary-color), 0 0 80px var(--primary-color);
+  --border-radius: 12px;
+  --animation-speed: 2s;
+  --hover-scale: 1.05;
+  --parallax-distance: 8px;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 50%, #1a1a1a 100%);
+  color: var(--text-light);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Header styles */
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: radial-gradient(circle at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color), var(--secondary-color));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Gallery container */
+.gallery-container {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+/* Base tile styles */
+.tile {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  min-height: 200px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.tile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius);
+  padding: 2px;
+  background: linear-gradient(45deg, var(--primary-color), transparent, var(--accent-color));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.tile-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tile-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.tile-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.tile-description {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
+/* Sentinel Launcher specific styles */
+.sentinel-tile {
+  background: linear-gradient(145deg, 
+    rgba(0, 212, 255, 0.1) 0%, 
+    rgba(0, 255, 136, 0.05) 50%, 
+    rgba(107, 35, 255, 0.1) 100%);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.sentinel-tile .tile-icon {
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 15px var(--primary-color));
+}
+
+.sentinel-tile .tile-title {
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glow effect layer */
+.tile-glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: var(--border-radius);
+  background: radial-gradient(circle at center, var(--primary-color), transparent 70%);
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.4s ease;
+  filter: blur(20px);
+}
+
+/* Soft pulse animation */
+@keyframes soft-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.02); }
+}
+
+.sentinel-tile .tile-glow {
+  animation: soft-pulse var(--animation-speed) ease-in-out infinite;
+}
+
+/* Animated border */
+@keyframes border-dance {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.sentinel-tile::before {
+  background: linear-gradient(45deg, 
+    var(--primary-color), 
+    var(--accent-color), 
+    var(--secondary-color), 
+    var(--primary-color));
+  background-size: 300% 300%;
+  animation: border-dance 3s linear infinite;
+  opacity: 0.6;
+}
+
+/* Hover and focus effects */
+.tile:hover,
+.tile:focus {
+  transform: translateY(-var(--parallax-distance)) scale(var(--hover-scale));
+  box-shadow: var(--shadow-intense);
+}
+
+.tile:hover::before,
+.tile:focus::before {
+  opacity: 1;
+}
+
+.tile:hover .tile-glow,
+.tile:focus .tile-glow {
+  opacity: 0.8;
+}
+
+.tile:hover .tile-icon,
+.tile:focus .tile-icon {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 20px var(--primary-color));
+}
+
+/* Focus styles for accessibility */
+.tile:focus {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 4px;
+}
+
+.tile:focus-visible {
+  outline-style: solid;
+}
+
+/* Active state */
+.tile:active {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0.5rem;
+  }
+  
+  .tile {
+    min-height: 160px;
+    padding: 1.5rem;
+  }
+  
+  .tile-icon {
+    font-size: 2.5rem;
+  }
+  
+  .tile-title {
+    font-size: 1.3rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .tile {
+    min-height: 140px;
+    padding: 1rem;
+  }
+}
+
+/* Ensure minimum tap target size on mobile */
+@media (hover: none) and (pointer: coarse) {
+  .tile {
+    min-height: 44px;
+    min-width: 44px;
+    padding: max(1rem, calc((44px - 1rem) / 2));
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .tile-glow {
+    animation: none;
+    opacity: 0.2;
+  }
+  
+  .sentinel-tile::before {
+    animation: none;
+    opacity: 0.4;
+  }
+  
+  h1 {
+    animation: none;
+    background: var(--primary-color);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  
+  .tile:hover,
+  .tile:focus {
+    transform: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .tile {
+    border: 2px solid var(--primary-color);
+    background: var(--bg-darker);
+  }
+  
+  .tile:hover,
+  .tile:focus {
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Print styles */
+@media print {
+  .tile-glow,
+  .tile::before {
+    display: none;
+  }
+  
+  .tile {
+    border: 1px solid #000;
+    box-shadow: none;
+    background: white;
+    color: black;
+  }
+}
