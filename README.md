@@ -93,6 +93,45 @@ Visit the full [Gallery of Relics](./docs/gallery/index.md) to explore the compl
 
 *"Through quantum tempests, we forge eternity. In rolling thunder, we crown the dawn."*
 
+## 🏦 Vault Access - Support On-Chain
+
+The Relic Arsenal Vault accepts contributions through multiple blockchain networks. Support the vault directly with these cryptocurrencies:
+
+### 🪙 Supported Cryptocurrencies
+
+| Currency | Symbol | Address | Network |
+|----------|--------|---------|---------|
+| **Bitcoin** | BTC | `bc1q36344jakgqsxxus0mrfnvw2gnl4ml820k0y7uq` | Bitcoin Network |
+| **Ethereum** | ETH | `0x4497e02255490d0bdFAC5Cc597c7b5cA24393872` | Ethereum Mainnet |
+| **Ethereum Alias** | ETH | `trillionair99.cb.id` | Coinbase ENS |
+| **Solana** | SOL | `2FotTKtQsH2JorHgAJT8b3wXUXWtmQh77LtpKyAkfFDt` | Solana Network |
+| **Litecoin** | LTC | `ltc1qa6za3tlu8gpvc4zjyz4e4pkn30r996krctmrtm` | Litecoin Network |
+| **Dogecoin** | DOGE | `DBMH263oHaaLkn1ecDV74bHDWiqD7TUQoz` | Dogecoin Network |
+
+### 🔒 Security & Safety
+
+⚠️ **CRITICAL WARNING:** Always verify you're sending to the correct network:
+- **BTC** → Bitcoin Network only
+- **ETH** → Ethereum Mainnet only (ERC-20 compatible)
+- **SOL** → Solana Network only  
+- **LTC** → Litecoin Network only
+- **DOGE** → Dogecoin Network only
+
+**Sending funds on the wrong network will result in permanent loss!**
+
+### 📊 Track Assets on Coinbase
+
+Monitor these cryptocurrencies on Coinbase:
+- [Bitcoin (BTC)](https://www.coinbase.com/price/bitcoin)
+- [Ethereum (ETH)](https://www.coinbase.com/price/ethereum) 
+- [Solana (SOL)](https://www.coinbase.com/price/solana)
+- [Litecoin (LTC)](https://www.coinbase.com/price/litecoin)
+- [Dogecoin (DOGE)](https://www.coinbase.com/price/dogecoin)
+
+### 🔗 Vault Access Panel
+
+Visit the [Vault Access Panel](./docs/index.html) for QR codes and easy copy-to-clipboard functionality.
+
 ## 🌌 How to Contribute
 ```bash
 git clone git@github.com:Moneyman334/relic-arsenal.git
