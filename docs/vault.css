@@ -1,0 +1,408 @@
+/* ⛧⚡👑 ChaosKey333 Vault CSS - Neon Glow Aesthetic 👑⚡⛧ */
+
+/* Base Cosmic Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(ellipse at center, #0a0a1a 0%, #000000 70%);
+    color: #e0e0ff;
+    font-family: 'Courier New', monospace;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Animated Background Stars */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+        radial-gradient(2px 2px at 40% 70%, #00ffff, transparent),
+        radial-gradient(1px 1px at 90% 40%, #ff00ff, transparent),
+        radial-gradient(1px 1px at 50% 50%, #ffff00, transparent);
+    background-repeat: repeat;
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+    animation: sparkle 20s linear infinite;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+@keyframes sparkle {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100vh); }
+}
+
+.cosmic-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Vault Header */
+.vault-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.vault-header h1 {
+    font-size: 2.5rem;
+    color: #00ffff;
+    text-shadow: 
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 15px #00ffff,
+        0 0 20px #00ffff,
+        0 0 25px #00ffff;
+    margin-bottom: 1rem;
+    animation: titlePulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes titlePulse {
+    from { 
+        text-shadow: 
+            0 0 5px #00ffff,
+            0 0 10px #00ffff,
+            0 0 15px #00ffff,
+            0 0 20px #00ffff,
+            0 0 25px #00ffff;
+    }
+    to { 
+        text-shadow: 
+            0 0 10px #00ffff,
+            0 0 20px #00ffff,
+            0 0 30px #00ffff,
+            0 0 40px #00ffff,
+            0 0 50px #00ffff;
+    }
+}
+
+.vault-subtitle {
+    font-size: 1.2rem;
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+/* Vault Access Panel */
+.vault-access-panel {
+    margin-bottom: 3rem;
+}
+
+.panel-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #ffff00;
+    text-shadow: 
+        0 0 5px #ffff00,
+        0 0 10px #ffff00,
+        0 0 15px #ffff00;
+    margin-bottom: 2rem;
+}
+
+.vault-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+/* Vault Cards with Neon Glow Borders */
+.vault-card {
+    background: rgba(10, 10, 30, 0.8);
+    border: 2px solid #00ffff;
+    border-radius: 15px;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 320px;
+    position: relative;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    
+    /* Neon Glow Effect */
+    box-shadow: 
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 15px #00ffff,
+        inset 0 0 5px rgba(0, 255, 255, 0.1);
+    
+    /* Border Animation */
+    animation: borderPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes borderPulse {
+    0% {
+        border-color: #00ffff;
+        box-shadow: 
+            0 0 5px #00ffff,
+            0 0 10px #00ffff,
+            0 0 15px #00ffff,
+            inset 0 0 5px rgba(0, 255, 255, 0.1);
+    }
+    25% {
+        border-color: #ff00ff;
+        box-shadow: 
+            0 0 5px #ff00ff,
+            0 0 10px #ff00ff,
+            0 0 15px #ff00ff,
+            inset 0 0 5px rgba(255, 0, 255, 0.1);
+    }
+    50% {
+        border-color: #ffff00;
+        box-shadow: 
+            0 0 5px #ffff00,
+            0 0 10px #ffff00,
+            0 0 15px #ffff00,
+            inset 0 0 5px rgba(255, 255, 0, 0.1);
+    }
+    75% {
+        border-color: #00ff00;
+        box-shadow: 
+            0 0 5px #00ff00,
+            0 0 10px #00ff00,
+            0 0 15px #00ff00,
+            inset 0 0 5px rgba(0, 255, 0, 0.1);
+    }
+    100% {
+        border-color: #00ffff;
+        box-shadow: 
+            0 0 5px #00ffff,
+            0 0 10px #00ffff,
+            0 0 15px #00ffff,
+            inset 0 0 5px rgba(0, 255, 255, 0.1);
+    }
+}
+
+/* Hover Shimmer Effect */
+.vault-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        transparent 30%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 70%);
+    border-radius: 15px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    animation: shimmer 2s linear infinite;
+    animation-play-state: paused;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) skewX(-15deg); }
+    100% { transform: translateX(200%) skewX(-15deg); }
+}
+
+.vault-card:hover::before {
+    opacity: 1;
+    animation-play-state: running;
+}
+
+.vault-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 0 15px #00ffff,
+        0 0 25px #00ffff,
+        0 0 35px #00ffff,
+        inset 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+/* Card Headers */
+.card-header h3 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 8px currentColor;
+}
+
+/* QR Code Styling with Pulsing Animation */
+.qr-code {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.qr-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    background: #000;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    
+    /* Pulsing QR Code Effect */
+    animation: qrPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes qrPulse {
+    0% {
+        box-shadow: 
+            0 0 5px rgba(0, 255, 255, 0.5),
+            inset 0 0 5px rgba(0, 255, 255, 0.2);
+        transform: scale(1);
+    }
+    100% {
+        box-shadow: 
+            0 0 15px rgba(0, 255, 255, 0.8),
+            inset 0 0 10px rgba(0, 255, 255, 0.4);
+        transform: scale(1.05);
+    }
+}
+
+.qr-square {
+    width: 20px;
+    height: 20px;
+    background: #111;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.qr-square.active {
+    background: #00ffff;
+    box-shadow: 0 0 5px #00ffff;
+    animation: qrSquarePulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes qrSquarePulse {
+    0% { 
+        background: #00ffff;
+        box-shadow: 0 0 5px #00ffff;
+    }
+    100% { 
+        background: #ffffff;
+        box-shadow: 0 0 10px #00ffff;
+    }
+}
+
+/* Card Content */
+.card-content {
+    text-align: center;
+}
+
+.card-description {
+    color: #b0b0d0;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.access-link {
+    display: inline-block;
+    color: #00ffff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid #00ffff;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+.access-link:hover {
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 10px #00ffff;
+    transform: scale(1.05);
+}
+
+/* Vault Footer */
+.vault-footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.vault-footer p {
+    color: #8080c0;
+    font-style: italic;
+    text-shadow: 0 0 5px #8080c0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cosmic-container {
+        padding: 1rem;
+    }
+    
+    .vault-header h1 {
+        font-size: 2rem;
+    }
+    
+    .panel-title {
+        font-size: 1.5rem;
+    }
+    
+    .vault-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .vault-card {
+        max-width: 100%;
+    }
+}
+
+/* Special Effects for Different Card Types */
+.vault-card:nth-child(1) {
+    --primary-color: #ff00ff;
+}
+
+.vault-card:nth-child(2) {
+    --primary-color: #ffff00;
+}
+
+.vault-card:nth-child(3) {
+    --primary-color: #00ff00;
+}
+
+.vault-card:nth-child(4) {
+    --primary-color: #ff6600;
+}
+
+/* Dynamic Card Glow Based on Type */
+.vault-card:nth-child(1):hover {
+    box-shadow: 
+        0 0 15px #ff00ff,
+        0 0 25px #ff00ff,
+        0 0 35px #ff00ff,
+        inset 0 0 10px rgba(255, 0, 255, 0.2);
+}
+
+.vault-card:nth-child(2):hover {
+    box-shadow: 
+        0 0 15px #ffff00,
+        0 0 25px #ffff00,
+        0 0 35px #ffff00,
+        inset 0 0 10px rgba(255, 255, 0, 0.2);
+}
+
+.vault-card:nth-child(3):hover {
+    box-shadow: 
+        0 0 15px #00ff00,
+        0 0 25px #00ff00,
+        0 0 35px #00ff00,
+        inset 0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+.vault-card:nth-child(4):hover {
+    box-shadow: 
+        0 0 15px #ff6600,
+        0 0 25px #ff6600,
+        0 0 35px #ff6600,
+        inset 0 0 10px rgba(255, 102, 0, 0.2);
+}
