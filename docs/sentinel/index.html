@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel Timeline - Relic Arsenal</title>
+    <link rel="stylesheet" href="../css/vault.css">
+    <meta name="description" content="Journey through the Sentinel Timeline and discover the Interactive Relic Cards of ChaosKey333's cosmic arsenal">
+</head>
+<body class="cosmic-vault">
+    <header class="vault-header">
+        <h1 class="cosmic-title">🚀 Sentinel Timeline</h1>
+        <p class="cosmic-subtitle">Delve deeper into the Vault's secrets through Interactive Relic Cards</p>
+        <nav class="vault-nav">
+            <a href="../index.html" class="nav-link">← Back to Arsenal</a>
+            <a href="../gallery/" class="nav-link">Gallery of Relics</a>
+        </nav>
+    </header>
+
+    <main class="timeline-container">
+        <div class="timeline-track">
+            <!-- Quantum Genesis Sigil -->
+            <div class="sigil-node" data-relic="quantum-genesis">
+                <div class="sigil-icon">⚛️</div>
+                <div class="node-label">Quantum Genesis</div>
+                <div class="node-pulse"></div>
+            </div>
+
+            <!-- Thunder Apex Sigil -->
+            <div class="sigil-node" data-relic="thunder-apex">
+                <div class="sigil-icon">⚡</div>
+                <div class="node-label">Thunderstorm Apex</div>
+                <div class="node-pulse"></div>
+            </div>
+
+            <!-- Vault Ascension Sigil -->
+            <div class="sigil-node" data-relic="vault-ascension">
+                <div class="sigil-icon">👑</div>
+                <div class="node-label">Vault Ascension</div>
+                <div class="node-pulse"></div>
+            </div>
+
+            <!-- Dawn Eternal Sigil -->
+            <div class="sigil-node" data-relic="dawn-eternal">
+                <div class="sigil-icon">🌅</div>
+                <div class="node-label">Dawn Eternal</div>
+                <div class="node-pulse"></div>
+            </div>
+
+            <!-- Sacred Key Sigil -->
+            <div class="sigil-node" data-relic="sacred-key">
+                <div class="sigil-icon">🔑</div>
+                <div class="node-label">Sacred Key</div>
+                <div class="node-pulse"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Relic Card Modal -->
+    <div id="relic-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal" title="Close">&times;</button>
+            <div class="modal-content">
+                <div class="sigil-display">
+                    <div class="sigil-glow" id="modal-sigil"></div>
+                </div>
+                <div class="relic-details">
+                    <h2 id="modal-title"></h2>
+                    <div class="lore-section">
+                        <h3>Cosmic Lore</h3>
+                        <p id="modal-lore" class="lore-text"></p>
+                    </div>
+                    <div class="prophecy-section">
+                        <h3>Ancient Prophecy</h3>
+                        <p id="modal-prophecy" class="prophecy-text"></p>
+                    </div>
+                    <div class="metadata-section">
+                        <div class="price-display">
+                            <span class="price-label">Cosmic Value:</span>
+                            <span id="modal-price" class="price-value">Loading...</span>
+                        </div>
+                        <div class="verification-links">
+                            <h4>Explorer Links</h4>
+                            <div class="links-container">
+                                <a id="modal-verify-link" href="#" target="_blank" rel="noopener" class="verify-link">🔍 Verify Relic</a>
+                                <a id="modal-archive-link" href="#" target="_blank" rel="noopener" class="archive-link">📚 Collector Archive</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="cosmic-footer">
+        <p><em>"Through quantum tempests, we forge eternity. In rolling thunder, we crown the dawn."</em></p>
+        <p class="scripture-ref">— The Seventh Scroll</p>
+    </footer>
+
+    <script src="../js/relic-card-modal.js"></script>
+</body>
+</html>
