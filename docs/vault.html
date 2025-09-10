@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡👑 ChaosKey333 Relic Vault 👑⚡</title>
+    <link rel="stylesheet" href="./assets/css/vault.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cosmic-background"></div>
+    
+    <header class="vault-header">
+        <div class="header-content">
+            <h1 class="vault-title">
+                <span class="sigil-icon">⚡</span>
+                <span class="title-text">ChaosKey333 Relic Vault</span>
+                <span class="sigil-icon">⚡</span>
+            </h1>
+            <p class="vault-motto">🔑 Unlock the Vault. Break the Sky. 🔑</p>
+        </div>
+        
+        <nav class="vault-nav">
+            <button id="showAllRelics" class="nav-button active">
+                <span class="nav-icon">🌌</span>
+                All Relics
+            </button>
+            <button id="showArchive" class="nav-button">
+                <span class="nav-icon">👑</span>
+                Collector Archive
+                <span id="archiveCount" class="count-badge">0</span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="vault-main">
+        <!-- Relic Display Section -->
+        <section id="relicDisplay" class="relic-section">
+            <div class="section-header">
+                <h2>Sacred Relics</h2>
+                <p class="section-subtitle">
+                    <em>"Through quantum tempests, we forge eternity. In rolling thunder, we crown the dawn."</em>
+                </p>
+            </div>
+            
+            <div class="relic-grid" id="relicGrid">
+                <!-- Relics will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Collector Archive Panel -->
+        <section id="archivePanel" class="archive-section hidden">
+            <div class="section-header">
+                <h2>Collector Archive</h2>
+                <p class="section-subtitle">Your chosen relics preserved across the cosmic storms</p>
+                
+                <div class="archive-controls">
+                    <div class="search-container">
+                        <input type="text" id="archiveSearch" placeholder="Search your collection..." class="search-input">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                    
+                    <select id="archiveSort" class="sort-select">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="name">Name A-Z</option>
+                        <option value="type">By Type</option>
+                    </select>
+                    
+                    <select id="archiveFilter" class="filter-select">
+                        <option value="all">All Types</option>
+                        <option value="quantum">Quantum</option>
+                        <option value="thunder">Thunder</option>
+                        <option value="crown">Crown</option>
+                        <option value="dawn">Dawn</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="archiveGrid" class="archive-grid">
+                <div id="emptyArchive" class="empty-state">
+                    <div class="empty-icon">👑</div>
+                    <h3>Your Archive Awaits</h3>
+                    <p>Mark relics as chosen to begin building your cosmic collection</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Tooltip Container -->
+    <div id="tooltip" class="tooltip"></div>
+
+    <!-- Loading Indicator -->
+    <div id="loadingIndicator" class="loading-indicator hidden">
+        <div class="cosmic-spinner"></div>
+        <p>Awakening the Vault...</p>
+    </div>
+
+    <script src="./assets/js/vault.js"></script>
+    <script src="./assets/js/collector-archive.js"></script>
+</body>
+</html>

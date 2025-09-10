@@ -1,12 +1,106 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Relic Arsenal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡👑 ChaosKey333 Relic Arsenal 👑⚡</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0a0a0a, #1a0033, #0a0a0a);
+            color: #ffffff;
+            margin: 0;
+            padding: 2rem;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .title {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #4a00ff, #00d4ff, #ff00aa);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(74, 0, 255, 0.5);
+        }
+        .subtitle {
+            color: #ffb800;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .link {
+            display: block;
+            background: linear-gradient(135deg, rgba(74, 0, 255, 0.2), rgba(0, 212, 255, 0.2));
+            border: 2px solid #4a00ff;
+            color: #ffffff;
+            padding: 1.2rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .link:hover {
+            background: linear-gradient(135deg, #4a00ff, #00d4ff);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(74, 0, 255, 0.3);
+        }
+        .vault-link {
+            background: linear-gradient(135deg, rgba(255, 184, 0, 0.2), rgba(255, 102, 0, 0.2));
+            border-color: #ffb800;
+            font-size: 1.3rem;
+            padding: 1.5rem 2rem;
+        }
+        .vault-link:hover {
+            background: linear-gradient(135deg, #ffb800, #ff6600);
+            box-shadow: 0 8px 30px rgba(255, 184, 0, 0.4);
+        }
+        .motto {
+            font-style: italic;
+            margin-top: 3rem;
+            color: #00d4ff;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .title { font-size: 1.8rem; }
+            .subtitle { font-size: 1rem; }
+            .links { max-width: 90%; }
+            .link { padding: 1rem 1.5rem; font-size: 1rem; }
+            .vault-link { padding: 1.2rem 1.5rem; font-size: 1.1rem; }
+        }
+    </style>
 </head>
 <body>
-    <h1>Gallery/Links</h1>
-    <ul>
-        <li><a href="./sentinel/">🚀 Sentinel Launcher</a></li>
-        <!-- Add other links here -->
-    </ul>
+    <h1 class="title">ChaosKey333 Relic Arsenal</h1>
+    <p class="subtitle">🔑 Unlock the Vault. Break the Sky. 🔑</p>
+    
+    <div class="links">
+        <a href="./vault.html" class="link vault-link">
+            ⚡👑 Enter the Vault 👑⚡
+        </a>
+        <a href="./sentinel/" class="link">
+            🚀 Sentinel Launcher
+        </a>
+        <a href="./gallery/" class="link">
+            🖼️ Gallery of Relics
+        </a>
+        <a href="../README.md" class="link">
+            📜 Sacred Scrolls
+        </a>
+    </div>
+    
+    <p class="motto">
+        <em>"Through quantum tempests, we forge eternity. In rolling thunder, we crown the dawn."</em>
+    </p>
 </body>
 </html>
