@@ -1,12 +1,438 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Relic Arsenal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⛧⚡👑 ChaosKey333 Vault Access Portal 👑⚡⛧</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0f;
+            color: #e0e0ff;
+            font-family: 'Courier New', monospace;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .cosmic-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, #1a0033 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, #001a33 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, #330066 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .header {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: linear-gradient(135deg, #2a0845, #1a1a3e);
+            border-bottom: 2px solid #7c3aed;
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+        }
+
+        .title {
+            font-size: 2.5rem;
+            text-shadow: 0 0 20px #7c3aed, 0 0 40px #a855f7;
+            margin-bottom: 0.5rem;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #c4b5fd;
+            text-shadow: 0 0 10px #8b5cf6;
+        }
+
+        @keyframes titleGlow {
+            from { text-shadow: 0 0 20px #7c3aed, 0 0 40px #a855f7; }
+            to { text-shadow: 0 0 30px #7c3aed, 0 0 60px #a855f7, 0 0 80px #c084fc; }
+        }
+
+        .vault-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .vault-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .vault-card {
+            background: linear-gradient(135deg, #1e1b4b, #312e81);
+            border: 2px solid #4c1d95;
+            border-radius: 15px;
+            padding: 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .vault-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(124, 58, 237, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .vault-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .vault-card:hover {
+            border-color: #7c3aed;
+            box-shadow: 0 8px 32px rgba(124, 58, 237, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .crypto-symbol {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 15px currentColor;
+        }
+
+        .crypto-name {
+            font-size: 1.5rem;
+            text-align: center;
+            color: #e0e7ff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #6366f1;
+        }
+
+        .price-chip {
+            background: linear-gradient(135deg, #4c1d95, #6d28d9);
+            border: 1px solid #7c3aed;
+            border-radius: 25px;
+            padding: 0.75rem 1.5rem;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 1rem auto;
+            width: fit-content;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .price-chip.loading {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .price-chip.error {
+            background: linear-gradient(135deg, #7f1d1d, #991b1b);
+            border-color: #dc2626;
+        }
+
+        .price-chip.success {
+            background: linear-gradient(135deg, #14532d, #166534);
+            border-color: #16a34a;
+            animation: priceGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes priceGlow {
+            0%, 100% { 
+                box-shadow: 0 0 15px rgba(124, 58, 237, 0.5); 
+            }
+            50% { 
+                box-shadow: 0 0 25px rgba(124, 58, 237, 0.8), 0 0 35px rgba(124, 58, 237, 0.4); 
+            }
+        }
+
+        .update-status {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #a5b4fc;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            background: #10b981;
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+
+        .status-indicator.error {
+            background: #ef4444;
+        }
+
+        .status-indicator.loading {
+            background: #f59e0b;
+        }
+
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .legacy-links {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1e1b4b, #312e81);
+            border-radius: 15px;
+            border: 1px solid #4c1d95;
+        }
+
+        .legacy-links h2 {
+            color: #c4b5fd;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #8b5cf6;
+        }
+
+        .legacy-links a {
+            color: #a855f7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .legacy-links a:hover {
+            color: #c084fc;
+            text-shadow: 0 0 10px #c084fc;
+        }
+    </style>
 </head>
 <body>
-    <h1>Gallery/Links</h1>
-    <ul>
-        <li><a href="./sentinel/">🚀 Sentinel Launcher</a></li>
-        <!-- Add other links here -->
-    </ul>
+    <div class="cosmic-background"></div>
+    
+    <header class="header">
+        <h1 class="title">⛧⚡👑 ChaosKey333 Vault Access Portal 👑⚡⛧</h1>
+        <p class="subtitle">🔑 Unlock the Vault • Break the Sky • Crown the Dawn 🔑</p>
+    </header>
+
+    <main class="vault-container">
+        <div class="vault-grid">
+            <div class="vault-card" data-crypto="ethereum">
+                <div class="crypto-symbol">⚛️</div>
+                <h2 class="crypto-name">Ethereum (ETH)</h2>
+                <div class="price-chip loading" id="eth-price">Summoning Price...</div>
+            </div>
+
+            <div class="vault-card" data-crypto="bitcoin">
+                <div class="crypto-symbol">⚡</div>
+                <h2 class="crypto-name">Bitcoin (BTC)</h2>
+                <div class="price-chip loading" id="btc-price">Summoning Price...</div>
+            </div>
+
+            <div class="vault-card" data-crypto="litecoin">
+                <div class="crypto-symbol">👑</div>
+                <h2 class="crypto-name">Litecoin (LTC)</h2>
+                <div class="price-chip loading" id="ltc-price">Summoning Price...</div>
+            </div>
+
+            <div class="vault-card" data-crypto="solana">
+                <div class="crypto-symbol">🌅</div>
+                <h2 class="crypto-name">Solana (SOL)</h2>
+                <div class="price-chip loading" id="sol-price">Summoning Price...</div>
+            </div>
+        </div>
+
+        <div class="update-status">
+            <span class="status-indicator loading" id="status-indicator"></span>
+            <span id="status-text">Initializing cosmic price feed...</span>
+        </div>
+
+        <div class="legacy-links">
+            <h2>🌌 Navigation Portals</h2>
+            <ul>
+                <li><a href="./sentinel/">🚀 Sentinel Launcher</a></li>
+                <li><a href="./gallery/">🖼️ Gallery of Relics</a></li>
+                <li><a href="../README.md">📜 Sacred Scrolls</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <script>
+        // Cryptocurrency price fetcher using CoinGecko API
+        class VaultPriceFeed {
+            constructor() {
+                this.apiBaseUrl = 'https://api.coingecko.com/api/v3';
+                this.cryptoIds = {
+                    'ethereum': 'eth',
+                    'bitcoin': 'btc', 
+                    'litecoin': 'ltc',
+                    'solana': 'sol'
+                };
+                this.updateInterval = 60000; // 60 seconds
+                this.retryDelay = 5000; // 5 seconds for retries
+                this.fallbackAttempts = 0;
+                this.maxFallbackAttempts = 3;
+                this.init();
+            }
+
+            init() {
+                this.updatePrices();
+                this.startPeriodicUpdates();
+            }
+
+            // Mock data for demonstration when API is blocked
+            getMockPrices() {
+                return {
+                    ethereum: { usd: 2456.78, usd_24h_change: 3.21 },
+                    bitcoin: { usd: 67890.12, usd_24h_change: -1.45 },
+                    litecoin: { usd: 89.34, usd_24h_change: 2.67 },
+                    solana: { usd: 145.92, usd_24h_change: 5.43 }
+                };
+            }
+
+            async fetchPrices() {
+                const ids = Object.keys(this.cryptoIds).join(',');
+                // Use a CORS proxy to bypass browser restrictions
+                const url = `https://api.allorigins.win/get?url=${encodeURIComponent(
+                    `${this.apiBaseUrl}/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`
+                )}`;
+                
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.json();
+                    return JSON.parse(data.contents);
+                } catch (error) {
+                    console.error('Failed to fetch prices:', error);
+                    throw error;
+                }
+            }
+
+            async updatePrices() {
+                this.updateStatus('Channeling cosmic price data...', 'loading');
+                
+                try {
+                    const prices = await this.fetchPrices();
+                    this.fallbackAttempts = 0; // Reset fallback counter on success
+                    
+                    Object.entries(this.cryptoIds).forEach(([cryptoId, symbol]) => {
+                        const priceData = prices[cryptoId];
+                        if (priceData) {
+                            this.updatePriceChip(symbol, priceData.usd, priceData.usd_24h_change);
+                        }
+                    });
+                    
+                    this.updateStatus('Vault synchronized with cosmic prices', 'success');
+                } catch (error) {
+                    console.error('Price update failed:', error);
+                    this.fallbackAttempts++;
+                    
+                    if (this.fallbackAttempts <= this.maxFallbackAttempts) {
+                        this.handleError();
+                    } else {
+                        // Use mock data after max attempts for demonstration
+                        console.log('Using demonstration data due to API restrictions');
+                        this.useMockData();
+                    }
+                }
+            }
+
+            useMockData() {
+                const mockPrices = this.getMockPrices();
+                
+                Object.entries(this.cryptoIds).forEach(([cryptoId, symbol]) => {
+                    const priceData = mockPrices[cryptoId];
+                    if (priceData) {
+                        this.updatePriceChip(symbol, priceData.usd, priceData.usd_24h_change);
+                    }
+                });
+                
+                this.updateStatus('Demo mode: Displaying sample cosmic prices', 'success');
+            }
+
+            updatePriceChip(symbol, price, change24h) {
+                const chipElement = document.getElementById(`${symbol}-price`);
+                if (chipElement) {
+                    const formattedPrice = this.formatPrice(price);
+                    const changeIndicator = change24h >= 0 ? '📈' : '📉';
+                    const changeFormatted = Math.abs(change24h).toFixed(2);
+                    
+                    chipElement.textContent = `${formattedPrice} ${changeIndicator} ${changeFormatted}%`;
+                    chipElement.className = 'price-chip success';
+                }
+            }
+
+            formatPrice(price) {
+                return new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: price < 1 ? 4 : 2
+                }).format(price);
+            }
+
+            handleError() {
+                Object.values(this.cryptoIds).forEach(symbol => {
+                    const chipElement = document.getElementById(`${symbol}-price`);
+                    if (chipElement) {
+                        chipElement.textContent = '— Price Unavailable —';
+                        chipElement.className = 'price-chip error';
+                    }
+                });
+                
+                this.updateStatus('Cosmic interference detected - retrying...', 'error');
+                
+                // Retry after delay
+                setTimeout(() => {
+                    this.updatePrices();
+                }, this.retryDelay);
+            }
+
+            updateStatus(message, type) {
+                const statusText = document.getElementById('status-text');
+                const statusIndicator = document.getElementById('status-indicator');
+                
+                if (statusText) statusText.textContent = message;
+                if (statusIndicator) {
+                    statusIndicator.className = `status-indicator ${type}`;
+                }
+            }
+
+            startPeriodicUpdates() {
+                setInterval(() => {
+                    this.updatePrices();
+                }, this.updateInterval);
+            }
+        }
+
+        // Initialize the vault price feed when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new VaultPriceFeed();
+        });
+
+        // Add some cosmic flair with interactive effects
+        document.querySelectorAll('.vault-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 12px 40px rgba(124, 58, 237, 0.6)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '0 8px 32px rgba(124, 58, 237, 0.4)';
+            });
+        });
+    </script>
 </body>
 </html>
