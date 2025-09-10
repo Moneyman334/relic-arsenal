@@ -1,12 +1,114 @@
 <html>
 <head>
     <title>Relic Arsenal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #e94560;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .prophecy-container {
+            background: rgba(233, 69, 96, 0.1);
+            border: 2px solid #e94560;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .prophecy-whisper {
+            font-style: italic;
+            font-size: 1.1em;
+            line-height: 1.6;
+            min-height: 2em;
+            transition: opacity 0.3s ease;
+        }
+        .prophecy-container:hover {
+            background: rgba(233, 69, 96, 0.2);
+            box-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+        }
+        .sigil-buttons {
+            margin: 15px 0;
+        }
+        .sigil-button {
+            background: rgba(233, 69, 96, 0.2);
+            border: 1px solid #e94560;
+            color: #e94560;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+        .sigil-button:hover {
+            background: rgba(233, 69, 96, 0.4);
+        }
+        h1 {
+            text-align: center;
+            color: #e94560;
+            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            color: #e94560;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        a:hover {
+            text-shadow: 0 0 5px rgba(233, 69, 96, 0.8);
+        }
+    </style>
 </head>
 <body>
-    <h1>Gallery/Links</h1>
+    <h1>⛧⚡👑 Relic Arsenal 👑⚡⛧</h1>
+    
+    <div class="prophecy-container">
+        <div class="prophecy-whisper" id="prophecy-whisper">
+            Loading ancient whispers...
+        </div>
+        <div class="sigil-buttons">
+            <button class="sigil-button" onclick="showSigilWhisper('genesis')">Genesis</button>
+            <button class="sigil-button" onclick="showSigilWhisper('thunder')">Thunder</button>
+            <button class="sigil-button" onclick="showSigilWhisper('vault')">Vault</button>
+            <button class="sigil-button" onclick="showSigilWhisper('sentinel')">Sentinel</button>
+            <button class="sigil-button" onclick="showSigilWhisper()">Random</button>
+        </div>
+    </div>
+
+    <h2>Gallery/Links</h2>
     <ul>
         <li><a href="./sentinel/">🚀 Sentinel Launcher</a></li>
         <!-- Add other links here -->
     </ul>
+
+    <script src="./js/prophecy-loader.js"></script>
+    <script>
+        let prophecyEngine;
+        
+        // Initialize prophecy engine
+        document.addEventListener('DOMContentLoaded', async () => {
+            prophecyEngine = new ProphecyEngine();
+            await prophecyEngine.initialize('#prophecy-whisper');
+        });
+        
+        // Function to show whisper for specific sigil
+        async function showSigilWhisper(sigil = null) {
+            if (prophecyEngine) {
+                await prophecyEngine.showWhisper(sigil);
+            }
+        }
+    </script>
 </body>
 </html>
