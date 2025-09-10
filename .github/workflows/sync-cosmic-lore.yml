@@ -1,0 +1,162 @@
+name: Sync Cosmic Lore
+
+on:
+  push:
+    paths:
+      - 'RELEASE_NOTES.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-lore:
+    runs-on: ubuntu-latest
+    name: Sync lore.json from RELEASE_NOTES.md
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Sync Lore Data
+      run: |
+        # Create a Node.js script to sync lore data
+        cat << 'EOF' > sync-lore.js
+        const fs = require('fs');
+        const path = require('path');
+        
+        function parseReleaseNotes(content) {
+          const parsed = {};
+          
+          // Extract version and features from RELEASE_NOTES.md
+          const versionMatch = content.match(/🌌 (v[\d.]+) — (.+)/);
+          if (versionMatch) {
+            const version = versionMatch[1];
+            const title = versionMatch[2];
+            
+            parsed.gallery_scrolls = {
+              title: title,
+              description: "Auto-indexed Gallery of Relics reveals the sacred collection while scroll injection rituals bind the ancient wisdom.",
+              glyph: "📜🎯🔮 ŠĊṚØŁŁ ṚÏT̈ÜÆŁŠ ÆŠĊËṄḊ 📜🎯🔮"
+            };
+          }
+
+          // Add other default entries for relics mentioned in the repo
+          parsed.vault_door_thunder = {
+            title: "Vault Door Thunder",
+            description: "In the depths of the ancient vault, echoes of thunder reverberate through the stone corridors, marking the beginning of our journey into the mystical arsenal.",
+            glyph: "⚡🚪🏛️ ṼÆÜLT̈ ḊØØṚ T̈ĦÜṄḊËṚ ⚡🚪🏛️"
+          };
+
+          parsed.quantum_dawn = {
+            title: "Rolling Thunderstorm VII: Quantum Dawn",
+            description: "In the cosmic expanse where quantum realms dance with thunderous might, the Seventh Rolling Thunderstorm awakens. This transcendent moment marks the convergence of prophecy and reality.",
+            glyph: "⚛️🌅⚡ QÜÆṄT̈ÜṀ ḊÆẄṄ ÆẄÆḲËṄŠ ⚛️🌅⚡"
+          };
+
+          parsed.sigil_of_thunder = {
+            title: "Sigil of Thunder",
+            description: "Sacred emblems representing the power of rolling thunderstorms across dimensions. These mystical sigils embody the essence of ChaosKey333's thunderous power.",
+            glyph: "⛈️⚡👑 ŠÏĢÏŁ ØḞ T̈ĦÜṄḊËṚ ĊṚØẄṄŠ ⛈️⚡👑"
+          };
+
+          parsed.chaos_key_playbook = {
+            title: "ChaosKey333 Launch Timing Playbook",
+            description: "The sacred scrolls containing launch timing strategies and cosmic scripture. Through quantum tempests, we forge eternity.",
+            glyph: "🔑⚡📋 ĊĦÆØŠ ḲËỲ PŁÆỲḂØØḲ 🔑⚡📋"
+          };
+
+          parsed.cosmic_scripture = {
+            title: "The Cosmic Scripture",
+            description: "Sacred lore of the Quantum Dawn containing the Seven Storm Prophecy, the Guardians' Creed, and the mysteries of the Vault Eternal.",
+            glyph: "📖✨🌌 ĊØŠṀÏĊ ŠĊṚÏÞT̈ÜṚË ËT̈ËṚṄÆŁ 📖✨🌌"
+          };
+
+          return parsed;
+        }
+
+        // Read RELEASE_NOTES.md
+        const releaseNotesPath = 'RELEASE_NOTES.md';
+        const loreJsonPath = 'lore.json';
+
+        if (fs.existsSync(releaseNotesPath)) {
+          const releaseContent = fs.readFileSync(releaseNotesPath, 'utf8');
+          const loreData = parseReleaseNotes(releaseContent);
+          
+          // Write the updated lore.json
+          fs.writeFileSync(loreJsonPath, JSON.stringify(loreData, null, 2));
+          console.log('✅ Lore data synced from RELEASE_NOTES.md to lore.json');
+          
+          // Check if there were changes
+          process.exit(0);
+        } else {
+          console.log('❌ RELEASE_NOTES.md not found');
+          process.exit(1);
+        }
+        EOF
+        
+        # Run the sync script
+        node sync-lore.js
+    
+    - name: Check for changes
+      id: changes
+      run: |
+        if git diff --quiet lore.json; then
+          echo "has_changes=false" >> $GITHUB_OUTPUT
+          echo "No changes detected in lore.json"
+        else
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+          echo "Changes detected in lore.json"
+        fi
+    
+    - name: Commit and push changes
+      if: steps.changes.outputs.has_changes == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "Cosmic Lore Sync"
+        git add lore.json
+        git commit -m "✨ Sync cosmic lore from RELEASE_NOTES.md
+        
+        Auto-generated update to lore.json based on changes in RELEASE_NOTES.md.
+        
+        ⚡ The mystical energies flow through the automated synchronization ritual."
+        git push
+    
+    - name: Create PR comment (if triggered by push)
+      if: steps.changes.outputs.has_changes == 'true' && github.event_name == 'push'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          // Find the most recent PR that could have triggered this
+          const { data: prs } = await github.rest.pulls.list({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            state: 'open',
+            sort: 'updated',
+            direction: 'desc'
+          });
+          
+          if (prs.length > 0) {
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prs[0].number,
+              body: `⚡ **Cosmic Lore Synchronized** ⚡
+              
+              The mystical energies have automatically updated \`lore.json\` based on changes in \`RELEASE_NOTES.md\`.
+              
+              🌌 The Cosmic Lore Overlay will now reflect the latest mythic secrets from the release notes.`
+            });
+          }

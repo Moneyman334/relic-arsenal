@@ -1,12 +1,89 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Relic Arsenal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐦‍⬛ ChaosKey333 Relic Arsenal - The Vault</title>
+    <meta name="description" content="Sacred vault containing the mystical relics of ChaosKey333. Explore the Cosmic Lore Overlay and discover the secrets within.">
+    <link rel="stylesheet" href="./cosmic-lore.css">
 </head>
 <body>
-    <h1>Gallery/Links</h1>
-    <ul>
-        <li><a href="./sentinel/">🚀 Sentinel Launcher</a></li>
-        <!-- Add other links here -->
-    </ul>
+    <header class="vault-header">
+        <h1 class="vault-title">🐦‍⬛ The Cosmic Vault 🐦‍⬛</h1>
+        <p class="vault-subtitle">⚡ "Unlock the Vault. Break the Sky." ⚡</p>
+    </header>
+
+    <main class="vault-chamber">
+        <section class="sigil-grid" role="region" aria-label="Relic Sigils">
+            <div class="sigil-container" data-relic="vault_door_thunder">
+                <div class="sigil" tabindex="0" role="button" aria-label="Vault Door Thunder Relic">
+                    <div class="sigil-symbol">⚡🚪</div>
+                </div>
+                <span class="sigil-label">Vault Door Thunder</span>
+            </div>
+
+            <div class="sigil-container" data-relic="quantum_dawn">
+                <div class="sigil" tabindex="0" role="button" aria-label="Quantum Dawn Relic">
+                    <div class="sigil-symbol">⚛️🌅</div>
+                </div>
+                <span class="sigil-label">Quantum Dawn</span>
+            </div>
+
+            <div class="sigil-container" data-relic="gallery_scrolls">
+                <div class="sigil" tabindex="0" role="button" aria-label="Gallery & Scrolls Relic">
+                    <div class="sigil-symbol">📜🎯</div>
+                </div>
+                <span class="sigil-label">Gallery & Scrolls</span>
+            </div>
+
+            <div class="sigil-container" data-relic="sigil_of_thunder">
+                <div class="sigil" tabindex="0" role="button" aria-label="Sigil of Thunder Relic">
+                    <div class="sigil-symbol">⛈️👑</div>
+                </div>
+                <span class="sigil-label">Sigil of Thunder</span>
+            </div>
+
+            <div class="sigil-container" data-relic="chaos_key_playbook">
+                <div class="sigil" tabindex="0" role="button" aria-label="ChaosKey333 Playbook Relic">
+                    <div class="sigil-symbol">🔑📋</div>
+                </div>
+                <span class="sigil-label">ChaosKey333 Playbook</span>
+            </div>
+
+            <div class="sigil-container" data-relic="cosmic_scripture">
+                <div class="sigil" tabindex="0" role="button" aria-label="Cosmic Scripture Relic">
+                    <div class="sigil-symbol">📖🌌</div>
+                </div>
+                <span class="sigil-label">Cosmic Scripture</span>
+            </div>
+        </section>
+
+        <section class="legacy-links" role="region" aria-label="Legacy Gallery Links">
+            <h2>Legacy Gallery</h2>
+            <ul>
+                <li><a href="./sentinel/">🚀 Sentinel Launcher</a></li>
+                <!-- Add other links here -->
+            </ul>
+        </section>
+    </main>
+
+    <!-- Lore Overlay Tooltip -->
+    <div id="lore-overlay" class="lore-tooltip" role="tooltip" aria-hidden="true">
+        <div class="tooltip-arrow"></div>
+        <div class="tooltip-content">
+            <h3 class="lore-title"></h3>
+            <p class="lore-description"></p>
+            <div class="glyph-container">
+                <div class="glyph-encoded"></div>
+                <div class="glyph-decoded"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="vault-footer">
+        <p class="creed">⛧⚡👑 "Through quantum tempests, we forge eternity. In rolling thunder, we crown the dawn." 👑⚡⛧</p>
+    </footer>
+
+    <script src="./cosmic-lore.js"></script>
 </body>
 </html>
