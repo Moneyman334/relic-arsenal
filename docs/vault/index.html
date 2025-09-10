@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relic Arsenal - Vault</title>
+    <link rel="stylesheet" href="../css/vault.css">
+</head>
+<body>
+    <div class="vault-container">
+        <header class="vault-header">
+            <h1 class="neon-title">⚡ RELIC ARSENAL VAULT ⚡</h1>
+            <p class="subtitle">Live Crypto Asset Prices</p>
+        </header>
+
+        <main class="vault-main">
+            <div class="price-grid">
+                <div class="price-chip" data-coin="bitcoin">
+                    <div class="coin-info">
+                        <span class="coin-symbol">BTC</span>
+                        <span class="coin-name">Bitcoin</span>
+                    </div>
+                    <div class="price-info">
+                        <span class="price-value">Loading...</span>
+                        <span class="trend-arrow"></span>
+                    </div>
+                    <div class="change-info">
+                        <span class="price-change">--</span>
+                    </div>
+                </div>
+
+                <div class="price-chip" data-coin="ethereum">
+                    <div class="coin-info">
+                        <span class="coin-symbol">ETH</span>
+                        <span class="coin-name">Ethereum</span>
+                    </div>
+                    <div class="price-info">
+                        <span class="price-value">Loading...</span>
+                        <span class="trend-arrow"></span>
+                    </div>
+                    <div class="change-info">
+                        <span class="price-change">--</span>
+                    </div>
+                </div>
+
+                <div class="price-chip" data-coin="cardano">
+                    <div class="coin-info">
+                        <span class="coin-symbol">ADA</span>
+                        <span class="coin-name">Cardano</span>
+                    </div>
+                    <div class="price-info">
+                        <span class="price-value">Loading...</span>
+                        <span class="trend-arrow"></span>
+                    </div>
+                    <div class="change-info">
+                        <span class="price-change">--</span>
+                    </div>
+                </div>
+
+                <div class="price-chip" data-coin="solana">
+                    <div class="coin-info">
+                        <span class="coin-symbol">SOL</span>
+                        <span class="coin-name">Solana</span>
+                    </div>
+                    <div class="price-info">
+                        <span class="price-value">Loading...</span>
+                        <span class="trend-arrow"></span>
+                    </div>
+                    <div class="change-info">
+                        <span class="price-change">--</span>
+                    </div>
+                </div>
+
+                <div class="price-chip" data-coin="chainlink">
+                    <div class="coin-info">
+                        <span class="coin-symbol">LINK</span>
+                        <span class="coin-name">Chainlink</span>
+                    </div>
+                    <div class="price-info">
+                        <span class="price-value">Loading...</span>
+                        <span class="trend-arrow"></span>
+                    </div>
+                    <div class="change-info">
+                        <span class="price-change">--</span>
+                    </div>
+                </div>
+
+                <div class="price-chip" data-coin="polygon">
+                    <div class="coin-info">
+                        <span class="coin-symbol">MATIC</span>
+                        <span class="coin-name">Polygon</span>
+                    </div>
+                    <div class="price-info">
+                        <span class="price-value">Loading...</span>
+                        <span class="trend-arrow"></span>
+                    </div>
+                    <div class="change-info">
+                        <span class="price-change">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="status-bar">
+                <div class="update-info">
+                    <span class="last-update">Last update: --</span>
+                    <span class="next-update">Next update in: <span id="countdown">60</span>s</span>
+                </div>
+                <div class="connection-status">
+                    <span class="status-indicator online" id="status-indicator">●</span>
+                    <span class="status-text" id="status-text">Online</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/price-chips.js"></script>
+</body>
+</html>
