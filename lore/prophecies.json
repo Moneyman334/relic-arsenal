@@ -1,0 +1,43 @@
+{
+  "global": [
+    "The vault whispers of ancient wisdom...",
+    "Through cosmic storms, power awakens...",
+    "Reality bends to the will of the chosen...",
+    "In darkness, the relics shine eternal...",
+    "The chaos key unlocks infinite possibilities..."
+  ],
+  "sigils": {
+    "genesis": [
+      "Quantum particles dance in endless spirals of creation...",
+      "From the void, new realities take shape...",
+      "The genesis sigil pulses with primordial energy...",
+      "Where atoms collide, worlds are born...",
+      "In the quantum foam, consciousness awakens...",
+      "The genesis relic hums with the song of creation..."
+    ],
+    "thunder": [
+      "Lightning fractures the dimensional barriers...",
+      "Thunder rolls across infinite realms...",
+      "The storm sigil crackles with raw power...",
+      "Where lightning strikes, destiny is forged...",
+      "In the eye of the storm, truth is revealed...",
+      "The thunderstorm relic commands the tempest..."
+    ],
+    "vault": [
+      "The vault ascends to cosmic prominence...",
+      "Crown and key unite in eternal sovereignty...",
+      "The vault sigil gleams with royal authority...",
+      "Where treasure lies, guardians stand eternal...",
+      "In the sacred vault, all secrets are kept...",
+      "The ascendant relic reigns supreme..."
+    ],
+    "sentinel": [
+      "The sentinel watches from beyond the stars...",
+      "Rocket flames pierce the veil of eternity...",
+      "The sentinel sigil guides through endless night...",
+      "Where the launcher points, destiny follows...",
+      "In the sentinel's gaze, futures are written...",
+      "The launcher relic reaches for infinity..."
+    ]
+  }
+}
