@@ -1,12 +1,68 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Relic Arsenal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ ChaosKey333 Vault - Relic Storyline ⚡</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Gallery/Links</h1>
-    <ul>
-        <li><a href="./sentinel/">🚀 Sentinel Launcher</a></li>
-        <!-- Add other links here -->
-    </ul>
+    <div class="cosmic-background"></div>
+    
+    <header class="vault-header">
+        <div class="header-content">
+            <h1 class="vault-title">
+                <span class="crown-symbol">👑</span>
+                ChaosKey333 Vault
+                <span class="crown-symbol">👑</span>
+            </h1>
+            <p class="vault-tagline">⚡ Unlock the Vault. Break the Sky. ⚡</p>
+            <p class="vault-subtitle">"Through quantum tempests, we forge eternity. In rolling thunder, we crown the dawn."</p>
+        </div>
+    </header>
+
+    <main class="vault-main">
+        <section class="storyline-controls">
+            <button id="viewStorylineBtn" class="neon-button primary">
+                📜 View My Storyline
+            </button>
+            <button id="resetProgressBtn" class="neon-button secondary">
+                🔄 Reset Progress
+            </button>
+            <div class="progress-info">
+                <span class="collector-tier">Collector Tier: <span id="currentTier">Initiate</span></span>
+                <span class="sigils-count">Sigils: <span id="sigilCount">0</span>/7</span>
+            </div>
+        </section>
+
+        <section class="sigil-gallery">
+            <h2 class="section-title">⚛️ Sacred Sigil Collection ⚛️</h2>
+            <div class="sigils-grid" id="sigilsGrid">
+                <!-- Sigils will be dynamically populated -->
+            </div>
+        </section>
+
+        <section class="storyline-progression" id="storylineSection">
+            <h2 class="section-title">📚 Relic Storyline Progression 📚</h2>
+            <div class="chapters-container" id="chaptersContainer">
+                <!-- Chapters will be dynamically populated -->
+            </div>
+        </section>
+
+        <section class="legacy-links">
+            <h3 class="section-title">🔗 Gallery Links</h3>
+            <ul class="legacy-list">
+                <li><a href="./sentinel/" class="legacy-link">🚀 Sentinel Launcher</a></li>
+                <!-- Add other links here -->
+            </ul>
+        </section>
+    </main>
+
+    <footer class="vault-footer">
+        <p>⛧⚡👑 ChaosKey333 👑⚡⛧</p>
+        <p>"You always got to keep dripping so wet!" — ChaosKey333</p>
+    </footer>
+
+    <script src="vault.js"></script>
 </body>
 </html>

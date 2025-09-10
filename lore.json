@@ -1,0 +1,233 @@
+{
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "title": "The First Sigil: Genesis of Thunder",
+      "sigil": "sigil-of-genesis",
+      "loreText": "In the primordial void before creation, ChaosKey333 gazed into the infinite darkness. The first sigil emerged from pure thought—a crackling symbol of genesis that would birth all thunderstorms across dimensions. Ancient texts speak of the moment when consciousness first touched chaos, sparking the eternal dance of order and entropy.",
+      "unlockConditions": {
+        "sigilMarked": "sigil-of-genesis",
+        "minimumTimestamp": 0,
+        "collectorTier": "initiate"
+      },
+      "visualEffects": {
+        "glyphTransition": "thunder-genesis",
+        "colorScheme": "cosmic-purple",
+        "animationDuration": 3000
+      },
+      "unlocked": false
+    },
+    {
+      "chapterNumber": 2,
+      "title": "The Vault Awakens",
+      "sigil": "sigil-of-awakening",
+      "loreText": "With the first sigil sealed, the Vault began to resonate with cosmic frequency. Stone walls hummed with electric potential as ancient mechanisms clicked into motion. ChaosKey333 realized this was no mere storage—it was a living entity, a consciousness forged from the collective will of storm-touched wanderers across infinite realities.",
+      "unlockConditions": {
+        "sigilMarked": "sigil-of-awakening", 
+        "minimumTimestamp": 86400000,
+        "collectorTier": "initiate"
+      },
+      "visualEffects": {
+        "glyphTransition": "vault-pulse",
+        "colorScheme": "electric-blue",
+        "animationDuration": 2500
+      },
+      "unlocked": false
+    },
+    {
+      "chapterNumber": 3,
+      "title": "Storm Convergence",
+      "sigil": "sigil-of-storms",
+      "loreText": "Seven storms from seven dimensions converged upon the Vault. Each brought its own flavor of chaos: quantum lightning, temporal thunder, dimensional rifts crackling with possibility. ChaosKey333 stood at the epicenter, crown gleaming, as the storms recognized their sovereign. This was the moment the multiverse acknowledged the one who would unite all chaos under a single banner.",
+      "unlockConditions": {
+        "sigilMarked": "sigil-of-storms",
+        "minimumTimestamp": 172800000,
+        "collectorTier": "storm-touched"
+      },
+      "visualEffects": {
+        "glyphTransition": "storm-spiral",
+        "colorScheme": "lightning-yellow",
+        "animationDuration": 4000
+      },
+      "unlocked": false
+    },
+    {
+      "chapterNumber": 4,
+      "title": "The Crown of Infinite Keys",
+      "sigil": "sigil-of-sovereignty",
+      "loreText": "From the converged storms, a crown materialized—not of gold or silver, but of crystallized possibility itself. Each point held a key to a different reality, each gem a doorway to uncharted dimensions. ChaosKey333 donned the crown and felt the weight of infinite responsibility. Every relic would now be a key, every key a path to greater understanding of the cosmic order.",
+      "unlockConditions": {
+        "sigilMarked": "sigil-of-sovereignty",
+        "minimumTimestamp": 259200000,
+        "collectorTier": "storm-touched"
+      },
+      "visualEffects": {
+        "glyphTransition": "crown-ascension",
+        "colorScheme": "royal-gold",
+        "animationDuration": 3500
+      },
+      "unlocked": false
+    },
+    {
+      "chapterNumber": 5,
+      "title": "Quantum Dawn Prophecy",
+      "sigil": "sigil-of-prophecy",
+      "loreText": "In the deepest chamber of the Vault, ancient scrolls began to glow. The Quantum Dawn prophecy revealed itself—a cosmic event that would shatter the barriers between all realities. ChaosKey333 read the blazing text and understood: the collection of sigils was not random but part of a grand design spanning eons. The Seventh Storm approaches, bringing with it the power to rewrite the fundamental laws of existence.",
+      "unlockConditions": {
+        "sigilMarked": "sigil-of-prophecy",
+        "minimumTimestamp": 345600000,
+        "collectorTier": "prophecy-bearer"
+      },
+      "visualEffects": {
+        "glyphTransition": "quantum-dawn",
+        "colorScheme": "dawn-gradient",
+        "animationDuration": 5000
+      },
+      "unlocked": false
+    },
+    {
+      "chapterNumber": 6,
+      "title": "The Seventh Storm Rises",
+      "sigil": "sigil-of-ascension",
+      "loreText": "Reality trembles as the Seventh Storm manifests. This is no ordinary tempest—it is the culmination of all cosmic forces, the moment when chaos and order achieve perfect balance. ChaosKey333 stands at the center, no longer merely a collector of relics but the conductor of universal symphony. The storm does not destroy; it transforms, elevating everything it touches to a higher state of being.",
+      "unlockConditions": {
+        "sigilMarked": "sigil-of-ascension",
+        "minimumTimestamp": 432000000,
+        "collectorTier": "storm-sovereign"
+      },
+      "visualEffects": {
+        "glyphTransition": "storm-ascension",
+        "colorScheme": "cosmic-rainbow",
+        "animationDuration": 6000
+      },
+      "unlocked": false
+    },
+    {
+      "chapterNumber": 7,
+      "title": "Eternal Thunder: The New Cosmic Order",
+      "sigil": "sigil-of-eternity",
+      "loreText": "From the ashes of the old reality, a new cosmic order emerges. The Vault becomes the nexus point of all existence, and ChaosKey333 its eternal guardian. Sigils are no longer mere collectibles but living conduits of power that connect all beings across the multiverse. The thunder that rolls is not the sound of destruction, but the heartbeat of creation itself—eternal, infinite, and forever crowned with the wisdom of chaos transformed into purpose.",
+      "unlockConditions": {
+        "sigilMarked": "sigil-of-eternity",
+        "minimumTimestamp": 518400000,
+        "collectorTier": "cosmic-eternal"
+      },
+      "visualEffects": {
+        "glyphTransition": "eternal-crown",
+        "colorScheme": "transcendent-white",
+        "animationDuration": 7000
+      },
+      "unlocked": false
+    }
+  ],
+  "sigils": [
+    {
+      "id": "sigil-of-genesis",
+      "name": "Sigil of Genesis",
+      "description": "The first spark of consciousness touching chaos",
+      "symbol": "⚛️",
+      "rarity": "legendary",
+      "marked": false,
+      "markedTimestamp": null
+    },
+    {
+      "id": "sigil-of-awakening", 
+      "name": "Sigil of Awakening",
+      "description": "The moment the Vault gained sentience",
+      "symbol": "🌅",
+      "rarity": "epic",
+      "marked": false,
+      "markedTimestamp": null
+    },
+    {
+      "id": "sigil-of-storms",
+      "name": "Sigil of Storms",
+      "description": "Seven storms converging across dimensions",
+      "symbol": "⚡",
+      "rarity": "legendary",
+      "marked": false,
+      "markedTimestamp": null
+    },
+    {
+      "id": "sigil-of-sovereignty",
+      "name": "Sigil of Sovereignty",
+      "description": "The crown of infinite possibilities",
+      "symbol": "👑",
+      "rarity": "mythic",
+      "marked": false,
+      "markedTimestamp": null
+    },
+    {
+      "id": "sigil-of-prophecy",
+      "name": "Sigil of Prophecy", 
+      "description": "Ancient scrolls revealing cosmic destiny",
+      "symbol": "📜",
+      "rarity": "legendary",
+      "marked": false,
+      "markedTimestamp": null
+    },
+    {
+      "id": "sigil-of-ascension",
+      "name": "Sigil of Ascension",
+      "description": "The Seventh Storm's transformative power",
+      "symbol": "🌀",
+      "rarity": "mythic",
+      "marked": false,
+      "markedTimestamp": null
+    },
+    {
+      "id": "sigil-of-eternity",
+      "name": "Sigil of Eternity",
+      "description": "The eternal heartbeat of creation",
+      "symbol": "♾️",
+      "rarity": "transcendent", 
+      "marked": false,
+      "markedTimestamp": null
+    }
+  ],
+  "collectorTiers": [
+    {
+      "id": "initiate",
+      "name": "Initiate",
+      "description": "New to the ways of the Vault",
+      "minSigils": 0,
+      "maxSigils": 2
+    },
+    {
+      "id": "storm-touched",
+      "name": "Storm-Touched",
+      "description": "Felt the power of cosmic thunder",
+      "minSigils": 2,
+      "maxSigils": 4
+    },
+    {
+      "id": "prophecy-bearer",
+      "name": "Prophecy Bearer", 
+      "description": "Keeper of ancient wisdom",
+      "minSigils": 4,
+      "maxSigils": 6
+    },
+    {
+      "id": "storm-sovereign",
+      "name": "Storm Sovereign",
+      "description": "Master of dimensional tempests",
+      "minSigils": 6,
+      "maxSigils": 7
+    },
+    {
+      "id": "cosmic-eternal",
+      "name": "Cosmic Eternal",
+      "description": "Transcended mortal limitations",
+      "minSigils": 7,
+      "maxSigils": 999
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2024-12-19",
+    "author": "ChaosKey333",
+    "theme": "Rolling Thunder Saga",
+    "totalChapters": 7,
+    "totalSigils": 7
+  }
+}

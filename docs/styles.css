@@ -1,0 +1,554 @@
+/* ChaosKey333 Vault - Relic Storyline Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Cosmic Color Palette */
+    --cosmic-purple: #8B5CF6;
+    --electric-blue: #06B6D4;
+    --lightning-yellow: #FACC15;
+    --royal-gold: #F59E0B;
+    --dawn-gradient-start: #F59E0B;
+    --dawn-gradient-end: #EC4899;
+    --cosmic-rainbow-1: #8B5CF6;
+    --cosmic-rainbow-2: #06B6D4;
+    --cosmic-rainbow-3: #10B981;
+    --cosmic-rainbow-4: #F59E0B;
+    --transcendent-white: #FBBF24;
+    
+    /* Base Colors */
+    --void-black: #0F0F0F;
+    --storm-gray: #1F2937;
+    --mist-gray: #374151;
+    --thunder-white: #F9FAFB;
+    
+    /* Neon Effects */
+    --neon-glow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor, 0 0 20px currentColor;
+    --neon-text-shadow: 0 0 10px currentColor;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background-color: var(--void-black);
+    color: var(--thunder-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Cosmic Animated Background */
+.cosmic-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 20%, var(--cosmic-purple) 0%, transparent 30%),
+        radial-gradient(circle at 80% 80%, var(--electric-blue) 0%, transparent 30%),
+        radial-gradient(circle at 40% 60%, var(--lightning-yellow) 0%, transparent 20%);
+    opacity: 0.1;
+    animation: cosmicPulse 10s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes cosmicPulse {
+    0%, 100% { opacity: 0.1; transform: scale(1); }
+    50% { opacity: 0.2; transform: scale(1.1); }
+}
+
+/* Header Styles */
+.vault-header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, var(--storm-gray) 0%, var(--void-black) 100%);
+    border-bottom: 2px solid var(--electric-blue);
+}
+
+.vault-title {
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: var(--royal-gold);
+    text-shadow: var(--neon-text-shadow);
+    margin-bottom: 0.5rem;
+    animation: titlePulse 3s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+    0%, 100% { text-shadow: 0 0 10px var(--royal-gold); }
+    50% { text-shadow: 0 0 20px var(--royal-gold), 0 0 30px var(--royal-gold); }
+}
+
+.crown-symbol {
+    display: inline-block;
+    animation: crownFloat 4s ease-in-out infinite;
+}
+
+@keyframes crownFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.vault-tagline {
+    font-size: 1.5rem;
+    color: var(--lightning-yellow);
+    text-shadow: var(--neon-text-shadow);
+    margin-bottom: 0.5rem;
+}
+
+.vault-subtitle {
+    font-style: italic;
+    color: var(--electric-blue);
+    font-size: 1rem;
+}
+
+/* Main Content */
+.vault-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Storyline Controls */
+.storyline-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.neon-button {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid currentColor;
+    background: transparent;
+    color: var(--electric-blue);
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    text-shadow: var(--neon-text-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.neon-button.primary {
+    color: var(--cosmic-purple);
+}
+
+.neon-button.secondary {
+    color: var(--lightning-yellow);
+}
+
+.neon-button:hover {
+    box-shadow: var(--neon-glow);
+    transform: translateY(-2px);
+}
+
+.neon-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+    opacity: 0.1;
+    transition: left 0.5s;
+}
+
+.neon-button:hover::before {
+    left: 100%;
+}
+
+.progress-info {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+}
+
+.collector-tier, .sigils-count {
+    color: var(--royal-gold);
+    text-shadow: var(--neon-text-shadow);
+}
+
+/* Section Titles */
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--electric-blue);
+    text-shadow: var(--neon-text-shadow);
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.section-title::before,
+.section-title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+}
+
+.section-title::before {
+    left: -60px;
+}
+
+.section-title::after {
+    right: -60px;
+}
+
+/* Sigil Gallery */
+.sigil-gallery {
+    margin-bottom: 4rem;
+}
+
+.sigils-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.sigil-card {
+    background: linear-gradient(135deg, var(--storm-gray) 0%, var(--mist-gray) 100%);
+    border: 2px solid var(--electric-blue);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.sigil-card.marked {
+    border-color: var(--royal-gold);
+    box-shadow: 0 0 20px var(--royal-gold);
+}
+
+.sigil-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--neon-glow);
+}
+
+.sigil-symbol {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+    filter: drop-shadow(0 0 10px currentColor);
+}
+
+.sigil-name {
+    font-size: 1.2rem;
+    color: var(--thunder-white);
+    margin-bottom: 0.5rem;
+}
+
+.sigil-description {
+    font-size: 0.9rem;
+    color: var(--mist-gray);
+    margin-bottom: 1rem;
+}
+
+.sigil-rarity {
+    font-size: 0.8rem;
+    color: var(--lightning-yellow);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.mark-sigil-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--cosmic-purple);
+    background: transparent;
+    color: var(--cosmic-purple);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.mark-sigil-btn:hover {
+    background: var(--cosmic-purple);
+    color: var(--void-black);
+    box-shadow: 0 0 10px var(--cosmic-purple);
+}
+
+.mark-sigil-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Storyline Progression */
+.storyline-progression {
+    margin-bottom: 4rem;
+}
+
+.chapters-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.chapter {
+    background: linear-gradient(135deg, var(--storm-gray) 0%, var(--void-black) 100%);
+    border: 2px solid var(--mist-gray);
+    border-radius: 1rem;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.chapter.unlocked {
+    border-color: var(--electric-blue);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+}
+
+.chapter.locked {
+    opacity: 0.6;
+    position: relative;
+}
+
+.chapter.locked::before {
+    content: '🔒';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: var(--mist-gray);
+}
+
+.chapter-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.chapter-number {
+    background: var(--cosmic-purple);
+    color: var(--void-black);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 0 15px var(--cosmic-purple);
+}
+
+.chapter-title {
+    font-size: 1.5rem;
+    color: var(--thunder-white);
+    text-shadow: var(--neon-text-shadow);
+    margin: 0;
+}
+
+.chapter-sigil {
+    font-size: 2rem;
+    margin-left: auto;
+}
+
+.chapter-content {
+    margin-left: 4rem;
+}
+
+.chapter-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--thunder-white);
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.chapter.unlocked .chapter-text {
+    animation: textReveal 1s ease-out;
+}
+
+@keyframes textReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.unlock-hint {
+    color: var(--lightning-yellow);
+    font-style: italic;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem;
+    border: 1px dashed var(--lightning-yellow);
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* Chapter-specific color schemes */
+.chapter[data-chapter="1"] { border-color: var(--cosmic-purple); }
+.chapter[data-chapter="2"] { border-color: var(--electric-blue); }
+.chapter[data-chapter="3"] { border-color: var(--lightning-yellow); }
+.chapter[data-chapter="4"] { border-color: var(--royal-gold); }
+.chapter[data-chapter="5"] { 
+    border-image: linear-gradient(45deg, var(--dawn-gradient-start), var(--dawn-gradient-end)) 1;
+}
+.chapter[data-chapter="6"] { 
+    border-image: linear-gradient(45deg, var(--cosmic-rainbow-1), var(--cosmic-rainbow-2), var(--cosmic-rainbow-3), var(--cosmic-rainbow-4)) 1;
+}
+.chapter[data-chapter="7"] { border-color: var(--transcendent-white); }
+
+/* Legacy Links */
+.legacy-links {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--mist-gray);
+}
+
+.legacy-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.legacy-link {
+    color: var(--electric-blue);
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--electric-blue);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.legacy-link:hover {
+    color: var(--void-black);
+    background: var(--electric-blue);
+    box-shadow: 0 0 15px var(--electric-blue);
+}
+
+/* Footer */
+.vault-footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 2px solid var(--cosmic-purple);
+    background: linear-gradient(135deg, var(--void-black) 0%, var(--storm-gray) 100%);
+    color: var(--mist-gray);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .vault-title {
+        font-size: 2rem;
+    }
+    
+    .storyline-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .progress-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .sigils-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .chapter-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .chapter-content {
+        margin-left: 0;
+    }
+    
+    .section-title::before,
+    .section-title::after {
+        display: none;
+    }
+    
+    .legacy-list {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .vault-main {
+        padding: 1rem 0.5rem;
+    }
+    
+    .chapter {
+        padding: 1rem;
+    }
+    
+    .sigil-card {
+        padding: 1rem;
+    }
+}
+
+/* Animation for chapter unlocking */
+@keyframes chapterUnlock {
+    0% {
+        opacity: 0.6;
+        transform: scale(0.95);
+        filter: blur(2px);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 0 30px currentColor;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+.chapter-unlocking {
+    animation: chapterUnlock 1.5s ease-out;
+}
+
+/* Glyph transition effects */
+@keyframes glyphDecode {
+    0% {
+        content: '█▓▒░';
+        opacity: 0;
+    }
+    25% {
+        content: '▓▒░▓';
+        opacity: 0.3;
+    }
+    50% {
+        content: '▒░▓▒';
+        opacity: 0.6;
+    }
+    75% {
+        content: '░▓▒░';
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.glyph-decoding::before {
+    animation: glyphDecode 2s ease-out;
+}
