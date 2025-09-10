@@ -1,12 +1,392 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Relic Arsenal</title>
+    <title>🐦‍⬛ ChaosKey333 Relic Arsenal - Prophecy Gate</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a2e, #16213e);
+            color: #e6e6e6;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #ffd700;
+            text-shadow: 0 0 10px #ffd700;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #87ceeb;
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+        .prophecy-card {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        .prophecy-card:hover {
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            transform: translateY(-2px);
+        }
+        .prophecy-text {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            text-align: center;
+            font-style: italic;
+        }
+        .prophecy-meta {
+            font-size: 0.9em;
+            color: #87ceeb;
+            text-align: right;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            padding-top: 10px;
+        }
+        .controls {
+            text-align: center;
+            margin: 30px 0;
+        }
+        button {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            margin: 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+        }
+        .relic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .relic-card {
+            background: rgba(135, 206, 235, 0.1);
+            border: 2px solid #87ceeb;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .relic-card:hover {
+            box-shadow: 0 0 20px rgba(135, 206, 235, 0.5);
+            transform: translateY(-2px);
+        }
+        .relic-title {
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .relic-whisper {
+            color: #e6e6e6;
+            font-style: italic;
+            font-size: 0.95em;
+        }
+        .metadata {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .error {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            color: #ff6b6b;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .links {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .links a {
+            color: #87ceeb;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+        .links a:hover {
+            color: #ffd700;
+            text-shadow: 0 0 5px #ffd700;
+        }
+    </style>
 </head>
 <body>
-    <h1>Gallery/Links</h1>
-    <ul>
-        <li><a href="./sentinel/">🚀 Sentinel Launcher</a></li>
-        <!-- Add other links here -->
-    </ul>
+    <div class="container">
+        <h1>🐦‍⬛ ChaosKey333 Relic Arsenal</h1>
+        <p class="subtitle">"Unlock the Vault. Break the Sky."</p>
+        
+        <div class="prophecy-card">
+            <div class="prophecy-text" id="mainProphecy">
+                Loading prophecies from the cosmic void...
+            </div>
+            <div class="prophecy-meta" id="prophecyMeta">
+                Initializing Prophecy Engine...
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button onclick="loadRandomProphecy()">🔮 Reveal Random Prophecy</button>
+            <button onclick="loadRelicWhispers()">👑 Relic Whispers</button>
+            <button onclick="loadStormProphecy()">⚡ Storm Prophecies</button>
+            <button onclick="loadVaultMystery()">🏛️ Vault Mysteries</button>
+        </div>
+        
+        <div class="relic-grid" id="relicGrid">
+            <div class="relic-card">
+                <div class="relic-title">🌑👑 Obsidian Crown</div>
+                <div class="relic-whisper" id="crownWhisper">...</div>
+            </div>
+            <div class="relic-card">
+                <div class="relic-title">🔥🕊️ Phoenix Sigil</div>
+                <div class="relic-whisper" id="sigilWhisper">...</div>
+            </div>
+            <div class="relic-card">
+                <div class="relic-title">🌌🔑 Astral Key</div>
+                <div class="relic-whisper" id="keyWhisper">...</div>
+            </div>
+        </div>
+        
+        <div class="metadata" id="engineMetadata">
+            Loading engine metadata...
+        </div>
+        
+        <div class="links">
+            <a href="./gallery/">🖼️ Gallery of Relics</a>
+            <a href="./sentinel/">🚀 Sentinel Launcher</a>
+            <a href="../cosmic-scripture.md">📜 Cosmic Scripture</a>
+            <a href="../README.md">🏠 Return to Arsenal</a>
+        </div>
+    </div>
+
+    <script type="module">
+        // Import the ProphecyEngine (Note: This would work in a proper module setup)
+        // For demo purposes, we'll simulate the engine with fetch
+        
+        let prophecyData = null;
+        let placeholderIndex = 0;
+        
+        // Initialize the prophecy system
+        async function initializeProphecyEngine() {
+            try {
+                const response = await fetch('./lore/prophecies.json');
+                prophecyData = await response.json();
+                console.log('Prophecy Engine initialized successfully');
+                updateEngineMetadata();
+                loadRandomProphecy();
+                loadRelicWhispers();
+            } catch (error) {
+                console.warn('Failed to load prophecy data, using fallback mode');
+                prophecyData = null;
+                showError('Prophecy Engine in fallback mode - some prophecies may not be available');
+                displayProphecy(getPlaceholderProphecy());
+                updateEngineMetadata();
+            }
+        }
+        
+        function showError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error';
+            errorDiv.textContent = message;
+            document.querySelector('.container').insertBefore(errorDiv, document.querySelector('.prophecy-card'));
+            setTimeout(() => errorDiv.remove(), 5000);
+        }
+        
+        function getRandomProphecy() {
+            if (!prophecyData || !prophecyData.prophecies) {
+                return getPlaceholderProphecy();
+            }
+            
+            const categories = Object.keys(prophecyData.prophecies);
+            if (categories.length === 0) {
+                return getPlaceholderProphecy();
+            }
+            
+            // Get all prophecies from all categories
+            const allProphecies = [];
+            categories.forEach(category => {
+                const prophecies = prophecyData.prophecies[category];
+                if (Array.isArray(prophecies)) {
+                    prophecies.forEach(prophecy => {
+                        allProphecies.push({
+                            ...prophecy,
+                            category: category
+                        });
+                    });
+                }
+            });
+            
+            if (allProphecies.length === 0) {
+                return getPlaceholderProphecy();
+            }
+            
+            const randomIndex = Math.floor(Math.random() * allProphecies.length);
+            return allProphecies[randomIndex];
+        }
+        
+        function getRandomProphecyByCategory(category) {
+            if (!prophecyData || !prophecyData.prophecies || !prophecyData.prophecies[category]) {
+                return getPlaceholderProphecy();
+            }
+            
+            const prophecies = prophecyData.prophecies[category];
+            if (prophecies.length === 0) {
+                return getPlaceholderProphecy();
+            }
+            
+            const randomIndex = Math.floor(Math.random() * prophecies.length);
+            return {
+                ...prophecies[randomIndex],
+                category: category
+            };
+        }
+        
+        function getPlaceholderProphecy() {
+            const defaultPlaceholders = [
+                {
+                    id: 'default-placeholder-1',
+                    text: 'The ancient whispers grow silent... more prophecies shall emerge from the cosmic void...',
+                    category: 'placeholder',
+                    isPlaceholder: true
+                },
+                {
+                    id: 'default-placeholder-2',
+                    text: 'In quantum silence, new prophecies gather like storm clouds on reality\'s horizon...',
+                    category: 'placeholder',
+                    isPlaceholder: true
+                },
+                {
+                    id: 'default-placeholder-3',
+                    text: 'The vault\'s mysteries deepen... patience, guardian, for revelation comes to those who wait...',
+                    category: 'placeholder',
+                    isPlaceholder: true
+                }
+            ];
+            
+            let placeholders = defaultPlaceholders;
+            if (prophecyData && prophecyData.placeholders && Array.isArray(prophecyData.placeholders)) {
+                placeholders = prophecyData.placeholders.map(p => ({
+                    ...p,
+                    isPlaceholder: true
+                }));
+            }
+            
+            const placeholder = placeholders[placeholderIndex % placeholders.length];
+            placeholderIndex++;
+            return placeholder;
+        }
+        
+        function displayProphecy(prophecy) {
+            const prophecyText = document.getElementById('mainProphecy');
+            const prophecyMeta = document.getElementById('prophecyMeta');
+            
+            prophecyText.textContent = prophecy.text;
+            
+            let metaText = `Category: ${prophecy.category || 'unknown'}`;
+            if (prophecy.id) metaText += ` | ID: ${prophecy.id}`;
+            if (prophecy.relic) metaText += ` | Relic: ${prophecy.relic}`;
+            if (prophecy.storm) metaText += ` | Storm: ${prophecy.storm}`;
+            if (prophecy.isPlaceholder) metaText += ' | [Placeholder]';
+            
+            prophecyMeta.textContent = metaText;
+        }
+        
+        function updateEngineMetadata() {
+            const metadataDiv = document.getElementById('engineMetadata');
+            
+            let metadata = `Prophecy Engine Status: ${prophecyData ? 'Active' : 'Fallback Mode'}`;
+            
+            if (prophecyData) {
+                metadata += `<br>Version: ${prophecyData.meta?.version || 'unknown'}`;
+                metadata += `<br>Categories: ${Object.keys(prophecyData.categories || {}).join(', ')}`;
+                
+                const prophecyCounts = {};
+                if (prophecyData.prophecies) {
+                    Object.keys(prophecyData.prophecies).forEach(category => {
+                        prophecyCounts[category] = prophecyData.prophecies[category].length;
+                    });
+                }
+                metadata += `<br>Prophecy Counts: ${JSON.stringify(prophecyCounts)}`;
+                metadata += `<br>Placeholders: ${prophecyData.placeholders?.length || 0}`;
+            }
+            
+            metadataDiv.innerHTML = metadata;
+        }
+        
+        // Global functions for buttons
+        window.loadRandomProphecy = function() {
+            const prophecy = getRandomProphecy();
+            displayProphecy(prophecy);
+        };
+        
+        window.loadRelicWhispers = function() {
+            const prophecy = getRandomProphecyByCategory('relics');
+            displayProphecy(prophecy);
+            
+            // Update individual relic cards
+            updateRelicCard('crownWhisper', 'Crown');
+            updateRelicCard('sigilWhisper', 'Sigil');  
+            updateRelicCard('keyWhisper', 'Key');
+        };
+        
+        window.loadStormProphecy = function() {
+            const prophecy = getRandomProphecyByCategory('storms');
+            displayProphecy(prophecy);
+        };
+        
+        window.loadVaultMystery = function() {
+            const prophecy = getRandomProphecyByCategory('vault');
+            displayProphecy(prophecy);
+        };
+        
+        function updateRelicCard(elementId, relicName) {
+            const element = document.getElementById(elementId);
+            if (!prophecyData || !prophecyData.prophecies || !prophecyData.prophecies.relics) {
+                element.textContent = getPlaceholderProphecy().text;
+                return;
+            }
+            
+            const relicProphecies = prophecyData.prophecies.relics.filter(prophecy =>
+                prophecy.relic && prophecy.relic.toLowerCase().includes(relicName.toLowerCase())
+            );
+            
+            if (relicProphecies.length > 0) {
+                const randomIndex = Math.floor(Math.random() * relicProphecies.length);
+                element.textContent = relicProphecies[randomIndex].text;
+            } else {
+                element.textContent = getPlaceholderProphecy().text;
+            }
+        }
+        
+        // Initialize on page load
+        initializeProphecyEngine();
+    </script>
 </body>
 </html>
