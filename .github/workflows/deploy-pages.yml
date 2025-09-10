@@ -1,0 +1,49 @@
+# GitHub Pages deployment for Interactive Relic Cards
+# Deploys the docs/ directory to GitHub Pages for cosmic testing
+name: Deploy Sentinel Timeline to Pages
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ 'docs/**' ]
+  pull_request:
+    branches: [ main ]
+    paths: [ 'docs/**' ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Upload cosmic artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './docs'
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        
+      - name: Cosmic notification
+        run: |
+          echo "🚀 Sentinel Timeline deployed successfully!"
+          echo "⚛️ Interactive Relic Cards are now live!"
+          echo "🌐 Access the cosmic vault at: ${{ steps.deployment.outputs.page_url }}"
