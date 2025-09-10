@@ -1,0 +1,397 @@
+/* ChaosKey333 Vault - Cosmic Aesthetic Styling */
+:root {
+  /* Cosmic Color Palette */
+  --cosmic-black: #0a0a0a;
+  --quantum-purple: #6a1b9a;
+  --stellar-gold: #ffd700;
+  --nebula-blue: #1e3a8a;
+  --plasma-cyan: #00ffff;
+  --void-gray: #1a1a1a;
+  --thunder-silver: #c0c0c0;
+  --cosmic-glow: rgba(255, 215, 0, 0.3);
+  
+  /* Typography */
+  --font-cosmic: 'Arial', sans-serif;
+  --font-size-title: 2.5rem;
+  --font-size-chip: 1rem;
+  --font-size-tooltip: 0.875rem;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-medium: 0.4s ease-in-out;
+  --transition-slow: 0.6s ease-in-out;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, var(--cosmic-black) 0%, var(--void-gray) 50%, var(--nebula-blue) 100%);
+  color: var(--thunder-silver);
+  font-family: var(--font-cosmic);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Animated Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(106, 27, 154, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+  z-index: -1;
+  animation: cosmicShift 20s ease-in-out infinite alternate;
+}
+
+@keyframes cosmicShift {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(5deg) scale(1.1);
+  }
+}
+
+/* Vault Container */
+.vault-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+}
+
+/* Vault Header */
+.vault-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.vault-title {
+  font-size: var(--font-size-title);
+  background: linear-gradient(45deg, var(--stellar-gold), var(--plasma-cyan), var(--quantum-purple));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px var(--cosmic-glow);
+  margin-bottom: var(--spacing-md);
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  0% {
+    text-shadow: 0 0 20px var(--cosmic-glow);
+  }
+  100% {
+    text-shadow: 0 0 30px var(--cosmic-glow), 0 0 40px rgba(255, 215, 0, 0.2);
+  }
+}
+
+.vault-subtitle {
+  color: var(--thunder-silver);
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Price Chips Grid */
+.price-chips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Individual Price Chip */
+.price-chip {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(30, 58, 138, 0.1) 100%);
+  border: 1px solid rgba(106, 27, 154, 0.3);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition-medium);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.price-chip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 215, 0, 0.05) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity var(--transition-medium);
+  z-index: 1;
+}
+
+/* Hover Effects */
+.price-chip:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: var(--stellar-gold);
+  box-shadow: 
+    0 10px 25px rgba(106, 27, 154, 0.2),
+    0 0 30px rgba(255, 215, 0, 0.1);
+}
+
+.price-chip:hover::before {
+  opacity: 1;
+}
+
+.price-chip:hover .chip-content {
+  z-index: 2;
+  position: relative;
+}
+
+/* Chip Content */
+.chip-content {
+  position: relative;
+  z-index: 2;
+}
+
+.chip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-md);
+}
+
+.coin-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.coin-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--quantum-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  font-size: 0.875rem;
+}
+
+.coin-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--thunder-silver);
+}
+
+.coin-symbol {
+  font-size: 0.875rem;
+  color: var(--plasma-cyan);
+  opacity: 0.8;
+}
+
+.external-link-icon {
+  opacity: 0.6;
+  transition: opacity var(--transition-fast);
+  color: var(--stellar-gold);
+}
+
+.price-chip:hover .external-link-icon {
+  opacity: 1;
+}
+
+/* Price Display */
+.price-display {
+  margin-bottom: var(--spacing-md);
+}
+
+.current-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--stellar-gold);
+  margin-bottom: var(--spacing-xs);
+}
+
+.price-change {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.price-change.positive {
+  color: #4ade80;
+}
+
+.price-change.negative {
+  color: #f87171;
+}
+
+/* Loading State */
+.price-chip.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--thunder-silver);
+  border-radius: 50%;
+  border-top-color: var(--stellar-gold);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Tooltip System */
+.tooltip {
+  position: absolute;
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
+  border: 1px solid var(--quantum-purple);
+  border-radius: 8px;
+  padding: var(--spacing-md);
+  font-size: var(--font-size-tooltip);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(15px);
+  min-width: 200px;
+}
+
+.tooltip.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--quantum-purple);
+}
+
+.tooltip-title {
+  color: var(--stellar-gold);
+  font-weight: bold;
+  margin-bottom: var(--spacing-sm);
+  border-bottom: 1px solid rgba(106, 27, 154, 0.3);
+  padding-bottom: var(--spacing-xs);
+}
+
+.tooltip-stat {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xs);
+  color: var(--thunder-silver);
+}
+
+.tooltip-stat:last-child {
+  margin-bottom: 0;
+}
+
+.tooltip-label {
+  opacity: 0.8;
+}
+
+.tooltip-value {
+  color: var(--plasma-cyan);
+  font-weight: 500;
+}
+
+/* Error State */
+.error-message {
+  text-align: center;
+  color: #f87171;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .vault-container {
+    padding: var(--spacing-md);
+  }
+  
+  .vault-title {
+    font-size: 2rem;
+  }
+  
+  .price-chips-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .price-chip {
+    padding: var(--spacing-md);
+  }
+  
+  .tooltip {
+    min-width: 180px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .vault-title {
+    font-size: 1.75rem;
+  }
+  
+  .current-price {
+    font-size: 1.25rem;
+  }
+  
+  .coin-info {
+    gap: var(--spacing-xs);
+  }
+  
+  .tooltip {
+    min-width: 160px;
+    padding: var(--spacing-sm);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .price-chip {
+    border-color: var(--thunder-silver);
+  }
+  
+  .tooltip {
+    background: var(--cosmic-black);
+    border-color: var(--thunder-silver);
+  }
+}
