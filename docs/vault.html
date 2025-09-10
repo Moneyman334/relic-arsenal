@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChaosKey333 - Cosmic Vault</title>
+    <link rel="stylesheet" href="css/vault.css">
+</head>
+<body>
+    <div class="cosmic-background"></div>
+    
+    <header class="vault-header">
+        <h1 class="vault-title">
+            <span class="chaos-symbol">⛧</span>
+            <span class="lightning">⚡</span>
+            <span class="crown">👑</span>
+            ChaosKey333 Cosmic Vault
+            <span class="crown">👑</span>
+            <span class="lightning">⚡</span>
+            <span class="chaos-symbol">⛧</span>
+        </h1>
+        <p class="vault-subtitle">🔑 Live Relic Arsenal & Market Sentinels 🔑</p>
+    </header>
+
+    <main class="vault-container">
+        <div class="price-chips-section">
+            <h2 class="section-title">
+                <span class="quantum">⚛️</span>
+                Market Sentinels
+                <span class="quantum">⚛️</span>
+            </h2>
+            
+            <div class="loading-state" id="loadingState">
+                <div class="cosmic-spinner"></div>
+                <p>Summoning market sentinels from the quantum realm...</p>
+            </div>
+            
+            <div class="error-state" id="errorState" style="display: none;">
+                <div class="error-icon">⚠️</div>
+                <p>The cosmic connection has been disrupted. Market sentinels await quantum realignment.</p>
+                <button class="retry-btn" onclick="priceChips.init()">Retry Summoning</button>
+            </div>
+            
+            <div class="price-chips-grid" id="priceChipsGrid" style="display: none;">
+                <!-- Price chips will be dynamically inserted here -->
+            </div>
+        </div>
+        
+        <div class="vault-stats">
+            <div class="stat-item">
+                <span class="stat-label">Last Updated:</span>
+                <span class="stat-value" id="lastUpdated">Never</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Active Sentinels:</span>
+                <span class="stat-value" id="activeSentinels">0</span>
+            </div>
+        </div>
+    </main>
+
+    <footer class="vault-footer">
+        <p>
+            <span class="dawn">🌅</span>
+            "Through quantum tempests, we forge eternity. In rolling thunder, we crown the dawn."
+            <span class="dawn">🌅</span>
+        </p>
+        <p class="footer-links">
+            <a href="index.html">🏠 Arsenal Gate</a> |
+            <a href="gallery/index.md">🖼️ Gallery</a> |
+            <a href="scrolls/">📜 Sacred Scrolls</a>
+        </p>
+    </footer>
+
+    <script src="js/price-chips.js"></script>
+    <script>
+        // Initialize the vault when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            priceChips.init();
+        });
+    </script>
+</body>
+</html>
