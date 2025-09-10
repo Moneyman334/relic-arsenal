@@ -1,0 +1,323 @@
+/* Vault Power-Up - Neon Aesthetic Styling */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+:root {
+  --neon-cyan: #00ffff;
+  --neon-purple: #9945ff;
+  --neon-orange: #ff9500;
+  --neon-green: #14f195;
+  --neon-silver: #bfbbbb;
+  --dark-bg: #0a0a0a;
+  --card-bg: #111111;
+  --border-glow: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbitron', monospace;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 50%, #0a1a1a 100%);
+  color: var(--neon-cyan);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.vault-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+}
+
+.vault-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.vault-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--neon-cyan);
+  text-shadow: 
+    0 0 10px var(--neon-cyan),
+    0 0 20px var(--neon-cyan),
+    0 0 40px var(--neon-cyan);
+  margin-bottom: 1rem;
+  animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+.vault-subtitle {
+  font-size: 1.2rem;
+  color: var(--neon-purple);
+  text-shadow: 0 0 10px var(--neon-purple);
+  opacity: 0.8;
+}
+
+.crypto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.crypto-card {
+  background: linear-gradient(135deg, var(--card-bg) 0%, #1a1a1a 100%);
+  border: 2px solid var(--border-glow);
+  border-radius: 15px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.crypto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 10px 30px rgba(0, 255, 255, 0.3),
+    0 0 50px rgba(0, 255, 255, 0.1);
+}
+
+.crypto-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--card-accent), transparent);
+  animation: scan 3s linear infinite;
+}
+
+.crypto-card.eth::before { --card-accent: var(--neon-cyan); }
+.crypto-card.btc::before { --card-accent: var(--neon-orange); }
+.crypto-card.ltc::before { --card-accent: var(--neon-silver); }
+.crypto-card.sol::before { --card-accent: var(--neon-purple); }
+
+.crypto-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.crypto-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 0 0 10px currentColor;
+}
+
+.crypto-card.eth .crypto-name { color: var(--neon-cyan); }
+.crypto-card.btc .crypto-name { color: var(--neon-orange); }
+.crypto-card.ltc .crypto-name { color: var(--neon-silver); }
+.crypto-card.sol .crypto-name { color: var(--neon-purple); }
+
+.qr-container {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.qr-code {
+  width: 150px;
+  height: 150px;
+  border: 2px solid currentColor;
+  border-radius: 10px;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.qr-code:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px currentColor;
+}
+
+.address-section {
+  margin-bottom: 1rem;
+}
+
+.address-label {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.address-container {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-glow);
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.wallet-address {
+  flex: 1;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  color: #fff;
+  background: transparent;
+  border: none;
+  outline: none;
+  user-select: all;
+}
+
+.copy-btn {
+  background: linear-gradient(135deg, currentColor, transparent);
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  padding: 0.5rem;
+  color: currentColor;
+  cursor: pointer;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  margin-left: 0.5rem;
+  min-width: 60px;
+}
+
+.copy-btn:hover {
+  background: currentColor;
+  color: var(--dark-bg);
+  box-shadow: 0 0 15px currentColor;
+  text-shadow: none;
+}
+
+.copy-btn:active {
+  transform: scale(0.95);
+}
+
+.alias-badge {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  border: 1px solid var(--neon-cyan);
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--dark-bg);
+  text-shadow: none;
+  margin-top: 0.5rem;
+  animation: pulse-glow 3s ease-in-out infinite alternate;
+}
+
+.alias-badge::before {
+  content: '👑';
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+  color: var(--dark-bg);
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  border: 2px solid var(--neon-green);
+  font-weight: 600;
+  box-shadow: 
+    0 10px 30px rgba(20, 241, 149, 0.3),
+    0 0 20px rgba(20, 241, 149, 0.5);
+  transform: translateX(400px);
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 1000;
+}
+
+.toast.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem;
+  border-top: 1px solid var(--border-glow);
+}
+
+.footer-text {
+  color: var(--neon-purple);
+  font-style: italic;
+  text-shadow: 0 0 10px var(--neon-purple);
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0% { 
+    text-shadow: 
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 40px currentColor;
+  }
+  100% { 
+    text-shadow: 
+      0 0 15px currentColor,
+      0 0 30px currentColor,
+      0 0 60px currentColor;
+  }
+}
+
+@keyframes scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .vault-container {
+    padding: 1rem;
+  }
+  
+  .vault-title {
+    font-size: 2rem;
+  }
+  
+  .crypto-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .crypto-card {
+    padding: 1.5rem;
+  }
+  
+  .wallet-address {
+    font-size: 0.75rem;
+  }
+  
+  .toast {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    transform: translateY(100px);
+  }
+  
+  .toast.show {
+    transform: translateY(0);
+  }
+}
+
+/* Additional cosmic effects */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(153, 69, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 60%, rgba(255, 149, 0, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
