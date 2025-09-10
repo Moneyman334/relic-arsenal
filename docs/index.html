@@ -1,12 +1,205 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Relic Arsenal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⛧⚡👑 ChaosKey333 Relic Arsenal 👑⚡⛧</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0c0c0c, #1a1a2e, #16213e);
+            color: #e0e0e0;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #f0c674;
+            text-shadow: 0 0 10px #f0c674;
+            margin-bottom: 30px;
+        }
+        .prophecy-section {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #444;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 0 20px rgba(240, 198, 116, 0.2);
+        }
+        .relic-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .relic-btn {
+            padding: 12px 24px;
+            background: rgba(240, 198, 116, 0.1);
+            border: 2px solid #f0c674;
+            color: #f0c674;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .relic-btn:hover {
+            background: rgba(240, 198, 116, 0.2);
+            box-shadow: 0 0 15px rgba(240, 198, 116, 0.5);
+        }
+        .prophecy-display {
+            background: rgba(16, 16, 16, 0.8);
+            border: 1px solid #555;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+        .eternal-prophecy {
+            border: 2px solid #ff6b6b;
+            box-shadow: 0 0 25px rgba(255, 107, 107, 0.3);
+            animation: eternallGlow 2s infinite alternate;
+        }
+        @keyframes eternallGlow {
+            from { box-shadow: 0 0 25px rgba(255, 107, 107, 0.3); }
+            to { box-shadow: 0 0 35px rgba(255, 107, 107, 0.6); }
+        }
+        .links-section {
+            margin-top: 40px;
+        }
+        .links-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .links-section li {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(240, 198, 116, 0.1);
+            border-radius: 5px;
+        }
+        .links-section a {
+            color: #8cc8ff;
+            text-decoration: none;
+        }
+        .links-section a:hover {
+            color: #f0c674;
+        }
+        .eternal-btn {
+            background: rgba(255, 107, 107, 0.1);
+            border-color: #ff6b6b;
+            color: #ff6b6b;
+        }
+        .eternal-btn:hover {
+            background: rgba(255, 107, 107, 0.2);
+            box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+        }
+        .signature {
+            text-align: right;
+            font-size: 12px;
+            color: #666;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Gallery/Links</h1>
-    <ul>
-        <li><a href="./sentinel/">🚀 Sentinel Launcher</a></li>
-        <!-- Add other links here -->
-    </ul>
+    <div class="container">
+        <h1>⛧⚡👑 ChaosKey333 Relic Arsenal 👑⚡⛧</h1>
+        
+        <div class="prophecy-section">
+            <h2>🔮 Prophecy Engine - Quantum Dawn 🔮</h2>
+            <p><em>Ignite the Prophecy Engine to weave whispers and random fates into the Vault's relics</em></p>
+            
+            <div class="relic-buttons">
+                <button class="relic-btn" onclick="generateProphecy('CROWN')">🌑👑 Crown</button>
+                <button class="relic-btn" onclick="generateProphecy('SIGIL')">🔥🕊️ Sigil</button>
+                <button class="relic-btn" onclick="generateProphecy('KEY')">🌌🔑 Key</button>
+                <button class="relic-btn eternal-btn" onclick="generateEternalProphecy()">✨ Eternal</button>
+            </div>
+            
+            <div id="prophecy-display" class="prophecy-display">
+                Click a relic to unveil its prophecy...
+            </div>
+        </div>
+
+        <div class="links-section">
+            <h2>📜 Gallery/Links</h2>
+            <ul>
+                <li><a href="./sentinel/">🚀 Sentinel Launcher</a></li>
+                <li><a href="./cosmic-scripture.md">🌌 Cosmic Scripture</a></li>
+                <li><a href="../codex.md">📖 Codex of Relics</a></li>
+                <!-- Add other links here -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="./js/prophecy-engine.js"></script>
+    <script>
+        let prophecyEngine;
+        
+        // Initialize the prophecy engine
+        document.addEventListener('DOMContentLoaded', function() {
+            prophecyEngine = new ProphecyEngine();
+            console.log('⛧⚡👑 Prophecy Engine Initialized 👑⚡⛧');
+        });
+
+        function generateProphecy(relicType) {
+            if (!prophecyEngine) {
+                console.error('Prophecy Engine not initialized');
+                return;
+            }
+
+            try {
+                const prophecy = prophecyEngine.generateProphecy(relicType);
+                displayProphecy(prophecy);
+            } catch (error) {
+                console.error('Error generating prophecy:', error);
+                document.getElementById('prophecy-display').textContent = 
+                    'The cosmic forces resist... Try again, seeker.';
+            }
+        }
+
+        function generateEternalProphecy() {
+            if (!prophecyEngine) {
+                console.error('Prophecy Engine not initialized');
+                return;
+            }
+
+            try {
+                const prophecy = prophecyEngine.generateEternalProphecy();
+                displayProphecy(prophecy, true);
+            } catch (error) {
+                console.error('Error generating eternal prophecy:', error);
+                document.getElementById('prophecy-display').textContent = 
+                    'The eternal mysteries remain veiled... The time is not yet right.';
+            }
+        }
+
+        function displayProphecy(prophecy, isEternal = false) {
+            const display = document.getElementById('prophecy-display');
+            display.innerHTML = prophecy.text + 
+                '<div class="signature">Signature: ' + prophecy.signature + '</div>';
+            
+            if (isEternal || prophecy.tier === 'eternal') {
+                display.classList.add('eternal-prophecy');
+            } else {
+                display.classList.remove('eternal-prophecy');
+            }
+        }
+
+        // Auto-generate initial prophecy
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                if (prophecyEngine) {
+                    generateProphecy('CROWN');
+                }
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
