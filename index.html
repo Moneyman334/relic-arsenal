@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⛧⚡👑 ChaosKey333 Vault 👑⚡⛧</title>
+    <link rel="stylesheet" href="styles/vault.css">
+</head>
+<body>
+    <header class="vault-header">
+        <h1 class="vault-title">
+            <span class="cosmic-icon">⛧</span>
+            <span class="thunder-icon">⚡</span>
+            <span class="crown-icon">👑</span>
+            ChaosKey333 Vault
+            <span class="crown-icon">👑</span>
+            <span class="thunder-icon">⚡</span>
+            <span class="cosmic-icon">⛧</span>
+        </h1>
+        <p class="vault-subtitle">🔑 Unlock the Vault. Break the Sky. 🔑</p>
+    </header>
+
+    <!-- Collector Bar -->
+    <div class="collector-bar" id="collectorBar">
+        <div class="collector-controls">
+            <button class="collector-btn toggle-btn" id="collectorModeToggle" aria-pressed="false">
+                <span class="btn-icon">🎯</span>
+                <span class="btn-text">Collector Mode: <span id="collectorStatus">OFF</span></span>
+            </button>
+            <button class="collector-btn filter-btn" id="showCollectedBtn" disabled>
+                <span class="btn-icon">⭐</span>
+                <span class="btn-text">Show Collected</span>
+            </button>
+            <button class="collector-btn clear-btn" id="clearAllBtn" disabled>
+                <span class="btn-icon">🗑️</span>
+                <span class="btn-text">Clear All</span>
+            </button>
+            <button class="collector-btn export-btn" id="exportBtn" disabled>
+                <span class="btn-icon">📁</span>
+                <span class="btn-text">Export</span>
+            </button>
+            <div class="import-container">
+                <input type="file" id="importFile" accept=".json" disabled style="display: none;">
+                <button class="collector-btn import-btn" id="importBtn" disabled>
+                    <span class="btn-icon">📂</span>
+                    <span class="btn-text">Import</span>
+                </button>
+            </div>
+        </div>
+        <div class="collector-stats" id="collectorStats" style="display: none;">
+            <span class="stats-text">Collected: <span id="collectedCount">0</span> / <span id="totalCount">0</span></span>
+        </div>
+    </div>
+
+    <!-- Vault Grid -->
+    <main class="vault-grid" id="vaultGrid">
+        <!-- Sigils will be dynamically generated -->
+    </main>
+
+    <!-- Keyboard Shortcuts Help -->
+    <div class="shortcuts-help" id="shortcutsHelp">
+        <div class="shortcuts-content">
+            <h3>⌨️ Keyboard Shortcuts</h3>
+            <ul>
+                <li><kbd>M</kbd> - Toggle Collector Mode</li>
+                <li><kbd>C</kbd> - Show Collected Sigils</li>
+                <li><kbd>F</kbd> - Collect/Uncollect Focused Sigil</li>
+                <li><kbd>?</kbd> - Toggle This Help</li>
+                <li><kbd>Esc</kbd> - Close Help</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="vault-footer">
+        <p>🌌 Through quantum tempests, we forge eternity. In rolling thunder, we crown the dawn. 🌌</p>
+        <p><a href="docs/">📚 Sacred Scrolls</a> | <a href="docs/gallery/">🖼️ Gallery</a></p>
+    </footer>
+
+    <script src="scripts/vault.js"></script>
+</body>
+</html>
