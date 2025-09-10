@@ -1,0 +1,183 @@
+/* Vault Broadcast Layer Styles */
+.broadcast-bar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(135deg, #0a0a0a, #1a1a2e, #16213e);
+  border-bottom: 2px solid #00ffff;
+  box-shadow: 
+    0 0 10px rgba(0, 255, 255, 0.5),
+    0 0 20px rgba(0, 255, 255, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.8);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: 'Courier New', 'Monaco', monospace;
+  color: #00ffff;
+  animation: neonPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+  0% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.3), 0 4px 20px rgba(0, 0, 0, 0.8); }
+  100% { box-shadow: 0 0 15px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.5), 0 4px 20px rgba(0, 0, 0, 0.8); }
+}
+
+.broadcast-countdown {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+.countdown-timer {
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+  min-width: 60px;
+  text-align: center;
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.countdown-live {
+  color: #ff6b6b;
+  text-shadow: 0 0 10px rgba(255, 107, 107, 0.8);
+  animation: livePulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes livePulse {
+  0% { color: #ff6b6b; text-shadow: 0 0 10px rgba(255, 107, 107, 0.8); }
+  100% { color: #ff4444; text-shadow: 0 0 20px rgba(255, 68, 68, 1); }
+}
+
+.broadcast-cta {
+  background: linear-gradient(45deg, rgba(0, 255, 255, 0.1), rgba(138, 43, 226, 0.1));
+  border: 1px solid rgba(0, 255, 255, 0.5);
+  color: #00ffff;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.broadcast-cta:hover, .broadcast-cta:focus {
+  background: linear-gradient(45deg, rgba(0, 255, 255, 0.2), rgba(138, 43, 226, 0.2));
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.broadcast-ticker-container {
+  flex: 1;
+  min-width: 200px;
+  overflow: hidden;
+  height: 24px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.broadcast-ticker {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+  line-height: 24px;
+  padding-left: 100%;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+.ticker-item {
+  padding-right: 3rem;
+  flex-shrink: 0;
+}
+
+/* Accessibility */
+.broadcast-bar:focus-within {
+  outline: 2px solid rgba(0, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .broadcast-bar {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .broadcast-countdown {
+    order: -1;
+  }
+  
+  .broadcast-ticker-container {
+    width: 100%;
+  }
+  
+  .broadcast-ticker {
+    animation: marquee 20s linear infinite;
+  }
+}
+
+@media (max-width: 480px) {
+  .broadcast-bar {
+    padding: 6px 12px;
+    font-size: 0.9em;
+  }
+  
+  .countdown-timer {
+    min-width: 50px;
+    padding: 2px 6px;
+    font-size: 0.85em;
+  }
+  
+  .broadcast-cta {
+    padding: 4px 8px;
+    font-size: 0.85em;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .broadcast-bar {
+    border-bottom-width: 3px;
+    background: #000000;
+    color: #ffffff;
+  }
+  
+  .broadcast-cta {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .broadcast-bar {
+    animation: none;
+  }
+  
+  .broadcast-ticker {
+    animation: none;
+    position: static;
+    padding-left: 0;
+  }
+  
+  .countdown-live {
+    animation: none;
+  }
+}

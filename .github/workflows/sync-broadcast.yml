@@ -1,0 +1,130 @@
+name: Sync Broadcast from Release Notes
+
+on:
+  push:
+    paths:
+      - 'RELEASE_NOTES.md'
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Force update broadcast.json'
+        required: false
+        default: 'false'
+
+jobs:
+  sync-broadcast:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    
+    - name: Extract broadcast data from RELEASE_NOTES.md
+      id: extract
+      run: |
+        # Extract version and title from the first line
+        VERSION_LINE=$(head -n 1 RELEASE_NOTES.md)
+        TITLE=$(echo "$VERSION_LINE" | sed -E 's/🌌\s*(.+)/\1/' | xargs)
+        
+        # Extract the quote from the file
+        QUOTE=$(grep -E '⚡\s*"' RELEASE_NOTES.md | sed -E 's/.*⚡\s*"([^"]+)".*/\1/' | head -n 1)
+        if [ -z "$QUOTE" ]; then
+          QUOTE="Unlock the Vault. Break the Sky."
+        fi
+        
+        # Set outputs (escape for JSON)
+        TITLE_JSON=$(echo "$TITLE" | jq -R .)
+        QUOTE_JSON=$(echo "$QUOTE" | jq -R .)
+        
+        echo "title=$TITLE_JSON" >> $GITHUB_OUTPUT
+        echo "quote=$QUOTE_JSON" >> $GITHUB_OUTPUT
+        
+        echo "Extracted title: $TITLE"
+        echo "Extracted quote: $QUOTE"
+    
+    - name: Generate broadcast.json
+      run: |
+        # Calculate future date (7 days from now)
+        FUTURE_DATE=$(date -d '+7 days' -Iseconds)
+        
+        # Create broadcast.json with extracted data
+        cat > broadcast.json << EOF
+        {
+          "next_drop": {
+            "title": ${{ steps.extract.outputs.title }},
+            "at": "$FUTURE_DATE",
+            "cta": {
+              "label": "Witness the Storm",
+              "link": "./RELEASES/"
+            }
+          },
+          "ticker": [
+            "⚡ \"${{ fromJson(steps.extract.outputs.quote)}}\" — ChaosKey333",
+            "🌌 Gallery & Scroll Upgrades activated",
+            "⛧ Sacred verification rituals completed", 
+            "👑 ChaosKey333 Launch Timing Playbook sealed",
+            "🔑 \"Through quantum tempests, we forge eternity. In rolling thunder, we crown the dawn.\"",
+            "⚛️ Seventh Storm foretold, seventh storm fulfilled",
+            "🌀 Where chaos meets cosmos, legends are born"
+          ]
+        }
+        EOF
+        
+        echo "Generated broadcast.json:"
+        cat broadcast.json | jq .
+    
+    - name: Check for changes
+      id: changes
+      run: |
+        if git diff --quiet broadcast.json; then
+          echo "No changes detected in broadcast.json"
+          echo "has_changes=false" >> $GITHUB_OUTPUT
+        else
+          echo "Changes detected in broadcast.json"
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+          echo "Changes:"
+          git diff broadcast.json
+        fi
+    
+    - name: Commit and push changes
+      if: steps.changes.outputs.has_changes == 'true' || github.event.inputs.force_update == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add broadcast.json
+        git commit -m "🌌 Auto-sync broadcast.json from RELEASE_NOTES.md
+        
+        📡 Updated broadcast data:
+        - Title: ${{ fromJson(steps.extract.outputs.title) }}
+        - Quote: ${{ fromJson(steps.extract.outputs.quote) }}
+        
+        ⚡ Vault broadcast layer synchronized with cosmic frequencies"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Summary
+      run: |
+        echo "## 🌌 Broadcast Sync Complete" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 📡 Extracted Data:" >> $GITHUB_STEP_SUMMARY
+        echo "- **Title:** ${{ fromJson(steps.extract.outputs.title) }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Quote:** ${{ fromJson(steps.extract.outputs.quote) }}" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        if [ "${{ steps.changes.outputs.has_changes }}" = "true" ]; then
+          echo "✅ **Status:** broadcast.json updated successfully" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "ℹ️ **Status:** No changes needed" >> $GITHUB_STEP_SUMMARY
+        fi
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "🔗 [View Vault Access Portal](https://moneyman334.github.io/relic-arsenal/docs/)" >> $GITHUB_STEP_SUMMARY
