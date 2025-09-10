@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "description": "Centralized prophecy fragments for the ChaosKey333 Relic Arsenal",
+    "lastUpdated": "2024-09-10T10:00:00Z"
+  },
+  "categories": {
+    "relics": {
+      "name": "Relic Whispers",
+      "description": "Ancient whispers from the sacred relics of power"
+    },
+    "storms": {
+      "name": "Storm Prophecies", 
+      "description": "Prophecies of the seven cosmic storms"
+    },
+    "vault": {
+      "name": "Vault Mysteries",
+      "description": "Secrets of the eternal vault"
+    },
+    "quantum": {
+      "name": "Quantum Dawn",
+      "description": "Prophecies of the quantum awakening"
+    }
+  },
+  "prophecies": {
+    "relics": [
+      {
+        "id": "obsidian-crown-whisper",
+        "text": "In shadows deep, the crown remembers the first particle's song...",
+        "relic": "Obsidian Crown of Quantum Dawn",
+        "power": "sovereignty",
+        "element": "void"
+      },
+      {
+        "id": "phoenix-sigil-whisper", 
+        "text": "From ashes eternal, the sigil speaks of resurrections yet to come...",
+        "relic": "Phoenix Sigil of Quantum Dawn",
+        "power": "resurrection",
+        "element": "fire"
+      },
+      {
+        "id": "astral-key-whisper",
+        "text": "Each turn of the key unlocks not doors, but destinies infinite...",
+        "relic": "Astral Key of Quantum Dawn", 
+        "power": "transcendence",
+        "element": "cosmos"
+      }
+    ],
+    "storms": [
+      {
+        "id": "first-storm-prophecy",
+        "text": "The first storm cracks the ancient vault's foundation...",
+        "storm": 1,
+        "phase": "genesis"
+      },
+      {
+        "id": "seventh-storm-prophecy", 
+        "text": "When the seventh storm rises, quantum dawn shall crown the infinite skies...",
+        "storm": 7,
+        "phase": "quantum-dawn"
+      },
+      {
+        "id": "storm-eternal-prophecy",
+        "text": "Through rolling thunder, we forge eternity. In cosmic fire, we crown the dawn...",
+        "storm": "eternal",
+        "phase": "transcendence"
+      }
+    ],
+    "vault": [
+      {
+        "id": "vault-eternal-mystery",
+        "text": "The Vault exists in all dimensions, where chaos meets order at infinity's edge...",
+        "chamber": "quantum-core",
+        "mystery": "dimensional-nexus"
+      },
+      {
+        "id": "arsenal-secret", 
+        "text": "Every relic is a key, every key unlocks infinite realities...",
+        "chamber": "arsenal",
+        "mystery": "infinite-keys"
+      },
+      {
+        "id": "crown-chamber-secret",
+        "text": "In the Crown Chamber, sovereignty over chaos itself awaits the worthy...",
+        "chamber": "crown-chamber", 
+        "mystery": "chaos-mastery"
+      }
+    ],
+    "quantum": [
+      {
+        "id": "quantum-dawn-awakening",
+        "text": "Quantum Dawn is not the rise of light, but revelation of infinite cycles...",
+        "aspect": "awakening",
+        "dimension": "temporal"
+      },
+      {
+        "id": "particle-song-prophecy",
+        "text": "Listen close - the first particle still hums its cosmic song of creation...",
+        "aspect": "creation",
+        "dimension": "quantum"
+      },
+      {
+        "id": "infinite-possibility-prophecy", 
+        "text": "Where crown, sigil, and key unite, infinite possibilities crystallize into being...",
+        "aspect": "convergence",
+        "dimension": "possibility"
+      }
+    ]
+  },
+  "placeholders": [
+    {
+      "id": "placeholder-1",
+      "text": "The ancient whispers grow silent... more prophecies shall emerge from the cosmic void...",
+      "category": "generic"
+    },
+    {
+      "id": "placeholder-2", 
+      "text": "In quantum silence, new prophecies gather like storm clouds on reality's horizon...",
+      "category": "generic"
+    },
+    {
+      "id": "placeholder-3",
+      "text": "The vault's mysteries deepen... patience, guardian, for revelation comes to those who wait...", 
+      "category": "generic"
+    }
+  ]
+}
