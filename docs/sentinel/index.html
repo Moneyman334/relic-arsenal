@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel Timeline - Eternal Sigil Forge</title>
+    <link rel="stylesheet" href="styles/sentinel.css">
+    <link rel="stylesheet" href="styles/sigil-forge.css">
+</head>
+<body>
+    <div class="cosmic-background">
+        <div class="container">
+            <header class="cosmic-header">
+                <h1>⛧⚡👑 Sentinel Timeline 👑⚡⛧</h1>
+                <p class="subtitle">Gateway to the Eternal Sigil Forge</p>
+            </header>
+
+            <nav class="timeline-nav">
+                <button id="forge-tab" class="nav-tab active">🔥 Forge</button>
+                <button id="archive-tab" class="nav-tab">📚 Archive</button>
+                <button id="gallery-tab" class="nav-tab">🖼️ Gallery</button>
+            </nav>
+
+            <main class="timeline-content">
+                <!-- Forge Interface -->
+                <section id="forge-panel" class="panel active">
+                    <h2>⚡ Eternal Sigil Forge ⚡</h2>
+                    <p class="forge-description">Craft your own relic variations and bind them with personalized lore.</p>
+                    
+                    <div class="forge-workspace">
+                        <div class="relic-preview">
+                            <div id="relic-canvas" class="relic-container">
+                                <div id="relic-core" class="relic-core">
+                                    <div class="relic-symbol">⚛️</div>
+                                    <div class="relic-glow"></div>
+                                </div>
+                            </div>
+                            <div class="preview-info">
+                                <h3 id="relic-name">Unnamed Relic</h3>
+                                <p id="relic-lore">An artifact of unknown origin...</p>
+                            </div>
+                        </div>
+
+                        <div class="forge-controls">
+                            <div class="control-group">
+                                <label for="relic-title">Relic Name:</label>
+                                <input type="text" id="relic-title" placeholder="Enter relic name..." maxlength="50">
+                            </div>
+
+                            <div class="control-group">
+                                <label for="color-picker">Core Color:</label>
+                                <div class="color-controls">
+                                    <input type="color" id="color-picker" value="#ff6b35">
+                                    <div class="preset-colors">
+                                        <button class="color-preset" data-color="#ff6b35" style="background: #ff6b35;"></button>
+                                        <button class="color-preset" data-color="#4ecdc4" style="background: #4ecdc4;"></button>
+                                        <button class="color-preset" data-color="#45b7d1" style="background: #45b7d1;"></button>
+                                        <button class="color-preset" data-color="#96ceb4" style="background: #96ceb4;"></button>
+                                        <button class="color-preset" data-color="#feca57" style="background: #feca57;"></button>
+                                        <button class="color-preset" data-color="#ff9ff3" style="background: #ff9ff3;"></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label for="glow-intensity">Glow Intensity:</label>
+                                <input type="range" id="glow-intensity" min="0" max="100" value="50">
+                                <span id="glow-value">50%</span>
+                            </div>
+
+                            <div class="control-group">
+                                <label for="relic-symbol">Relic Symbol:</label>
+                                <div class="symbol-grid">
+                                    <button class="symbol-btn active" data-symbol="⚛️">⚛️</button>
+                                    <button class="symbol-btn" data-symbol="🔮">🔮</button>
+                                    <button class="symbol-btn" data-symbol="⚡">⚡</button>
+                                    <button class="symbol-btn" data-symbol="👑">👑</button>
+                                    <button class="symbol-btn" data-symbol="🌟">🌟</button>
+                                    <button class="symbol-btn" data-symbol="🔥">🔥</button>
+                                    <button class="symbol-btn" data-symbol="❄️">❄️</button>
+                                    <button class="symbol-btn" data-symbol="🌙">🌙</button>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label for="relic-inscription">Personal Lore:</label>
+                                <textarea id="relic-inscription" placeholder="Inscribe your personal lore and the relic's origin story..." rows="4" maxlength="500"></textarea>
+                                <small><span id="lore-count">0</span>/500 characters</small>
+                            </div>
+
+                            <div class="forge-actions">
+                                <button id="preview-btn" class="action-btn secondary">🔍 Preview</button>
+                                <button id="save-relic" class="action-btn primary">💾 Forge Relic</button>
+                                <button id="reset-forge" class="action-btn secondary">🔄 Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Archive Panel -->
+                <section id="archive-panel" class="panel">
+                    <h2>📚 Collector Archive</h2>
+                    <p>Your forged relics are stored here for eternity.</p>
+                    
+                    <div class="archive-controls">
+                        <input type="text" id="search-archive" placeholder="Search your relics...">
+                        <button id="clear-archive" class="action-btn danger">🗑️ Clear All</button>
+                    </div>
+
+                    <div id="archive-grid" class="archive-grid">
+                        <div class="empty-archive">
+                            <p>No relics forged yet. Visit the Forge to create your first relic!</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Gallery Panel -->
+                <section id="gallery-panel" class="panel">
+                    <h2>🖼️ Cosmic Gallery</h2>
+                    <p>Showcase of legendary relics and community creations.</p>
+                    
+                    <div class="gallery-grid">
+                        <div class="gallery-item legendary">
+                            <div class="gallery-relic">
+                                <div class="relic-core legendary-glow">
+                                    <div class="relic-symbol">👑</div>
+                                </div>
+                            </div>
+                            <h4>Crown of Quantum Dawn</h4>
+                            <p>First relic of the Seventh Storm</p>
+                        </div>
+                        
+                        <div class="gallery-item epic">
+                            <div class="gallery-relic">
+                                <div class="relic-core epic-glow">
+                                    <div class="relic-symbol">⚡</div>
+                                </div>
+                            </div>
+                            <h4>Thunder Shard Eternal</h4>
+                            <p>Forged in rolling storms</p>
+                        </div>
+
+                        <div class="gallery-item rare">
+                            <div class="gallery-relic">
+                                <div class="relic-core rare-glow">
+                                    <div class="relic-symbol">🔮</div>
+                                </div>
+                            </div>
+                            <h4>Mystic Void Orb</h4>
+                            <p>Whispers of ancient prophecies</p>
+                        </div>
+                    </div>
+
+                    <div class="nft-bridge">
+                        <h3>⛓️ NFT Bridge (Optional)</h3>
+                        <p>Transform your forged relics into blockchain artifacts</p>
+                        <button id="nft-mint" class="action-btn secondary" disabled>🌐 Mint as NFT</button>
+                        <small>Feature coming soon...</small>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="cosmic-footer">
+                <p><a href="../">← Back to Vault</a> | <em>"Through quantum tempests, we forge eternity."</em></p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="../js/sigil-forge.js"></script>
+</body>
+</html>

@@ -1,0 +1,558 @@
+/* Sigil Forge Specific Styles */
+
+/* Forge Workspace Layout */
+.forge-workspace {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 2rem;
+}
+
+/* Relic Preview Section */
+.relic-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 2px solid rgba(255, 107, 53, 0.2);
+}
+
+.relic-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.relic-core {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, var(--relic-color, #ff6b35) 0%, rgba(0,0,0,0.8) 70%);
+    border: 3px solid var(--relic-color, #ff6b35);
+    box-shadow: 
+        0 0 20px var(--relic-color, #ff6b35),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    animation: relicPulse 2s ease-in-out infinite;
+}
+
+@keyframes relicPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.relic-symbol {
+    font-size: 4rem;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+    animation: symbolGlow 3s ease-in-out infinite;
+}
+
+@keyframes symbolGlow {
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)); }
+    50% { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1)); }
+}
+
+.relic-glow {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, transparent 60%, var(--relic-color, #ff6b35) 70%, transparent 80%);
+    opacity: var(--glow-intensity, 0.5);
+    animation: glowRotate 4s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes glowRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.preview-info {
+    text-align: center;
+    width: 100%;
+}
+
+.preview-info h3 {
+    color: var(--relic-color, #ff6b35);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px var(--relic-color, #ff6b35);
+}
+
+.preview-info p {
+    color: #b0b0b0;
+    font-style: italic;
+    line-height: 1.4;
+    max-width: 300px;
+}
+
+/* Forge Controls */
+.forge-controls {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.control-group {
+    margin-bottom: 1.5rem;
+}
+
+.control-group label {
+    display: block;
+    color: #ff6b35;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.control-group input[type="text"],
+.control-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.control-group input[type="text"]:focus,
+.control-group textarea:focus {
+    outline: none;
+    border-color: #ff6b35;
+    background: rgba(255, 107, 53, 0.1);
+    box-shadow: 0 0 15px rgba(255, 107, 53, 0.3);
+}
+
+.control-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+/* Color Controls */
+.color-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.color-controls input[type="color"] {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+}
+
+.preset-colors {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.color-preset {
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.color-preset:hover {
+    transform: scale(1.2);
+    border-color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Range Slider */
+.control-group input[type="range"] {
+    width: calc(100% - 60px);
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    outline: none;
+    margin-right: 1rem;
+}
+
+.control-group input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ff6b35;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+}
+
+.control-group input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ff6b35;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+}
+
+#glow-value {
+    color: #ff6b35;
+    font-weight: bold;
+    min-width: 50px;
+}
+
+/* Symbol Grid */
+.symbol-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.symbol-btn {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.symbol-btn:hover {
+    background: rgba(255, 107, 53, 0.2);
+    border-color: rgba(255, 107, 53, 0.6);
+    transform: scale(1.1);
+}
+
+.symbol-btn.active {
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    border-color: #ff6b35;
+    box-shadow: 0 0 15px rgba(255, 107, 53, 0.5);
+}
+
+/* Character Counter */
+.control-group small {
+    color: #888;
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+#lore-count {
+    color: #ff6b35;
+}
+
+/* Forge Actions */
+.forge-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Archive Styles */
+.archive-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.archive-controls input[type="text"] {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.8rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.archive-controls input[type="text"]:focus {
+    outline: none;
+    border-color: #ff6b35;
+    background: rgba(255, 107, 53, 0.1);
+}
+
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.empty-archive {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 15px;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+}
+
+.archive-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.archive-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 107, 53, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.archive-relic {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.archive-relic .relic-core {
+    width: 80px;
+    height: 80px;
+}
+
+.archive-relic .relic-symbol {
+    font-size: 2rem;
+}
+
+.archive-item h4 {
+    color: #ff6b35;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.archive-item .relic-lore {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    text-align: center;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.archive-item .relic-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.delete-relic {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.delete-relic:hover {
+    background: #c0392b;
+}
+
+/* Gallery Styles */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.gallery-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-relic {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.gallery-relic .relic-core {
+    width: 100px;
+    height: 100px;
+}
+
+.gallery-relic .relic-symbol {
+    font-size: 2.5rem;
+}
+
+.legendary-glow {
+    --relic-color: #ffd700;
+    border-color: #ffd700 !important;
+    box-shadow: 0 0 30px #ffd700 !important;
+}
+
+.epic-glow {
+    --relic-color: #9b59b6;
+    border-color: #9b59b6 !important;
+    box-shadow: 0 0 30px #9b59b6 !important;
+}
+
+.rare-glow {
+    --relic-color: #3498db;
+    border-color: #3498db !important;
+    box-shadow: 0 0 30px #3498db !important;
+}
+
+.gallery-item h4 {
+    color: #ff6b35;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.gallery-item p {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+}
+
+/* NFT Bridge */
+.nft-bridge {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+}
+
+.nft-bridge h3 {
+    color: #ff6b35;
+    margin-bottom: 1rem;
+}
+
+.nft-bridge p {
+    margin-bottom: 1.5rem;
+}
+
+.nft-bridge small {
+    display: block;
+    margin-top: 1rem;
+    color: #888;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .forge-workspace {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .relic-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .relic-core {
+        width: 120px;
+        height: 120px;
+    }
+
+    .relic-symbol {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .archive-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .forge-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .archive-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .color-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .symbol-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .relic-container {
+        width: 120px;
+        height: 120px;
+    }
+
+    .relic-core {
+        width: 100px;
+        height: 100px;
+    }
+
+    .relic-symbol {
+        font-size: 2.5rem;
+    }
+
+    .symbol-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .symbol-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
