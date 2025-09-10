@@ -1,12 +1,219 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Relic Arsenal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⛧⚡👑 ChaosKey333 - Relic Arsenal 👑⚡⛧</title>
+    <meta name="description" content="Unlock the Vault. Break the Sky. Enter the mystical realm of ChaosKey333 and forge your legend.">
+    <link rel="stylesheet" href="./css/celestial-leaderboards.css">
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        
+        .vault-header {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .vault-title {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #ffd700, #ffed4a, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: celestial-glow 4s ease-in-out infinite;
+            margin: 0 0 0.5rem 0;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+        
+        .vault-subtitle {
+            font-size: 1.2rem;
+            color: #cccccc;
+            font-style: italic;
+            margin: 0 0 1rem 0;
+        }
+        
+        .vault-creed {
+            font-size: 0.9rem;
+            color: #ffd700;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        .vault-navigation {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .nav-link {
+            display: block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .nav-link:hover::before {
+            left: 100%;
+        }
+        
+        .leaderboard-toggle {
+            background: linear-gradient(45deg, #ffd700 0%, #ffed4a 100%) !important;
+            color: #000 !important;
+        }
+        
+        @media (max-width: 768px) {
+            .vault-title {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .nav-link {
+                min-width: 250px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Gallery/Links</h1>
-    <ul>
-        <li><a href="./sentinel/">🚀 Sentinel Launcher</a></li>
-        <!-- Add other links here -->
-    </ul>
+    <header class="vault-header">
+        <h1 class="vault-title">⛧⚡👑 ChaosKey333 👑⚡⛧</h1>
+        <p class="vault-subtitle">🔑 Unlock the Vault. Break the Sky. 🔑</p>
+        <p class="vault-creed">"Crown the Vault • Forge the Storm • Honor the Scrolls"</p>
+    </header>
+    
+    <nav class="vault-navigation">
+        <ul class="nav-links">
+            <li><a href="#" class="nav-link leaderboard-toggle" id="leaderboardToggle">⭐ Celestial Leaderboards</a></li>
+            <li><a href="./sentinel/" class="nav-link">🚀 Sentinel Timeline</a></li>
+            <li><a href="./cosmic-scripture.md" class="nav-link">📜 Cosmic Scripture</a></li>
+            <li><a href="./gallery/" class="nav-link">🖼️ Relic Gallery</a></li>
+            <li><a href="../README.md" class="nav-link">📖 Sacred Scrolls</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Celestial Leaderboards Container -->
+    <div id="celestialLeaderboardsContainer"></div>
+    
+    <!-- Scripts -->
+    <script src="./js/celestial-leaderboards.js"></script>
+    <script src="./js/celestial-leaderboards-ui.js"></script>
+    <script>
+        // Initialize Celestial Leaderboards
+        let celestialLeaderboards;
+        let leaderboardsUI;
+        let sentinelTimeline;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the leaderboard system
+            celestialLeaderboards = new CelestialLeaderboards();
+            leaderboardsUI = new CelestialLeaderboardsUI('celestialLeaderboardsContainer', celestialLeaderboards);
+            sentinelTimeline = new SentinelTimeline(celestialLeaderboards);
+            
+            // Hide leaderboard initially
+            leaderboardsUI.hide();
+            
+            // Setup leaderboard toggle
+            const leaderboardToggle = document.getElementById('leaderboardToggle');
+            if (leaderboardToggle) {
+                leaderboardToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    leaderboardsUI.toggle();
+                    
+                    // Update button text
+                    if (leaderboardsUI.isVisible) {
+                        leaderboardToggle.textContent = '🌌 Hide Leaderboards';
+                    } else {
+                        leaderboardToggle.textContent = '⭐ Celestial Leaderboards';
+                    }
+                });
+            }
+            
+            // Demo: Simulate some timeline events
+            setTimeout(() => {
+                sentinelTimeline.trackEvent('chaoskey333', 'relic_forged', { amount: 3, relicType: 'Cosmic Crown' });
+                sentinelTimeline.trackEvent('vaultkeeper', 'sigil_collected', { amount: 5, sigilType: 'Storm Sigil' });
+                sentinelTimeline.trackEvent('stormweaver', 'echo_cast', { amount: 2, platform: 'Discord' });
+            }, 2000);
+            
+            // Show welcome notification
+            setTimeout(() => {
+                if (leaderboardsUI && typeof leaderboardsUI.showNotification === 'function') {
+                    leaderboardsUI.showNotification('Welcome to the Vault! Toggle the Celestial Leaderboards to see wanderer activity. ⭐', 'info');
+                }
+            }, 1000);
+        });
+        
+        // Global functions for testing/demo
+        window.trackRelicForged = (wandererId, amount = 1) => {
+            sentinelTimeline.trackEvent(wandererId, 'relic_forged', { amount });
+        };
+        
+        window.trackSigilCollected = (wandererId, amount = 1) => {
+            sentinelTimeline.trackEvent(wandererId, 'sigil_collected', { amount });
+        };
+        
+        window.trackEchoCast = (wandererId, amount = 1) => {
+            sentinelTimeline.trackEvent(wandererId, 'echo_cast', { amount });
+        };
+        
+        window.showLeaderboards = () => {
+            leaderboardsUI.show();
+            document.getElementById('leaderboardToggle').textContent = '🌌 Hide Leaderboards';
+        };
+        
+        window.hideLeaderboards = () => {
+            leaderboardsUI.hide();
+            document.getElementById('leaderboardToggle').textContent = '⭐ Celestial Leaderboards';
+        };
+    </script>
 </body>
 </html>
