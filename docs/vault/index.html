@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⛧⚡👑 ChaosKey333 Vault 👑⚡⛧</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Orbitron', monospace;
+            background: radial-gradient(ellipse at center, #0a0520 0%, #000000 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Cosmic Background Animation */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+                radial-gradient(2px 2px at 40px 70px, #00ffff, transparent),
+                radial-gradient(1px 1px at 90px 40px, #ff00ff, transparent),
+                radial-gradient(1px 1px at 130px 80px, #ffff00, transparent),
+                radial-gradient(2px 2px at 160px 30px, #ffffff, transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            animation: stars 20s linear infinite;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        @keyframes stars {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-100px); }
+        }
+        
+        .vault-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .vault-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .vault-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-shadow: 
+                0 0 10px #00ffff,
+                0 0 20px #00ffff,
+                0 0 30px #00ffff,
+                0 0 40px #00ffff;
+            margin-bottom: 10px;
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+        
+        .vault-subtitle {
+            font-size: 1.2rem;
+            color: #888;
+            text-shadow: 0 0 10px #ffffff;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% {
+                text-shadow: 
+                    0 0 10px #00ffff,
+                    0 0 20px #00ffff,
+                    0 0 30px #00ffff,
+                    0 0 40px #00ffff;
+            }
+            50% {
+                text-shadow: 
+                    0 0 20px #00ffff,
+                    0 0 30px #00ffff,
+                    0 0 40px #00ffff,
+                    0 0 50px #00ffff;
+            }
+        }
+        
+        .vault-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .vault-card {
+            background: linear-gradient(145deg, rgba(20, 20, 80, 0.3), rgba(80, 20, 80, 0.3));
+            border: 2px solid;
+            border-radius: 15px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .vault-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00, #00ff00, #00ffff);
+            border-radius: 15px;
+            z-index: -1;
+            animation: rotate-border 4s linear infinite;
+        }
+        
+        @keyframes rotate-border {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .vault-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 20px 40px rgba(0, 255, 255, 0.3),
+                0 0 60px rgba(255, 0, 255, 0.2);
+        }
+        
+        .crypto-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .crypto-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+            text-shadow: 0 0 10px currentColor;
+        }
+        
+        .crypto-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 0 10px currentColor;
+        }
+        
+        .eth { border-color: #627EEA; color: #627EEA; }
+        .btc { border-color: #F7931A; color: #F7931A; }
+        .ltc { border-color: #BFBBBB; color: #BFBBBB; }
+        .sol { border-color: #9945FF; color: #9945FF; }
+        
+        .qr-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .qr-code {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .qr-code:hover {
+            transform: scale(1.05);
+        }
+        
+        .wallet-address {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid currentColor;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            word-break: break-all;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .wallet-address::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .wallet-address:hover::before {
+            left: 100%;
+        }
+        
+        .copy-btn {
+            background: linear-gradient(45deg, currentColor, transparent);
+            border: 2px solid currentColor;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+        }
+        
+        .copy-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+        
+        .copy-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 0 10px currentColor;
+        }
+        
+        .copy-btn.copied {
+            animation: copy-success 0.6s ease;
+        }
+        
+        @keyframes copy-success {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .alias-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #00ffff, #0088ff);
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-top: 10px;
+            text-shadow: none;
+            box-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.5),
+                inset 0 2px 4px rgba(255, 255, 255, 0.3);
+            animation: badge-glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes badge-glow {
+            0%, 100% {
+                box-shadow: 
+                    0 0 20px rgba(0, 255, 255, 0.5),
+                    inset 0 2px 4px rgba(255, 255, 255, 0.3);
+            }
+            50% {
+                box-shadow: 
+                    0 0 30px rgba(0, 255, 255, 0.8),
+                    inset 0 2px 4px rgba(255, 255, 255, 0.5);
+            }
+        }
+        
+        .vault-footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cosmic-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #888;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            margin-bottom: 10px;
+        }
+        
+        .signature {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .vault-title {
+                font-size: 1.8rem;
+            }
+            
+            .vault-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .vault-card {
+                padding: 20px;
+            }
+            
+            .crypto-name {
+                font-size: 1.2rem;
+            }
+            
+            .wallet-address {
+                font-size: 0.8rem;
+                padding: 12px;
+            }
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid currentColor;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="vault-container">
+        <header class="vault-header">
+            <h1 class="vault-title">⛧⚡👑 CHAOS VAULT 👑⚡⛧</h1>
+            <p class="vault-subtitle">🔑 Quantum Dawn Cryptocurrency Arsenal 🔑</p>
+        </header>
+        
+        <div class="vault-grid">
+            <!-- Ethereum Card -->
+            <div class="vault-card eth">
+                <div class="crypto-header">
+                    <div class="crypto-icon">⚛️</div>
+                    <div class="crypto-name">Ethereum</div>
+                </div>
+                <div class="qr-container">
+                    <div id="eth-qr" class="qr-code"></div>
+                </div>
+                <div class="wallet-address" id="eth-address" onclick="copyAddress('eth')">
+                    0x742d35Cc6e64C0532A1c86b8E6c8f9A9A1D4F8B2
+                </div>
+                <div class="alias-badge">
+                    🎭 trillionair99.cb.id
+                </div>
+                <button class="copy-btn" onclick="copyAddress('eth')">
+                    ⚡ Copy Address
+                </button>
+            </div>
+            
+            <!-- Bitcoin Card -->
+            <div class="vault-card btc">
+                <div class="crypto-header">
+                    <div class="crypto-icon">₿</div>
+                    <div class="crypto-name">Bitcoin</div>
+                </div>
+                <div class="qr-container">
+                    <div id="btc-qr" class="qr-code"></div>
+                </div>
+                <div class="wallet-address" id="btc-address" onclick="copyAddress('btc')">
+                    bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh
+                </div>
+                <button class="copy-btn" onclick="copyAddress('btc')">
+                    ⚡ Copy Address
+                </button>
+            </div>
+            
+            <!-- Litecoin Card -->
+            <div class="vault-card ltc">
+                <div class="crypto-header">
+                    <div class="crypto-icon">Ł</div>
+                    <div class="crypto-name">Litecoin</div>
+                </div>
+                <div class="qr-container">
+                    <div id="ltc-qr" class="qr-code"></div>
+                </div>
+                <div class="wallet-address" id="ltc-address" onclick="copyAddress('ltc')">
+                    ltc1qw508d6qejxtdg4y5r3zarvary0c5xw7kg3g4ty
+                </div>
+                <button class="copy-btn" onclick="copyAddress('ltc')">
+                    ⚡ Copy Address
+                </button>
+            </div>
+            
+            <!-- Solana Card -->
+            <div class="vault-card sol">
+                <div class="crypto-header">
+                    <div class="crypto-icon">◎</div>
+                    <div class="crypto-name">Solana</div>
+                </div>
+                <div class="qr-container">
+                    <div id="sol-qr" class="qr-code"></div>
+                </div>
+                <div class="wallet-address" id="sol-address" onclick="copyAddress('sol')">
+                    7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU
+                </div>
+                <button class="copy-btn" onclick="copyAddress('sol')">
+                    ⚡ Copy Address
+                </button>
+            </div>
+        </div>
+        
+        <footer class="vault-footer">
+            <p class="cosmic-quote">"Through quantum tempests, we forge eternity. In rolling thunder, we crown the dawn."</p>
+            <p class="signature">— The Seventh Scroll, ChaosKey333</p>
+        </footer>
+    </div>
+
+    <!-- QR Code Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    
+    <script>
+        // Wallet addresses
+        const walletAddresses = {
+            eth: '0x742d35Cc6e64C0532A1c86b8E6c8f9A9A1D4F8B2',
+            btc: 'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh',
+            ltc: 'ltc1qw508d6qejxtdg4y5r3zarvary0c5xw7kg3g4ty',
+            sol: '7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU'
+        };
+        
+        // Generate QR codes
+        function generateQRCodes() {
+            Object.keys(walletAddresses).forEach(crypto => {
+                const address = walletAddresses[crypto];
+                const container = document.getElementById(`${crypto}-qr`);
+                
+                if (typeof QRCode !== 'undefined') {
+                    // Use external QR library if available
+                    QRCode.toCanvas(address, {
+                        width: 150,
+                        height: 150,
+                        margin: 2,
+                        color: {
+                            dark: '#000000',
+                            light: '#ffffff'
+                        }
+                    }, (error, canvas) => {
+                        if (error) {
+                            console.error(`Error generating QR code for ${crypto}:`, error);
+                            generateFallbackQR(container, address, crypto);
+                        } else {
+                            container.innerHTML = '';
+                            container.appendChild(canvas);
+                        }
+                    });
+                } else {
+                    // Use fallback QR generation
+                    generateFallbackQR(container, address, crypto);
+                }
+            });
+        }
+        
+        // Fallback QR code generation using API
+        function generateFallbackQR(container, address, crypto) {
+            const qrSize = 150;
+            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${qrSize}x${qrSize}&data=${encodeURIComponent(address)}`;
+            
+            const img = document.createElement('img');
+            img.src = qrUrl;
+            img.alt = `${crypto.toUpperCase()} QR Code`;
+            img.style.width = qrSize + 'px';
+            img.style.height = qrSize + 'px';
+            img.style.display = 'block';
+            
+            // Add fallback in case the API doesn't work
+            img.onerror = function() {
+                container.innerHTML = `
+                    <div style="
+                        width: ${qrSize}px; 
+                        height: ${qrSize}px; 
+                        background: linear-gradient(45deg, #333, #666);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+                        border-radius: 8px;
+                        color: white;
+                        text-align: center;
+                        font-size: 12px;
+                    ">
+                        <div style="font-size: 24px; margin-bottom: 10px;">📱</div>
+                        <div>QR Code</div>
+                        <div style="font-size: 10px; margin-top: 5px;">${crypto.toUpperCase()}</div>
+                    </div>
+                `;
+            };
+            
+            container.innerHTML = '';
+            container.appendChild(img);
+        }
+        
+        // Copy address to clipboard
+        async function copyAddress(crypto) {
+            const address = walletAddresses[crypto];
+            const button = event.target.tagName === 'BUTTON' ? event.target : document.querySelector(`.${crypto} .copy-btn`);
+            
+            try {
+                // Add loading animation
+                button.innerHTML = '⚡ Copying<span class="loading"></span>';
+                button.disabled = true;
+                
+                // Copy to clipboard
+                await navigator.clipboard.writeText(address);
+                
+                // Success animation
+                button.innerHTML = '✓ Copied!';
+                button.classList.add('copied');
+                
+                // Create cosmic particle effect
+                createParticleEffect(button);
+                
+                // Reset button after 2 seconds
+                setTimeout(() => {
+                    button.innerHTML = '⚡ Copy Address';
+                    button.disabled = false;
+                    button.classList.remove('copied');
+                }, 2000);
+                
+            } catch (error) {
+                console.error('Failed to copy address:', error);
+                // Fallback for older browsers
+                fallbackCopyTextToClipboard(address, button);
+            }
+        }
+        
+        // Fallback copy function for older browsers
+        function fallbackCopyTextToClipboard(text, button) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+            
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    button.innerHTML = '✓ Copied!';
+                    button.classList.add('copied');
+                    createParticleEffect(button);
+                } else {
+                    button.innerHTML = '❌ Failed';
+                }
+            } catch (error) {
+                console.error('Fallback copy failed:', error);
+                button.innerHTML = '❌ Failed';
+            }
+            
+            document.body.removeChild(textArea);
+            
+            setTimeout(() => {
+                button.innerHTML = '⚡ Copy Address';
+                button.disabled = false;
+                button.classList.remove('copied');
+            }, 2000);
+        }
+        
+        // Create particle effect animation
+        function createParticleEffect(button) {
+            const rect = button.getBoundingClientRect();
+            const particles = 12;
+            
+            for (let i = 0; i < particles; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'fixed';
+                particle.style.left = (rect.left + rect.width / 2) + 'px';
+                particle.style.top = (rect.top + rect.height / 2) + 'px';
+                particle.style.width = '4px';
+                particle.style.height = '4px';
+                particle.style.background = '#00ffff';
+                particle.style.borderRadius = '50%';
+                particle.style.pointerEvents = 'none';
+                particle.style.zIndex = '9999';
+                particle.style.boxShadow = '0 0 10px #00ffff';
+                
+                document.body.appendChild(particle);
+                
+                const angle = (i / particles) * 2 * Math.PI;
+                const distance = 50 + Math.random() * 30;
+                const duration = 1000 + Math.random() * 500;
+                
+                particle.animate([
+                    {
+                        transform: 'translate(0, 0) scale(1)',
+                        opacity: 1
+                    },
+                    {
+                        transform: `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px) scale(0)`,
+                        opacity: 0
+                    }
+                ], {
+                    duration: duration,
+                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                }).finished.then(() => {
+                    document.body.removeChild(particle);
+                });
+            }
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loading delay to make it feel more cosmic
+            setTimeout(() => {
+                generateQRCodes();
+            }, 500);
+            
+            // Add cosmic background interactions
+            document.addEventListener('mousemove', function(e) {
+                const x = (e.clientX / window.innerWidth) * 100;
+                const y = (e.clientY / window.innerHeight) * 100;
+                
+                document.body.style.backgroundPosition = `${x}% ${y}%`;
+            });
+        });
+    </script>
+</body>
+</html>
