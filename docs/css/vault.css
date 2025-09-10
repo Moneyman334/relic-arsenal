@@ -1,0 +1,352 @@
+/* ⛧⚡👑 ChaosKey333 Vault CSS - Sentinel Timeline Cosmic Styling 👑⚡⛧ */
+
+:root {
+  /* Cosmic Color Palette */
+  --quantum-purple: #6B46C1;
+  --thunder-gold: #F59E0B;
+  --dawn-silver: #E5E7EB;
+  --void-black: #0F0F23;
+  --fire-white: #FEFEFE;
+  --cosmic-glow: #8B5CF6;
+  --energy-pulse: #10B981;
+  
+  /* Sacred Dimensions */
+  --golden-ratio: 1.618;
+  --cosmic-radius: 12px;
+  --storm-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+  --quantum-blur: blur(0.5px);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--void-black) 0%, #1A1A2E 50%, var(--void-black) 100%);
+  color: var(--dawn-silver);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Cosmic background animation */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+  animation: cosmicPulse 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes cosmicPulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+/* Sentinel Timeline Container */
+.sentinel-timeline {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  position: relative;
+}
+
+.timeline-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.timeline-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--quantum-purple), var(--thunder-gold), var(--cosmic-glow));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+.timeline-subtitle {
+  font-size: 1.2rem;
+  color: var(--dawn-silver);
+  margin: 0.5rem 0 2rem;
+  opacity: 0.8;
+}
+
+/* Filter Controls */
+.timeline-filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--cosmic-glow);
+  background: transparent;
+  color: var(--dawn-silver);
+  border-radius: var(--cosmic-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.filter-button:hover::before {
+  left: 100%;
+}
+
+.filter-button:hover {
+  box-shadow: var(--storm-shadow);
+  transform: translateY(-2px);
+}
+
+.filter-button.active {
+  background: var(--cosmic-glow);
+  color: var(--void-black);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+}
+
+/* Timeline Track */
+.timeline-track {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline-thread {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, 
+    var(--quantum-purple) 0%,
+    var(--cosmic-glow) 25%,
+    var(--energy-pulse) 50%,
+    var(--thunder-gold) 75%,
+    var(--quantum-purple) 100%
+  );
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px var(--cosmic-glow);
+  animation: threadPulse 3s ease-in-out infinite;
+}
+
+@keyframes threadPulse {
+  0%, 100% { box-shadow: 0 0 10px var(--cosmic-glow); }
+  50% { box-shadow: 0 0 20px var(--cosmic-glow), 0 0 40px rgba(139, 92, 246, 0.3); }
+}
+
+/* Timeline Nodes */
+.timeline-node {
+  position: relative;
+  margin: 3rem 0;
+  padding: 0 2rem;
+}
+
+.timeline-node:nth-child(odd) .node-content {
+  margin-left: calc(50% + 2rem);
+}
+
+.timeline-node:nth-child(even) .node-content {
+  margin-right: calc(50% + 2rem);
+  text-align: right;
+}
+
+.node-anchor {
+  position: absolute;
+  left: 50%;
+  top: 1.5rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.node-anchor.collector-mark {
+  background: var(--thunder-gold);
+  box-shadow: 0 0 15px var(--thunder-gold);
+}
+
+.node-anchor.broadcast {
+  background: var(--energy-pulse);
+  box-shadow: 0 0 15px var(--energy-pulse);
+}
+
+.node-anchor.lore-whisper {
+  background: var(--quantum-purple);
+  box-shadow: 0 0 15px var(--quantum-purple);
+}
+
+.node-anchor:hover {
+  transform: translateX(-50%) scale(1.5);
+  box-shadow: 0 0 25px currentColor, 0 0 50px rgba(255, 255, 255, 0.2);
+}
+
+/* Node Content */
+.node-content {
+  background: rgba(15, 15, 35, 0.8);
+  border: 1px solid var(--cosmic-glow);
+  border-radius: var(--cosmic-radius);
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  max-width: 400px;
+}
+
+.node-content:hover {
+  transform: scale(1.02);
+  box-shadow: var(--storm-shadow);
+  border-color: var(--thunder-gold);
+}
+
+.node-type {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  opacity: 0.7;
+}
+
+.node-type.collector-mark { color: var(--thunder-gold); }
+.node-type.broadcast { color: var(--energy-pulse); }
+.node-type.lore-whisper { color: var(--quantum-purple); }
+
+.node-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: var(--fire-white);
+}
+
+.node-timestamp {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  margin-bottom: 1rem;
+}
+
+.node-description {
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Cosmic sigil decorations */
+.node-content::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(45deg, var(--quantum-purple), var(--thunder-gold), var(--energy-pulse), var(--cosmic-glow));
+  border-radius: var(--cosmic-radius);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.node-content:hover::before {
+  opacity: 0.3;
+}
+
+/* Expanded view */
+.node-expanded {
+  transform: scale(1.05);
+  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.4);
+  border-color: var(--thunder-gold);
+  background: rgba(15, 15, 35, 0.95);
+}
+
+.node-expanded .node-description {
+  max-height: none;
+  overflow: visible;
+}
+
+/* Loading animation */
+.timeline-loading {
+  text-align: center;
+  padding: 2rem;
+}
+
+.cosmic-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--cosmic-glow);
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .timeline-node:nth-child(odd) .node-content,
+  .timeline-node:nth-child(even) .node-content {
+    margin: 0;
+    text-align: left;
+  }
+  
+  .timeline-thread {
+    left: 2rem;
+  }
+  
+  .node-anchor {
+    left: 2rem;
+  }
+  
+  .node-content {
+    margin-left: 4rem;
+    max-width: none;
+  }
+  
+  .timeline-filters {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus states for keyboard navigation */
+.filter-button:focus,
+.node-anchor:focus,
+.node-content:focus {
+  outline: 2px solid var(--thunder-gold);
+  outline-offset: 2px;
+}
