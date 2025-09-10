@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⛧⚡👑 ChaosKey333 Vault Access 👑⚡⛧</title>
+    <link rel="stylesheet" href="vault.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cosmic-background">
+        <div class="quantum-particles"></div>
+        <div class="lightning-overlay"></div>
+    </div>
+
+    <header class="vault-header">
+        <div class="cosmic-crown">
+            <div class="crown-glow"></div>
+            <h1 class="vault-title">
+                <span class="chaos-sigil">⛧</span>
+                <span class="thunder-sigil">⚡</span>
+                <span class="crown-sigil">👑</span>
+                <span class="vault-text">VAULT ACCESS</span>
+                <span class="crown-sigil">👑</span>
+                <span class="thunder-sigil">⚡</span>
+                <span class="chaos-sigil">⛧</span>
+            </h1>
+        </div>
+        <div class="quantum-tagline">
+            <span class="quantum-text">🔑 Multi-Chain Arsenal Portal 🔑</span>
+        </div>
+    </header>
+
+    <main class="vault-grid">
+        <div class="chain-panel" data-chain="doge">
+            <div class="panel-glow"></div>
+            <div class="panel-border"></div>
+            
+            <div class="chain-header">
+                <div class="chain-sigil doge-sigil">🐕</div>
+                <h2 class="chain-name">DOGECOIN</h2>
+                <div class="chain-symbol">DOGE</div>
+            </div>
+
+            <div class="qr-container">
+                <div class="qr-glow"></div>
+                <img src="../../assets/qr/doge.svg" alt="Dogecoin QR Code" class="chain-qr" id="doge-qr">
+                <div class="qr-overlay"></div>
+            </div>
+
+            <div class="wallet-section">
+                <div class="wallet-address" id="doge-address">
+                    <span class="address-prefix">🔑</span>
+                    <span class="address-text">DH5yaieqoZN36fDVciNyRueRGvGLR3mr7L</span>
+                </div>
+                <button class="copy-btn" data-address="DH5yaieqoZN36fDVciNyRueRGvGLR3mr7L" data-chain="DOGE">
+                    <span class="copy-icon">📋</span>
+                    <span class="copy-text">COPY</span>
+                </button>
+            </div>
+
+            <div class="explorer-link">
+                <a href="https://dogechain.info/address/DH5yaieqoZN36fDVciNyRueRGvGLR3mr7L" target="_blank" class="explorer-btn">
+                    <span class="explorer-icon">🔍</span>
+                    <span class="explorer-text">EXPLORER</span>
+                </a>
+            </div>
+
+            <div class="price-section">
+                <div class="price-chip" id="doge-price">
+                    <span class="price-currency">$</span>
+                    <span class="price-value">--</span>
+                    <span class="price-change" id="doge-change">--</span>
+                </div>
+                <div class="sparkline-container">
+                    <canvas id="doge-sparkline" class="price-sparkline"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="chain-panel" data-chain="bch">
+            <div class="panel-glow"></div>
+            <div class="panel-border"></div>
+            
+            <div class="chain-header">
+                <div class="chain-sigil bch-sigil">💰</div>
+                <h2 class="chain-name">BITCOIN CASH</h2>
+                <div class="chain-symbol">BCH</div>
+            </div>
+
+            <div class="qr-container">
+                <div class="qr-glow"></div>
+                <img src="../../assets/qr/bch.svg" alt="Bitcoin Cash QR Code" class="chain-qr" id="bch-qr">
+                <div class="qr-overlay"></div>
+            </div>
+
+            <div class="wallet-section">
+                <div class="wallet-address" id="bch-address">
+                    <span class="address-prefix">🔑</span>
+                    <span class="address-text">bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a</span>
+                </div>
+                <button class="copy-btn" data-address="bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a" data-chain="BCH">
+                    <span class="copy-icon">📋</span>
+                    <span class="copy-text">COPY</span>
+                </button>
+            </div>
+
+            <div class="explorer-link">
+                <a href="https://blockchair.com/bitcoin-cash/address/bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a" target="_blank" class="explorer-btn">
+                    <span class="explorer-icon">🔍</span>
+                    <span class="explorer-text">EXPLORER</span>
+                </a>
+            </div>
+
+            <div class="price-section">
+                <div class="price-chip" id="bch-price">
+                    <span class="price-currency">$</span>
+                    <span class="price-value">--</span>
+                    <span class="price-change" id="bch-change">--</span>
+                </div>
+                <div class="sparkline-container">
+                    <canvas id="bch-sparkline" class="price-sparkline"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="chain-panel" data-chain="xrp">
+            <div class="panel-glow"></div>
+            <div class="panel-border"></div>
+            
+            <div class="chain-header">
+                <div class="chain-sigil xrp-sigil">💎</div>
+                <h2 class="chain-name">XRP LEDGER</h2>
+                <div class="chain-symbol">XRP</div>
+            </div>
+
+            <div class="qr-container">
+                <div class="qr-glow"></div>
+                <img src="../../assets/qr/xrp.svg" alt="XRP QR Code" class="chain-qr" id="xrp-qr">
+                <div class="qr-overlay"></div>
+            </div>
+
+            <div class="wallet-section">
+                <div class="wallet-address" id="xrp-address">
+                    <span class="address-prefix">🔑</span>
+                    <span class="address-text">rEb8TK3gBgk5auZkwc6sHnwrGVJH8DuaLh</span>
+                </div>
+                <button class="copy-btn" data-address="rEb8TK3gBgk5auZkwc6sHnwrGVJH8DuaLh" data-chain="XRP">
+                    <span class="copy-icon">📋</span>
+                    <span class="copy-text">COPY</span>
+                </button>
+            </div>
+
+            <div class="explorer-link">
+                <a href="https://xrpcharts.ripple.com/#/accounts/rEb8TK3gBgk5auZkwc6sHnwrGVJH8DuaLh" target="_blank" class="explorer-btn">
+                    <span class="explorer-icon">🔍</span>
+                    <span class="explorer-text">EXPLORER</span>
+                </a>
+            </div>
+
+            <div class="price-section">
+                <div class="price-chip" id="xrp-price">
+                    <span class="price-currency">$</span>
+                    <span class="price-value">--</span>
+                    <span class="price-change" id="xrp-change">--</span>
+                </div>
+                <div class="sparkline-container">
+                    <canvas id="xrp-sparkline" class="price-sparkline"></canvas>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="vault-footer">
+        <div class="footer-sigils">
+            <span class="footer-sigil">⚛️</span>
+            <span class="footer-text">Through quantum tempests, we forge eternity</span>
+            <span class="footer-sigil">⚛️</span>
+        </div>
+        <div class="footer-navigation">
+            <a href="../index.html" class="nav-link">🏠 Arsenal Home</a>
+            <a href="../gallery/index.md" class="nav-link">🖼️ Gallery</a>
+            <a href="../cosmic-scripture.md" class="nav-link">📜 Scripture</a>
+        </div>
+    </footer>
+
+    <script src="vault.js"></script>
+</body>
+</html>

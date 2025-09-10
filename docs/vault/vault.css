@@ -1,0 +1,615 @@
+/* ⛧⚡👑 ChaosKey333 Vault Access Styles 👑⚡⛧ */
+:root {
+    /* Cosmic Colors */
+    --chaos-black: #0a0a0a;
+    --void-purple: #1a0933;
+    --quantum-blue: #0066ff;
+    --neon-cyan: #00ffff;
+    --thunder-gold: #ffd700;
+    --crown-amber: #ffbf00;
+    --vault-silver: #c0c0c0;
+    --cosmic-white: #ffffff;
+    
+    /* Chain Colors */
+    --doge-gold: #c2a633;
+    --bch-green: #4caf50;
+    --xrp-blue: #2196f3;
+    
+    /* Glow Effects */
+    --neon-glow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 40px currentColor;
+    --pulse-glow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan), 0 0 80px var(--neon-cyan);
+    --crown-glow: 0 0 30px var(--thunder-gold), 0 0 60px var(--thunder-gold);
+    
+    /* Sacred Geometry */
+    --quantum-border: 2px solid transparent;
+    --cosmic-radius: 12px;
+    --vault-shadow: 0 8px 32px rgba(0, 255, 255, 0.3);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Orbitron', monospace;
+    background: var(--chaos-black);
+    color: var(--cosmic-white);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Cosmic Background Effects */
+.cosmic-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: 
+        radial-gradient(circle at 20% 80%, var(--void-purple) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, var(--quantum-blue) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, var(--chaos-black) 0%, transparent 50%),
+        linear-gradient(135deg, var(--chaos-black) 0%, #1a0933 100%);
+}
+
+.quantum-particles::before,
+.quantum-particles::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--neon-cyan);
+    border-radius: 50%;
+    animation: quantumFloat 4s ease-in-out infinite;
+    box-shadow: var(--neon-glow);
+}
+
+.quantum-particles::before {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.quantum-particles::after {
+    top: 70%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+.lightning-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.1) 49%, rgba(255, 215, 0, 0.1) 51%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(0, 255, 255, 0.05) 49%, rgba(0, 255, 255, 0.05) 51%, transparent 52%);
+    animation: lightningFlicker 8s linear infinite;
+}
+
+@keyframes quantumFloat {
+    0%, 100% { transform: translateY(0px) scale(1); opacity: 0.7; }
+    50% { transform: translateY(-20px) scale(1.2); opacity: 1; }
+}
+
+@keyframes lightningFlicker {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+/* Vault Header */
+.vault-header {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+    position: relative;
+}
+
+.cosmic-crown {
+    position: relative;
+    display: inline-block;
+}
+
+.crown-glow {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: radial-gradient(circle, var(--thunder-gold) 0%, transparent 70%);
+    opacity: 0.3;
+    animation: crownPulse 3s ease-in-out infinite;
+    border-radius: 50%;
+}
+
+.vault-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 900;
+    text-shadow: var(--crown-glow);
+    letter-spacing: 0.1em;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.chaos-sigil, .thunder-sigil, .crown-sigil {
+    display: inline-block;
+    animation: sigilPulse 2s ease-in-out infinite;
+    margin: 0 0.2em;
+}
+
+.chaos-sigil { animation-delay: 0s; color: var(--void-purple); }
+.thunder-sigil { animation-delay: 0.3s; color: var(--thunder-gold); }
+.crown-sigil { animation-delay: 0.6s; color: var(--crown-amber); }
+
+.vault-text {
+    color: var(--neon-cyan);
+    text-shadow: var(--pulse-glow);
+    margin: 0 0.5em;
+}
+
+.quantum-tagline {
+    margin-top: 1rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.quantum-text {
+    color: var(--vault-silver);
+    text-shadow: 0 0 10px var(--vault-silver);
+}
+
+@keyframes crownPulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+@keyframes sigilPulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Vault Grid Layout */
+.vault-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Chain Panels */
+.chain-panel {
+    position: relative;
+    background: linear-gradient(145deg, rgba(26, 9, 51, 0.8), rgba(10, 10, 10, 0.9));
+    border-radius: var(--cosmic-radius);
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: var(--quantum-border);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.chain-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--vault-shadow);
+}
+
+.panel-glow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--neon-cyan), var(--quantum-blue), var(--neon-cyan));
+    border-radius: var(--cosmic-radius);
+    z-index: -1;
+    opacity: 0.6;
+    animation: panelGlow 4s linear infinite;
+}
+
+.panel-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid transparent;
+    border-radius: var(--cosmic-radius);
+    background: linear-gradient(45deg, var(--neon-cyan), transparent, var(--neon-cyan)) border-box;
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+    animation: borderPulse 3s ease-in-out infinite;
+}
+
+/* Chain-specific colors */
+.chain-panel[data-chain="doge"] .panel-glow {
+    background: linear-gradient(45deg, var(--doge-gold), var(--crown-amber), var(--doge-gold));
+}
+
+.chain-panel[data-chain="bch"] .panel-glow {
+    background: linear-gradient(45deg, var(--bch-green), var(--neon-cyan), var(--bch-green));
+}
+
+.chain-panel[data-chain="xrp"] .panel-glow {
+    background: linear-gradient(45deg, var(--xrp-blue), var(--quantum-blue), var(--xrp-blue));
+}
+
+@keyframes panelGlow {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 0.9; }
+}
+
+@keyframes borderPulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+/* Chain Headers */
+.chain-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.chain-sigil {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    animation: sigilFloat 3s ease-in-out infinite;
+}
+
+.doge-sigil { color: var(--doge-gold); }
+.bch-sigil { color: var(--bch-green); }
+.xrp-sigil { color: var(--xrp-blue); }
+
+.chain-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+}
+
+.chain-symbol {
+    font-size: 1rem;
+    opacity: 0.8;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+@keyframes sigilFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* QR Code Container */
+.qr-container {
+    position: relative;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.qr-glow {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    background: radial-gradient(circle, currentColor 0%, transparent 70%);
+    opacity: 0.3;
+    border-radius: var(--cosmic-radius);
+    animation: qrPulse 2s ease-in-out infinite;
+}
+
+.chain-qr {
+    width: 200px;
+    height: 200px;
+    border-radius: var(--cosmic-radius);
+    border: 2px solid currentColor;
+    background: var(--cosmic-white);
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.chain-qr:hover {
+    transform: scale(1.05);
+}
+
+.qr-overlay {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    border: 2px solid transparent;
+    border-radius: var(--cosmic-radius);
+    background: linear-gradient(45deg, currentColor, transparent, currentColor) border-box;
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+    animation: overlayShimmer 4s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes qrPulse {
+    0%, 100% { opacity: 0.3; transform: translateX(-50%) scale(1); }
+    50% { opacity: 0.6; transform: translateX(-50%) scale(1.02); }
+}
+
+@keyframes overlayShimmer {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+}
+
+/* Wallet Section */
+.wallet-section {
+    margin-bottom: 1.5rem;
+}
+
+.wallet-address {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid currentColor;
+    border-radius: var(--cosmic-radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-family: 'Space Grotesk', monospace;
+    font-size: 0.9rem;
+    word-break: break-all;
+    position: relative;
+    overflow: hidden;
+}
+
+.address-prefix {
+    color: var(--thunder-gold);
+    margin-right: 0.5rem;
+}
+
+.address-text {
+    opacity: 0.9;
+}
+
+.copy-btn {
+    width: 100%;
+    background: linear-gradient(45deg, rgba(0, 255, 255, 0.2), rgba(0, 102, 255, 0.2));
+    border: 2px solid var(--neon-cyan);
+    border-radius: var(--cosmic-radius);
+    padding: 0.8rem 1rem;
+    color: var(--cosmic-white);
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.copy-btn:hover {
+    background: linear-gradient(45deg, rgba(0, 255, 255, 0.4), rgba(0, 102, 255, 0.4));
+    box-shadow: var(--pulse-glow);
+    transform: translateY(-2px);
+}
+
+.copy-btn:active {
+    transform: translateY(0px);
+}
+
+.copy-btn.copied {
+    background: linear-gradient(45deg, rgba(76, 175, 80, 0.4), rgba(129, 199, 132, 0.4));
+    border-color: var(--bch-green);
+}
+
+.copy-icon {
+    margin-right: 0.5rem;
+}
+
+/* Explorer Links */
+.explorer-link {
+    margin-bottom: 2rem;
+}
+
+.explorer-btn {
+    display: inline-block;
+    width: 100%;
+    background: linear-gradient(45deg, rgba(255, 215, 0, 0.2), rgba(255, 191, 0, 0.2));
+    border: 2px solid var(--thunder-gold);
+    border-radius: var(--cosmic-radius);
+    padding: 0.8rem 1rem;
+    color: var(--cosmic-white);
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.explorer-btn:hover {
+    background: linear-gradient(45deg, rgba(255, 215, 0, 0.4), rgba(255, 191, 0, 0.4));
+    box-shadow: var(--crown-glow);
+    transform: translateY(-2px);
+}
+
+.explorer-icon {
+    margin-right: 0.5rem;
+}
+
+/* Price Section */
+.price-section {
+    text-align: center;
+}
+
+.price-chip {
+    background: linear-gradient(45deg, rgba(26, 9, 51, 0.9), rgba(10, 10, 10, 0.9));
+    border: 2px solid currentColor;
+    border-radius: 2rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Space Grotesk', monospace;
+    font-weight: 700;
+    font-size: 1.1rem;
+    position: relative;
+    overflow: hidden;
+    animation: priceGlow 3s ease-in-out infinite;
+}
+
+.price-currency {
+    opacity: 0.8;
+    margin-right: 0.2rem;
+}
+
+.price-value {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+.price-change {
+    font-size: 0.9rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+}
+
+.price-change.positive {
+    color: var(--bch-green);
+    background: rgba(76, 175, 80, 0.2);
+    box-shadow: 0 0 10px var(--bch-green);
+}
+
+.price-change.negative {
+    color: #f44336;
+    background: rgba(244, 67, 54, 0.2);
+    box-shadow: 0 0 10px #f44336;
+}
+
+@keyframes priceGlow {
+    0%, 100% { box-shadow: 0 0 20px currentColor; }
+    50% { box-shadow: 0 0 40px currentColor, 0 0 60px currentColor; }
+}
+
+/* Sparklines */
+.sparkline-container {
+    height: 60px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--cosmic-radius);
+    background: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.price-sparkline {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Footer */
+.vault-footer {
+    margin-top: 4rem;
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(0, 255, 255, 0.3);
+    background: linear-gradient(180deg, transparent 0%, rgba(26, 9, 51, 0.3) 100%);
+}
+
+.footer-sigils {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.footer-sigil {
+    color: var(--neon-cyan);
+    margin: 0 0.5rem;
+    animation: sigilFloat 4s ease-in-out infinite;
+}
+
+.footer-text {
+    font-style: italic;
+    opacity: 0.9;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.footer-navigation {
+    margin-top: 1rem;
+}
+
+.nav-link {
+    display: inline-block;
+    margin: 0 1rem;
+    color: var(--vault-silver);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: var(--cosmic-radius);
+    border: 1px solid transparent;
+}
+
+.nav-link:hover {
+    color: var(--neon-cyan);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .vault-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .chain-panel {
+        padding: 1.5rem;
+    }
+    
+    .vault-title {
+        font-size: 2rem;
+    }
+    
+    .chain-qr {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .qr-glow,
+    .qr-overlay {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .nav-link {
+        display: block;
+        margin: 0.5rem auto;
+        width: 200px;
+    }
+}
+
+/* Loading States */
+.loading {
+    opacity: 0.6;
+    animation: loadingPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes loadingPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 0.3; }
+}
+
+/* Success Animations */
+.success-flash {
+    animation: successFlash 0.6s ease-out;
+}
+
+@keyframes successFlash {
+    0% { box-shadow: 0 0 0 rgba(76, 175, 80, 0.7); }
+    50% { box-shadow: 0 0 20px rgba(76, 175, 80, 0.7), 0 0 40px rgba(76, 175, 80, 0.4); }
+    100% { box-shadow: 0 0 0 rgba(76, 175, 80, 0); }
+}
