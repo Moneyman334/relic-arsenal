@@ -1,0 +1,227 @@
+/* Vault Access Portal - ChaosKey333 Quantum Styling */
+:root {
+    --quantum-purple: #8A2BE2;
+    --thunder-gold: #FFD700;
+    --dawn-silver: #C0C0C0;
+    --void-black: #000000;
+    --fire-white: #FFFFFF;
+    --glow-intensity: 0 0 10px;
+    --strong-glow: 0 0 20px;
+}
+
+body {
+    background: linear-gradient(135deg, var(--void-black), #1a1a2e, var(--void-black));
+    color: var(--fire-white);
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.vault-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.vault-title {
+    font-size: 2.5em;
+    margin: 20px 0;
+    text-shadow: var(--glow-intensity) var(--quantum-purple);
+    background: linear-gradient(45deg, var(--quantum-purple), var(--thunder-gold), var(--dawn-silver));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titlePulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes titlePulse {
+    0% { text-shadow: var(--glow-intensity) var(--quantum-purple); }
+    50% { text-shadow: var(--strong-glow) var(--thunder-gold); }
+    100% { text-shadow: var(--glow-intensity) var(--dawn-silver); }
+}
+
+.vault-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.vault-card {
+    background: rgba(138, 43, 226, 0.1);
+    border: 2px solid var(--quantum-purple);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: var(--glow-intensity) var(--quantum-purple);
+}
+
+.vault-card:hover {
+    border-color: var(--thunder-gold);
+    box-shadow: var(--strong-glow) var(--thunder-gold);
+    transform: translateY(-5px);
+}
+
+.vault-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent, var(--quantum-purple), transparent 30%);
+    animation: rotate 4s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.crypto-symbol {
+    font-size: 3em;
+    margin: 10px 0;
+    text-shadow: var(--glow-intensity) var(--thunder-gold);
+}
+
+.crypto-name {
+    font-size: 1.8em;
+    color: var(--dawn-silver);
+    margin: 10px 0;
+    text-shadow: var(--glow-intensity) var(--dawn-silver);
+}
+
+.price-chip {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--quantum-purple), var(--thunder-gold));
+    color: var(--fire-white);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 15px;
+    text-shadow: none;
+    box-shadow: var(--glow-intensity) var(--thunder-gold);
+    animation: priceGlow 2s ease-in-out infinite alternate;
+    min-width: 120px;
+    text-align: center;
+}
+
+@keyframes priceGlow {
+    0% { 
+        box-shadow: var(--glow-intensity) var(--quantum-purple);
+        background: linear-gradient(45deg, var(--quantum-purple), var(--thunder-gold));
+    }
+    100% { 
+        box-shadow: var(--strong-glow) var(--thunder-gold);
+        background: linear-gradient(45deg, var(--thunder-gold), var(--quantum-purple));
+    }
+}
+
+.price-chip.loading {
+    background: linear-gradient(45deg, var(--dawn-silver), var(--quantum-purple));
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.price-chip.error {
+    background: linear-gradient(45deg, #ff4444, var(--quantum-purple));
+    animation: errorPulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+@keyframes errorPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+}
+
+.vault-subtitle {
+    color: var(--dawn-silver);
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    text-shadow: var(--glow-intensity) var(--dawn-silver);
+}
+
+.status-indicator {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(138, 43, 226, 0.9);
+    color: var(--fire-white);
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    box-shadow: var(--glow-intensity) var(--quantum-purple);
+    z-index: 1000;
+}
+
+.status-indicator.online {
+    background: rgba(0, 255, 0, 0.8);
+    box-shadow: var(--glow-intensity) #00ff00;
+}
+
+.status-indicator.error {
+    background: rgba(255, 68, 68, 0.8);
+    box-shadow: var(--glow-intensity) #ff4444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .vault-title {
+        font-size: 2em;
+    }
+    
+    .vault-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 10px;
+    }
+    
+    .vault-card {
+        padding: 20px;
+    }
+    
+    .crypto-symbol {
+        font-size: 2.5em;
+    }
+    
+    .crypto-name {
+        font-size: 1.5em;
+    }
+    
+    .status-indicator {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 10px auto;
+        display: block;
+        text-align: center;
+        width: fit-content;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+.vault-footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    color: var(--dawn-silver);
+    font-size: 0.9em;
+    text-shadow: var(--glow-intensity) var(--dawn-silver);
+}
